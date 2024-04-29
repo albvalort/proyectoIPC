@@ -51,6 +51,8 @@ graph TD;
 ![Imagen login](./images/Login.svg)
 ### Signin
 ![Imagen signin](./images/Signin.svg)
+### Inicio
+![Imagen inicio](./images/Inicio.svg)
 ### Visualizador
 ### Imprimir
 ### AnadirGasto
