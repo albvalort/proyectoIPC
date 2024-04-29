@@ -19,17 +19,17 @@ adecuadamente la aplicación requerida.
 
 ## Puntos a seguir imprescindibles
 Estos son los puntos que debemos de seguir si queremos que la app tenga al menos la nota minima.
-- [] Signin
-- [] Login
-- [] Modificacion de perfil
-- [] Anadir un gasto a la cuenta
-- [] Modificar un gasto de la cuenta
-- [] Eliminar un gasto de la cuenta
-- [] Anadir una categoria de gastos
-- [] Modificar una categoria de gastos
-- [] Eliminar una categoria de gastos
-- [] Visualizador de los gastos de la cuenta
-- [] Impresion de gasto en PDF
+- [ ] Signin
+- [ ] Login
+- [ ] Modificacion de perfil
+- [ ] Anadir un gasto a la cuenta
+- [ ] Modificar un gasto de la cuenta
+- [ ] Eliminar un gasto de la cuenta
+- [ ] Anadir una categoria de gastos
+- [ ] Modificar una categoria de gastos
+- [ ] Eliminar una categoria de gastos
+- [ ] Visualizador de los gastos de la cuenta
+- [ ] Impresion de gasto en PDF
 
 ## Proposiciones en imagen de como puede ser la app
 
