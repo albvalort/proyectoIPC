@@ -48,7 +48,6 @@ graph TD;
 
 ### Login
 ![Imagen login](./images/Login.svg)
-<img src="./images/Login.svg">
 ### Signin
 ### Visualizador
 ### Imprimir
