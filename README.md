@@ -47,7 +47,7 @@ graph TD;
 ```
 
 ### Login
-![Alt text] (./images/Login.svg)
+![Imagen login](./images/Login.svg)
 <img src="./images/Login.svg">
 ### Signin
 ### Visualizador
