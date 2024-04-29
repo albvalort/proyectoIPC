@@ -38,12 +38,13 @@ Estos son los puntos que debemos de seguir si queremos que la app tenga al menos
 ```mermaid
 graph TD;
     Login <--> Signin;
-    Login --> Visualizador;
-    Visualizador --> Imprimir;
-    Visualizador --> AnadirGasto;
-    Visualizador --> AnadirCategoria;
-    Visualizador --> ModificarGasto;
-    Visualizador --> ModificarCategoria;
+    Login --> Inicio;
+    Inicio --> Imprimir;
+    Inicio --> AnadirGasto;
+    Inicio --> AnadirCategoria;
+    Inicio --> ModificarGasto;
+    Inicio --> ModificarCategoria;
+    Inicio --> Visualizador;
 ```
 
 ### Login
