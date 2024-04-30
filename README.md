@@ -1,3 +1,5 @@
+![Logo](./images/Marca.svg)
+
 # Proyecto de IPC
 Se desea desarrollar una aplicación de escritorio que permita a los usuarios registrados
 llevar un control y seguimiento de sus gastos. La aplicación se adaptará al tamaño del
