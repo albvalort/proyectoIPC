@@ -57,9 +57,9 @@ graph TD;
 ![Imagen inicio](./images/Inicio.svg)
 ### Visualizador
 ### Imprimir
-### AnadirGasto
+### Anadir / Editar Gasto
+![Imagen anadir/editar](./images/Agregar:Editar.svg)
 ### AnadirCategoria
-### ModificarGasto
 ### ModificarCategoria
 
 
