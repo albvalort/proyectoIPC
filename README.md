@@ -42,8 +42,10 @@ graph TD;
     Login <--> Signin;
     Login --> Inicio;
     Inicio --> Imprimir;
-    Inicio --> AnadirGasto/ModificarGasto;
-    Inicio --> AnadirCategoria/ModificarCategoría;
+    Inicio --> AnadirGasto;
+    Inicio -->ModificarGasto;
+    Inicio --> AnadirCategoria;
+    Inicio --> ModificarCategoría;
     Inicio --> Visualizador;
 ```
 
