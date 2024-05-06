@@ -62,6 +62,7 @@ graph TD;
 ### Editar Gasto
 ![Imagen editargasto](./images/EditarGasto.svg)
 ### AnadirCategoria
+![Imagen agregarcategoria](./images/AgregarCategoría.svg)
 ### ModificarCategoria
 
 
