@@ -56,6 +56,7 @@ graph TD;
 ### Inicio
 ![Imagen inicio](./images/Inicio.svg)
 ### Visualizador
+![Imagen visualizador](./images/Visualizador.svg)
 ### Imprimir
 ### Anadir Gasto
 ![Imagen agregargasto](./images/AgregarGasto.svg)
