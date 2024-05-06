@@ -64,6 +64,8 @@ graph TD;
 ### AnadirCategoria
 ![Imagen agregarcategoria](./images/AgregarCategoría.svg)
 ### ModificarCategoria
+![Imagen modificarcategoria](./images/EditarCategoría.svg)
+
 
 
 ## Modelo de datos
