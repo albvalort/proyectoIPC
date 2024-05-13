@@ -36,18 +36,19 @@ public class ParentLoaderController implements Initializable {
             FXMLLoader authenticationLoader = new FXMLLoader(getClass().getResource("Authentication.fxml"));
             Parent root = authenticationLoader.load();
             
-            AuthenticationController authController = authenticationLoader.getController();
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            PauseTransition pause = new PauseTransition(Duration.seconds(2));
+            pause.setOnFinished(e -> stage.show());
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.setTitle("Autenticacion | SHIFU");
-            stage.initModality(Modality.NONE);
-            PauseTransition pause = new PauseTransition(Duration.seconds(5.0));
-            pause.setOnFinished(e -> stage.show());
+            pause.play();
+            
         } catch (IOException ex) {
-            Logger.getLogger(ParentLoaderController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.print(ex);
         }
         
         

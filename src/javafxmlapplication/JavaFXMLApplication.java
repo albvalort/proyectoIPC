@@ -23,7 +23,7 @@ public class JavaFXMLApplication extends Application {
         // 1- creación del grafo de escena a partir del fichero FXML
         FXMLLoader parentLoader = new FXMLLoader(getClass().getResource("ParentLoader.fxml"));
         Parent root = parentLoader.load();
-        PauseTransition pause = new PauseTransition(Duration.seconds(5.0));
+        PauseTransition pause = new PauseTransition(Duration.seconds(2.0));
         pause.setOnFinished(e -> stage.hide());
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
