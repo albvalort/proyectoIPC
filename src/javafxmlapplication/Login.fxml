@@ -4,39 +4,67 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.AuthenticationController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.AuthenticationController">
    <left>
-      <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #5ae31b;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="600.0" prefWidth="238.0" style="-fx-background-color: #5ae31b;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="1.0" layoutY="151.0" prefHeight="16.0" prefWidth="202.0" text="Shifu">
+            <Circle fill="WHITE" layoutX="119.0" layoutY="300.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="44.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="44.0">
+               <image>
+                  <Image url="@../resources/images/Logo.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="18.0" layoutY="275.0" prefHeight="16.0" prefWidth="202.0" text="Shifu" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Line endX="80.0" layoutX="102.0" layoutY="207.0" startX="-80.0" strokeWidth="2.0" />
          </children>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="400.0" prefWidth="384.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="600.0" prefWidth="585.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="113.0" layoutY="20.0" text="Welcome">
+            <Label alignment="CENTER" layoutX="212.0" layoutY="45.0" minHeight="-Infinity" minWidth="-Infinity" text="Welcome">
                <font>
-                  <Font size="19.0" />
+                  <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="72.0" layoutY="86.0" text="Username" />
-            <Label layoutX="72.0" layoutY="136.0" text="Password" />
-            <TextField layoutX="72.0" layoutY="102.0" />
-            <PasswordField layoutX="72.0" layoutY="152.0" />
-            <Button layoutX="97.0" layoutY="261.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5ae31b;" text="Log in" />
-            <Label layoutX="92.0" layoutY="307.0" text="¿Create an account?" />
-            <Button layoutX="97.0" layoutY="335.0" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #5ae31b;" text="Sign up" />
+            <Label layoutX="170.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" text="Username">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label layoutX="170.0" layoutY="235.0" minHeight="-Infinity" minWidth="-Infinity" text="Password">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <TextField layoutX="170.0" layoutY="176.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" promptText="Username">
+               <font>
+                  <Font size="20.0" />
+               </font></TextField>
+            <PasswordField layoutX="170.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" promptText="Password">
+               <font>
+                  <Font size="20.0" />
+               </font></PasswordField>
+            <Button layoutX="198.0" layoutY="366.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #5ae31b;" text="Log in">
+               <font>
+                  <Font size="20.0" />
+               </font></Button>
+            <Label layoutX="198.0" layoutY="440.0" minHeight="-Infinity" minWidth="-Infinity" text="¿Create an account?">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Button layoutX="198.0" layoutY="486.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #5ae31b;" text="Sign up">
+               <font>
+                  <Font size="20.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </center>
