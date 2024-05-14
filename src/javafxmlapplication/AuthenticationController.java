@@ -22,8 +22,10 @@ public class AuthenticationController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private boolean onSignup;
     
     public void switchToLogin(ActionEvent event) throws IOException{
+        onSignup = false;
         root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -32,6 +34,7 @@ public class AuthenticationController implements Initializable {
     }
     
     public void switchToSignup(ActionEvent event) throws IOException{
+        onSignup = true;
         root = FXMLLoader.load(getClass().getResource("Signup.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -39,12 +42,20 @@ public class AuthenticationController implements Initializable {
         stage.show();
     }
     
+    public boolean loginUser(ActionEvent event) throws IOException {
+        return false;
+    }
+    
+    public boolean signUpUser(ActionEvent event) throws IOException {
+        return false;
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        onSignup = false;
+    }
     
 }
