@@ -93,7 +93,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label text="¿Create an account?" VBox.vgrow="ALWAYS">
+                  <Label text="¿Already have an account?" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
