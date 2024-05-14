@@ -6,11 +6,14 @@ package javafxmlapplication;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.Animation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -19,11 +22,7 @@ import javafx.scene.control.Label;
  */
 public class HomeController implements Initializable {
 
-    @FXML
-    private Button buttonClick;
-    @FXML
-    private Label labelMessage;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -32,8 +31,9 @@ public class HomeController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-    }
+   
+        
+        
+    
     
 }
