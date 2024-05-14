@@ -14,7 +14,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Acount;
 
+    
 public class AuthenticationController implements Initializable {
 
     private Stage stage;
