@@ -59,7 +59,7 @@ public class HomeController implements Initializable {
             
             FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
             fadeTransition1.setFromValue(0);
-            fadeTransition1.setToValue(0.15);
+            fadeTransition1.setToValue(0.75);
             fadeTransition1.play();
         
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), pane2);
