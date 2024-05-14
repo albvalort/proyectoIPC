@@ -7,112 +7,88 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.AuthenticationController">
-   <left>
-      <AnchorPane prefHeight="600.0" prefWidth="238.0" style="-fx-background-color: #5ae31b;" BorderPane.alignment="CENTER">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.AuthenticationController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <Circle fill="WHITE" layoutX="119.0" layoutY="300.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="44.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                <image>
                   <Image url="@../resources/images/Logo.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="18.0" layoutY="276.0" prefHeight="16.0" prefWidth="202.0" text="Shifu">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
          </children>
-      </AnchorPane>
-   </left>
-   <center>
-      <AnchorPane prefHeight="600.0" prefWidth="585.0" BorderPane.alignment="CENTER">
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox prefHeight="600.0" prefWidth="562.0">
+            <Label contentDisplay="CENTER" prefHeight="48.0" prefWidth="116.0" text="Welcome" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" top="30.0" />
+               </VBox.margin>
+            </Label>
+            <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="563.0" text="Welcome">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
+                  <Label prefHeight="16.0" prefWidth="71.0" text="Username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets bottom="50.0" top="40.0" />
+                        <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="563.0">
-                     <children>
-                        <Label minHeight="-Infinity" minWidth="-Infinity" text="Username">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" promptText="Username">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                     </children>
+                  <TextField prefHeight="35.0" prefWidth="200.0" promptText="Username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets />
+                        <Insets left="30.0" right="30.0" />
                      </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="563.0">
-                     <children>
-                        <Label minHeight="-Infinity" minWidth="-Infinity" text="Password">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </Label>
-                        <PasswordField minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" promptText="Password">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </PasswordField>
-                     </children>
-                  </HBox>
-                  <VBox alignment="BOTTOM_CENTER" prefHeight="326.0" prefWidth="563.0">
-                     <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #5ae31b;" text="Log in">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="15.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" text="¿Create an account?">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="15.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #5ae31b;" text="Sign up">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                     </children>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="16.0" prefWidth="68.0" text="Password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets bottom="40.0" />
+                        <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
-                  </VBox>
+                  </Label>
+                  <PasswordField prefHeight="35.0" prefWidth="200.0" promptText="Password" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </PasswordField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="126.0" prefWidth="100.0" />
+            <VBox alignment="CENTER" prefHeight="220.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Log in" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label text="¿Create an account?" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#switchToSignup" prefHeight="50.0" prefWidth="200.0" text="Sign up" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
                </children>
             </VBox>
          </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+      </VBox>
+   </children>
+</HBox>
