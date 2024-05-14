@@ -24,15 +24,19 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <Label alignment="CENTER" prefHeight="48.0" prefWidth="194.0" text="Create account" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="30.0" top="30.0" />
-               </VBox.margin>
-            </Label>
-            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" prefHeight="48.0" prefWidth="194.0" text="Create account" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label prefHeight="16.0" prefWidth="71.0" text="Username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
@@ -41,16 +45,9 @@
                   </Label>
                   <TextField prefHeight="35.0" prefWidth="200.0" promptText="Username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </TextField>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
-               <children>
                   <Label prefHeight="16.0" prefWidth="68.0" text="Password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
@@ -58,16 +55,9 @@
                   </Label>
                   <PasswordField prefHeight="35.0" prefWidth="200.0" promptText="Password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </PasswordField>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
-               <children>
                   <Label prefHeight="16.0" prefWidth="71.0" text="Name" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
@@ -75,16 +65,9 @@
                   </Label>
                   <TextField prefHeight="36.0" prefWidth="340.0" promptText="Name" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </TextField>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="13.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
-               <children>
                   <Label prefHeight="16.0" prefWidth="71.0" text="Mail" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
@@ -97,10 +80,10 @@
                   </TextField>
                </children>
                <VBox.margin>
-                  <Insets bottom="5.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="202.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
                   <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Sign up" VBox.vgrow="ALWAYS">
                      <VBox.margin>
@@ -118,7 +101,10 @@
                   <Button mnemonicParsing="false" onAction="#switchToLogin" prefHeight="50.0" prefWidth="200.0" text="Log in" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
-                     </font></Button>
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin></Button>
                </children>
             </VBox>
          </children>
