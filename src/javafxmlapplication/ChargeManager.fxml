@@ -76,7 +76,7 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Label prefWidth="340.0" text="Charge" VBox.vgrow="ALWAYS">
+                        <Label prefWidth="340.0" text="Name" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -84,7 +84,7 @@
                               <Insets left="30.0" right="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="340.0" promptText="Charge" VBox.vgrow="ALWAYS">
+                        <TextField prefHeight="40.0" prefWidth="340.0" promptText="Name" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="5.0" left="30.0" right="30.0" />
                            </VBox.margin>
