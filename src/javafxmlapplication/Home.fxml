@@ -124,7 +124,7 @@
             </SplitPane>
          </children>
       </GridPane>
-      <AnchorPane fx:id="pane1" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #000;">
+      <AnchorPane fx:id="pane1" layoutY="534.0" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #000;">
          <children>
             <AnchorPane fx:id="pane2" layoutX="600.0" layoutY="56.0" prefHeight="444.0" prefWidth="200.0" style="-fx-background-color: LightGrey;">
                <children>
@@ -163,7 +163,7 @@
                         <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="33.0">
                            <children>
                               <Button mnemonicParsing="false" text="Log out" />
-                              <Button mnemonicParsing="false" text="Exit" />
+                              <Button fx:id="exit" mnemonicParsing="false" text="Exit" />
                            </children>
                         </HBox>
                      </children>
