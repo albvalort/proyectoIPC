@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -49,6 +50,8 @@ public class AuthenticationController implements Initializable {
     private TextField nameField;
     @FXML
     private TextField mailField;
+    @FXML
+    private Label errorLabel;
     
     @FXML
     public void switchToLogin(ActionEvent event) throws IOException{
@@ -75,11 +78,22 @@ public class AuthenticationController implements Initializable {
         stage.show();
     }
     
+    @FXML
     public void signUpUser(ActionEvent event) throws IOException, AcountDAOException {
-        if(!account.registerUser(name, username, mail, mail, password, new Image(getClass().getResourceAsStream("resources" + File.separator + "images" + File.separator + "AvatarProvisional.png")) , LocalDate.MAX)){
-            usuarioExistente = true;
+        if(name == null || username == null || password == null || mail == null ) {
+            errorLabel.textProperty().set("Please fill all the fields");
+            errorLabel.visibleProperty().set(true);
             return;
         }
+        
+        if(!account.registerUser(name, username, mail, mail, password, 
+            new Image(getClass().getResourceAsStream("resources" + File.separator + "images" + File.separator + "AvatarProvisional.png")) , LocalDate.MAX)){
+            errorLabel.textProperty().set("User already exists, please change the field");
+            errorLabel.visibleProperty().set(true);
+            return;
+        }
+        
+        
         root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

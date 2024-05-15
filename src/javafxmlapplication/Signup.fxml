@@ -29,7 +29,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" prefHeight="16.0" prefWidth="233.0" text="User already registered" textFill="RED" visible="false" VBox.vgrow="ALWAYS">
+                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="16.0" prefWidth="233.0" text="User already registered" textFill="RED" visible="false" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
@@ -101,7 +101,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Sign up" VBox.vgrow="ALWAYS">
+                  <Button mnemonicParsing="false" onAction="#signUpUser" prefHeight="50.0" prefWidth="200.0" text="Sign up" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
