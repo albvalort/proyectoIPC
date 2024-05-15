@@ -27,7 +27,7 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="700.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label text="Welcome User" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="profileButtonToolBar" mnemonicParsing="false" text="Profile" HBox.hgrow="ALWAYS">
+                  <Button fx:id="profileButton" mnemonicParsing="false" text="Profile" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -36,7 +36,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="menuButtonToolbar" mnemonicParsing="false" text="Menu" HBox.hgrow="ALWAYS">
+                  <Button fx:id="menuButton" mnemonicParsing="false" text="Menu" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -55,16 +55,16 @@
             </HBox>
          </children>
       </HBox>
-      <ToolBar prefHeight="25.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+      <ToolBar fx:id="toolBar" prefHeight="25.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
         <items>
-          <Button mnemonicParsing="false" text="Add Charge" />
-            <Button mnemonicParsing="false" text="Remove Charge" />
-            <Button mnemonicParsing="false" text="Modify Charge" />
-            <Button mnemonicParsing="false" text="Add Category" />
-            <Button mnemonicParsing="false" text="Remove Category" />
-            <Button mnemonicParsing="false" text="Modify Category" />
-            <Button mnemonicParsing="false" text="Visualizer" />
-            <Button mnemonicParsing="false" text="Print" />
+          <Button fx:id="addChargeButtonToolBar" mnemonicParsing="false" text="Add Charge" />
+            <Button fx:id="removeChargeButtonToolBar" mnemonicParsing="false" text="Remove Charge" />
+            <Button fx:id="modifyChargeButtonToolBar" mnemonicParsing="false" text="Modify Charge" />
+            <Button fx:id="addCategoryButtonToolBar" mnemonicParsing="false" prefHeight="24.0" prefWidth="49.0" text="Add Category" />
+            <Button fx:id="removeCategoryButtonToolBar" mnemonicParsing="false" prefHeight="24.0" prefWidth="57.0" text="Remove Category" />
+            <Button fx:id="modifyCategoryButtonToolBar" mnemonicParsing="false" text="Modify Category" />
+            <Button fx:id="visualizerButtonToolBar" mnemonicParsing="false" text="Visualizer" />
+            <Button fx:id="printButtonToolBar" mnemonicParsing="false" text="Print" />
         </items>
       </ToolBar>
       <HBox prefHeight="500.0" prefWidth="800.0" VBox.vgrow="ALWAYS">

@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.scene.control.ToolBar;
 import javafx.util.Duration;
 
 /**
@@ -27,18 +28,34 @@ import javafx.util.Duration;
 public class HomeController implements Initializable {
 
     @FXML
-    private Button profileButtonToolBar;
-    @FXML
-    private Button menuButtonToolbar;
-    @FXML
     private Button selectCategoryButtonPreView;
     @FXML
-    private Button addChargeButtonPreview;
+    private Button profileButton;
 
     //private AnchorPane pane1;
     //private AnchorPane pane2;
     //private Button menu;
     //private Button exit;
+    @FXML
+    private Button menuButton;
+    @FXML
+    private ToolBar toolBar;
+    @FXML
+    private Button addChargeButtonToolBar;
+    @FXML
+    private Button removeChargeButtonToolBar;
+    @FXML
+    private Button modifyChargeButtonToolBar;
+    @FXML
+    private Button addCategoryButtonToolBar;
+    @FXML
+    private Button removeCategoryButtonToolBar;
+    @FXML
+    private Button modifyCategoryButtonToolBar;
+    @FXML
+    private Button visualizerButtonToolBar;
+    @FXML
+    private Button printButtonToolBar;
 
     
     /**
