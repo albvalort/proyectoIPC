@@ -26,6 +26,15 @@ import javafx.util.Duration;
  */
 public class HomeController implements Initializable {
 
+    @FXML
+    private Button profileButtonToolBar;
+    @FXML
+    private Button menuButtonToolbar;
+    @FXML
+    private Button selectCategoryButtonPreView;
+    @FXML
+    private Button addChargeButtonPreview;
+
     //private AnchorPane pane1;
     //private AnchorPane pane2;
     //private Button menu;
@@ -38,11 +47,22 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO 
-       /** 
-        exit.setOnMouseClicked(event -> {
-        System.exit(0);
-        });
+      
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /** 
+        Menu lateral con animacion
         pane1.setVisible(false);
         
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5),pane1);
@@ -54,7 +74,7 @@ public class HomeController implements Initializable {
         translateTransition.setByX(+600);
         translateTransition.play();
         
-        menu.setOnMouseClicked(event-> {
+        menuButtonToolbar.setOnMouseClicked(event-> {
             pane1.setVisible(true);
             
             FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
