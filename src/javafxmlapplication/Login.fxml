@@ -22,7 +22,7 @@
             </ImageView>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="395.0" HBox.hgrow="ALWAYS">
+      <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen; -fx-border-color: black;" VBox.vgrow="ALWAYS">
                <children>

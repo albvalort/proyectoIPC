@@ -40,7 +40,7 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: lightgreen; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen; -fx-border-color: black;" VBox.vgrow="ALWAYS">
                <children>
                   <Label alignment="CENTER" prefHeight="48.0" prefWidth="194.0" text="Create account" VBox.vgrow="ALWAYS">
                      <font>
