@@ -5,11 +5,14 @@
  */
 package javafxmlapplication;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 
 public class JavaFXMLApplication extends Application {
@@ -18,8 +21,10 @@ public class JavaFXMLApplication extends Application {
     public void start(Stage stage) throws Exception {
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
-        Parent root = loader.load();
+        FXMLLoader parentLoader = new FXMLLoader(getClass().getResource("ParentLoader.fxml"));
+        Parent root = parentLoader.load();
+        PauseTransition pause = new PauseTransition(Duration.seconds(2.0));
+        pause.setOnFinished(e -> stage.hide());
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
         Scene scene = new Scene(root);
@@ -28,7 +33,9 @@ public class JavaFXMLApplication extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setTitle("start PROJECT - IPC:");
+        stage.setTitle("SHIFU");
+        stage.initStyle(StageStyle.UNDECORATED);
+        pause.play();
         stage.show();
     }
 
