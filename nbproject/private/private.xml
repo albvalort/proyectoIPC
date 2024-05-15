@@ -5,8 +5,8 @@
         <group>
             <file>file:/home/migue/Documentos/GitHub/proyectoIPC/src/javafxmlapplication/JavaFXMLApplication.java</file>
             <file>file:/home/migue/Documentos/GitHub/proyectoIPC/src/javafxmlapplication/HomeController.java</file>
-            <file>file:/home/migue/Documentos/GitHub/proyectoIPC/src/javafxmlapplication/SideBarPane.fxml</file>
             <file>file:/home/migue/Documentos/GitHub/proyectoIPC/src/javafxmlapplication/Home.fxml</file>
+            <file>file:/home/migue/Documentos/GitHub/proyectoIPC/src/javafxmlapplication/AuthenticationController.java</file>
         </group>
     </open-files>
 </project-private>
