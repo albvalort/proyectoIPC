@@ -200,7 +200,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" text="Back" HBox.hgrow="ALWAYS">
+                  <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#switchToHome" text="Back" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin></Button>
