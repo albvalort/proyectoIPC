@@ -12,10 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
+      <HBox maxHeight="100.0" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
          <children>
             <VBox prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
@@ -26,18 +25,16 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="700.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Label" VBox.vgrow="ALWAYS">
+                  <Label alignment="CENTER" text="Charge Manager" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="25.0" />
                      </font>
-                     <VBox.margin>
-                        <Insets left="300.0" />
-                     </VBox.margin>
                   </Label>
                </children>
             </VBox>
+            <VBox prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox prefHeight="500.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
@@ -71,7 +68,7 @@
                               <Insets left="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="35.0" VBox.vgrow="ALWAYS">
+                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="40.0" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="5.0" left="30.0" right="30.0" />
                            </VBox.margin>
@@ -84,7 +81,7 @@
                               <Insets left="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="35.0" VBox.vgrow="ALWAYS">
+                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="40.0" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="5.0" left="30.0" right="30.0" />
                            </VBox.margin>
@@ -97,7 +94,7 @@
                               <Insets left="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="35.0" VBox.vgrow="ALWAYS">
+                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="40.0" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="5.0" left="30.0" right="30.0" />
                            </VBox.margin>
@@ -110,7 +107,7 @@
                               <Insets left="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="35.0" VBox.vgrow="ALWAYS">
+                        <TextField alignment="CENTER" maxWidth="340.0" prefHeight="40.0" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets left="30.0" right="30.0" />
                            </VBox.margin>
@@ -119,7 +116,7 @@
                   </VBox>
                   <VBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Go back" VBox.vgrow="ALWAYS">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" text="Go back" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="30.0" left="30.0" />
                            </VBox.margin>
@@ -128,7 +125,71 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox prefHeight="500.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+            <VBox alignment="CENTER" prefHeight="500.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Description" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField maxWidth="340.0" prefHeight="150.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Cathegory" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="340.0" VBox.vgrow="ALWAYS">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Action 1" />
+                              <MenuItem mnemonicParsing="false" text="Action 2" />
+                           </items>
+                           <VBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </VBox.margin>
+                        </MenuButton>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" spacing="40.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Add image" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" text="Select image..." HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" text="Add/Edit Charge" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="30.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" text="Delete charge" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="30.0" right="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children></VBox>
          </children>
       </HBox>
    </children>
