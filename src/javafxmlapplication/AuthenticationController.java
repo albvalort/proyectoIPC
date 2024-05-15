@@ -42,8 +42,12 @@ public class AuthenticationController implements Initializable {
         stage.show();
     }
     
-    public boolean loginUser(ActionEvent event) throws IOException {
-        return false;
+    public void loginUser(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     public boolean signUpUser(ActionEvent event) throws IOException {
