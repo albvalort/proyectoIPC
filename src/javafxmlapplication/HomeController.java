@@ -66,14 +66,8 @@ public class HomeController implements Initializable {
     private Button visualizerButtonToolBar;
     @FXML
     private Button printButtonToolBar;
-
-    public void switchToProfileSettings(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    
+    
     
     /**
      * Initializes the controller class.
@@ -138,6 +132,15 @@ public class HomeController implements Initializable {
         });
         */
     }    
+
+    @FXML
+    private void switchToProfileSettings(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
    
         
