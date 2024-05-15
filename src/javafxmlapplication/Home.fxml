@@ -57,12 +57,14 @@
       </HBox>
       <ToolBar prefHeight="25.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
         <items>
-          <Button mnemonicParsing="false" text="Gestion " />
-            <Button mnemonicParsing="false" text="Visualizadror" />
-            <Button mnemonicParsing="false" text="?" />
-            <Button mnemonicParsing="false" text="?" />
-            <Button mnemonicParsing="false" text="?" />
-            <Button mnemonicParsing="false" text="?" />
+          <Button mnemonicParsing="false" text="Add Charge" />
+            <Button mnemonicParsing="false" text="Remove Charge" />
+            <Button mnemonicParsing="false" text="Modify Charge" />
+            <Button mnemonicParsing="false" text="Add Category" />
+            <Button mnemonicParsing="false" text="Remove Category" />
+            <Button mnemonicParsing="false" text="Modify Category" />
+            <Button mnemonicParsing="false" text="Visualizer" />
+            <Button mnemonicParsing="false" text="Print" />
         </items>
       </ToolBar>
       <HBox prefHeight="500.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
@@ -106,13 +108,6 @@
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Button fx:id="addChargeButtonPreview" mnemonicParsing="false" text="Add charge" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
