@@ -23,7 +23,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="700.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Welcome to Kinepolis" HBox.hgrow="ALWAYS" />
+                  <Label text="Welcome User" HBox.hgrow="ALWAYS" />
                   <Button mnemonicParsing="false" text="Profile" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
