@@ -4,6 +4,7 @@
  */
 package javafxmlapplication;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
@@ -17,7 +18,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ToolBar;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -26,7 +32,11 @@ import javafx.util.Duration;
  * @author migue
  */
 public class HomeController implements Initializable {
-
+    
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    
     @FXML
     private Button selectCategoryButtonPreView;
     @FXML
@@ -57,6 +67,13 @@ public class HomeController implements Initializable {
     @FXML
     private Button printButtonToolBar;
 
+    public void switchToProfileSettings(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     
     /**
      * Initializes the controller class.
