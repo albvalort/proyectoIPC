@@ -2,175 +2,68 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.HomeController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.HomeController">
    <children>
-      <AnchorPane layoutX="7.0" prefHeight="56.0" prefWidth="800.0" style="-fx-background-color: #5AE31B;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="800.0" style="-fx-background-color: Gray;" VBox.vgrow="ALWAYS">
          <children>
-            <GridPane maxHeight="1080.0" maxWidth="1980.0" prefHeight="56.0" prefWidth="800.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="118.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="682.0" minWidth="10.0" prefWidth="682.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome User" />
-                        <Button fx:id="avatar" mnemonicParsing="false" text="Avatar">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/images/AvatarProvisional.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="menu" mnemonicParsing="false" text="Menu">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/images/MenuProvisional.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </HBox>
-                  <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                      <image>
                         <Image url="@../resources/images/Logo.png" />
                      </image>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
                   </ImageView>
                </children>
-            </GridPane>
-         </children></AnchorPane>
-      <GridPane layoutY="56.0" prefHeight="444.0" prefWidth="800.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ImageView fitHeight="290.0" fitWidth="382.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <image>
-                  <Image url="@../resources/images/GraficoProvisional.png" />
-               </image>
-            </ImageView>
-            <SplitPane dividerPositions="0.8846153846153846" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" GridPane.columnIndex="1">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <TableView prefHeight="388.0" prefWidth="398.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="Name" />
-                            <TableColumn prefWidth="75.0" text="Date" />
-                              <TableColumn prefWidth="89.0" text="Import" />
-                              <TableColumn prefWidth="61.0" text="Modify" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <GridPane prefHeight="48.0" prefWidth="398.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="142.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="256.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
-                                 <children>
-                                    <Button mnemonicParsing="false" text="Add Category" />
-                                    <Button mnemonicParsing="false" text="Add Charge" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" text="Choose Category" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </children>
-      </GridPane>
-      <AnchorPane fx:id="pane1" layoutY="534.0" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #000;">
-         <children>
-            <AnchorPane fx:id="pane2" layoutX="600.0" layoutY="56.0" prefHeight="444.0" prefWidth="200.0" style="-fx-background-color: LightGrey;">
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="700.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" prefHeight="500.0" prefWidth="200.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" prefHeight="40.0" prefWidth="179.0" text="Charge Config">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" prefHeight="40.0" prefWidth="179.0" text="Category Config">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" prefHeight="40.0" prefWidth="179.0" text="Visualizer">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" prefHeight="40.0" prefWidth="179.0" text="Print">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" prefHeight="40.0" prefWidth="179.0" text="?">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" prefHeight="40.0" prefWidth="179.0" text="?">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="33.0">
-                           <children>
-                              <Button mnemonicParsing="false" text="Log out" />
-                              <Button fx:id="exit" mnemonicParsing="false" text="Exit" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
+                  <Label text="Welcome User" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" text="Profile" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/AvatarProvisional.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Menu" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/MenuProvisional.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
-            </AnchorPane>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
          </children>
-      </AnchorPane>
+      </HBox>
+      <HBox prefHeight="525.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <VBox alignment="CENTER" prefHeight="525.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox prefHeight="525.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
    </children>
-</AnchorPane>
+</VBox>

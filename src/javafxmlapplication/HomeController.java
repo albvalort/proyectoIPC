@@ -26,16 +26,10 @@ import javafx.util.Duration;
  */
 public class HomeController implements Initializable {
 
-    @FXML
-    private AnchorPane pane1;
-    @FXML
-    private AnchorPane pane2;
-    @FXML
-    private Button avatar;
-    @FXML
-    private Button menu;
-    @FXML
-    private Button exit;
+    //private AnchorPane pane1;
+    //private AnchorPane pane2;
+    //private Button menu;
+    //private Button exit;
 
     
     /**
@@ -44,7 +38,7 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO 
-        
+       /** 
         exit.setOnMouseClicked(event -> {
         System.exit(0);
         });
@@ -88,6 +82,7 @@ public class HomeController implements Initializable {
             translateTransition1.play();     
             
         });
+        */
     }    
 
    
