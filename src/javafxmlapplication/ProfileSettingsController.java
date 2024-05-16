@@ -7,6 +7,8 @@ package javafxmlapplication;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,8 +16,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.User;
+import model.Acount;
+import model.AcountDAOException;
 
 /**
  * FXML Controller classprofile settings des1
@@ -28,15 +35,35 @@ public class ProfileSettingsController implements Initializable {
     private Scene scene;
     private Parent root;
     
+    private Acount account;
+    private User currentUser;
+    
     @FXML
     private Button backButton;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField surnameTextField;
+    @FXML
+    private TextField mailTextField;
+    @FXML
+    private PasswordField oldPasswordTextField;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            account = Acount.getInstance();
+        } catch (AcountDAOException | IOException ex) {
+            Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        currentUser = account.getLoggedUser();
+        
+        usernameTextField.setText(currentUser.getNickName());
     }    
 
     @FXML

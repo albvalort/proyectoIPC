@@ -5,6 +5,7 @@
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -82,7 +83,7 @@
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin></Label>
-                              <TextField VBox.vgrow="ALWAYS">
+                              <TextField fx:id="usernameTextField" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="20.0" right="20.0" />
                                  </VBox.margin></TextField>
@@ -101,7 +102,7 @@
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin></Label>
-                              <TextField VBox.vgrow="ALWAYS">
+                              <TextField fx:id="nameTextField" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="20.0" right="20.0" />
                                  </VBox.margin></TextField>
@@ -113,7 +114,7 @@
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin></Label>
-                              <TextField VBox.vgrow="ALWAYS">
+                              <TextField fx:id="surnameTextField" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="20.0" right="20.0" />
                                  </VBox.margin></TextField>
@@ -129,7 +130,7 @@
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin></Label>
-                              <TextField VBox.vgrow="ALWAYS">
+                              <TextField fx:id="mailTextField" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="20.0" right="20.0" />
                                  </VBox.margin></TextField>
@@ -168,10 +169,11 @@
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin></Label>
-                              <TextField VBox.vgrow="ALWAYS">
+                              <PasswordField fx:id="oldPasswordTextField" promptText="Write your old Password" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="20.0" right="20.0" />
-                                 </VBox.margin></TextField>
+                                 </VBox.margin>
+                              </PasswordField>
                            </children>
                         </VBox>
                      </children>
@@ -184,10 +186,11 @@
                                  <VBox.margin>
                                     <Insets left="20.0" right="20.0" />
                                  </VBox.margin></Label>
-                              <TextField VBox.vgrow="ALWAYS">
+                              <PasswordField promptText="Write your new Password" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="20.0" right="20.0" />
-                                 </VBox.margin></TextField>
+                                 </VBox.margin>
+                              </PasswordField>
                            </children>
                         </VBox>
                      </children>
