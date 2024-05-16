@@ -4,17 +4,29 @@
  */
 package javafxmlapplication;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.InputMethodEvent;
 import javafx.stage.Stage;
 import model.Acount;
+import model.AcountDAOException;
 
     
 public class AuthenticationController implements Initializable {
@@ -22,10 +34,27 @@ public class AuthenticationController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private boolean onSignup;
     
+    private String username;
+    private String password;
+    private String name;
+    private String mail;
+    
+    private Acount account;
+    
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private TextField nameField;
+    @FXML
+    private TextField mailField;
+    @FXML
+    private Label errorLabel;
+    
+    @FXML
     public void switchToLogin(ActionEvent event) throws IOException{
-        onSignup = false;
         root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -34,7 +63,6 @@ public class AuthenticationController implements Initializable {
     }
     
     public void switchToSignup(ActionEvent event) throws IOException{
-        onSignup = true;
         root = FXMLLoader.load(getClass().getResource("Signup.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -50,16 +78,60 @@ public class AuthenticationController implements Initializable {
         stage.show();
     }
     
-    public boolean signUpUser(ActionEvent event) throws IOException {
-        return false;
+    @FXML
+    public void signUpUser(ActionEvent event) throws IOException, AcountDAOException {
+        if(name == null || username == null || password == null || mail == null ) {
+            errorLabel.textProperty().set("Please fill all the fields");
+            errorLabel.visibleProperty().set(true);
+            return;
+        }
+        
+        if(!account.registerUser(name, username, mail, mail, password, 
+            new Image(getClass().getResourceAsStream("resources" + File.separator + "images" + File.separator + "AvatarProvisional.png")) , LocalDate.MAX)){
+            errorLabel.textProperty().set("User already exists, please change the field");
+            errorLabel.visibleProperty().set(true);
+            return;
+        }
+        
+        
+        root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();    
     }
     
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        onSignup = false;
+    public void initialize(URL url, ResourceBundle rb){
+        try {
+            account = Acount.getInstance();
+        } catch (AcountDAOException | IOException ex) {
+            System.out.println(ex);
+        }
     }
+
+    @FXML
+    private void usernameInput(InputMethodEvent event) {
+        username = usernameField.getText();
+    }
+
+    @FXML
+    private void passwordInput(InputMethodEvent event) {
+        password = passwordField.getText();
+    }
+
+    @FXML
+    private void nameInput(InputMethodEvent event) {
+        name = nameField.getText();
+    }
+
+    @FXML
+    private void mailInput(InputMethodEvent event) {
+        mail = mailField.getText();
+    }
+
     
 }
