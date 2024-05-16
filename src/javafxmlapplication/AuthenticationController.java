@@ -24,6 +24,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
@@ -35,10 +36,10 @@ public class AuthenticationController implements Initializable {
     private Scene scene;
     private Parent root;
     
-    private String username;
-    private String password;
-    private String name;
-    private String mail;
+    private String username = "";
+    private String password = "";
+    private String name = "";
+    private String mail = "";
     
     private Acount account;
     
@@ -80,14 +81,14 @@ public class AuthenticationController implements Initializable {
     
     @FXML
     public void signUpUser(ActionEvent event) throws IOException, AcountDAOException {
-        if(name == null || username == null || password == null || mail == null ) {
+        if(name.equals("") || username.equals("") || password.equals("") || mail.equals("") ) {
             errorLabel.textProperty().set("Please fill all the fields");
             errorLabel.visibleProperty().set(true);
             return;
         }
         
-        if(!account.registerUser(name, username, mail, mail, password, 
-            new Image(getClass().getResourceAsStream("resources" + File.separator + "images" + File.separator + "AvatarProvisional.png")) , LocalDate.MAX)){
+        if(!account.registerUser(name, "", mail, username, password, 
+            new Image("./resources/images/AvatarProvisional.png") , LocalDate.now())){
             errorLabel.textProperty().set("User already exists, please change the field");
             errorLabel.visibleProperty().set(true);
             return;
@@ -114,24 +115,23 @@ public class AuthenticationController implements Initializable {
     }
 
     @FXML
-    private void usernameInput(InputMethodEvent event) {
+    private void usernameInput(KeyEvent event) {
         username = usernameField.getText();
     }
 
     @FXML
-    private void passwordInput(InputMethodEvent event) {
+    private void passwordInput(KeyEvent event) {
         password = passwordField.getText();
     }
 
     @FXML
-    private void nameInput(InputMethodEvent event) {
+    private void nameInput(KeyEvent event) {
         name = nameField.getText();
     }
 
     @FXML
-    private void mailInput(InputMethodEvent event) {
+    private void mailInput(KeyEvent event) {
         mail = mailField.getText();
     }
-
-    
+ 
 }

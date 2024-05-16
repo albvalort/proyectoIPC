@@ -59,7 +59,7 @@
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameField" onInputMethodTextChanged="#usernameInput" prefHeight="35.0" prefWidth="200.0" promptText="Username" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="usernameField" onKeyTyped="#usernameInput" prefHeight="35.0" prefWidth="200.0" promptText="Username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
@@ -69,7 +69,7 @@
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="passwordField" onInputMethodTextChanged="#passwordInput" prefHeight="35.0" prefWidth="200.0" promptText="Password" VBox.vgrow="ALWAYS">
+                  <PasswordField fx:id="passwordField" onKeyTyped="#passwordInput" prefHeight="35.0" prefWidth="200.0" promptText="Password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
@@ -79,7 +79,7 @@
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="nameField" onInputMethodTextChanged="#nameInput" prefHeight="36.0" prefWidth="340.0" promptText="Name" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="nameField" onKeyTyped="#nameInput" prefHeight="36.0" prefWidth="340.0" promptText="Name" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
@@ -89,7 +89,7 @@
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="mailField" onInputMethodTextChanged="#mailInput" prefHeight="35.0" prefWidth="200.0" promptText="Mail" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="mailField" onKeyTyped="#mailInput" prefHeight="35.0" prefWidth="200.0" promptText="Mail" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
