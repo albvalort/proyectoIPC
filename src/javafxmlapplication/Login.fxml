@@ -13,13 +13,29 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.AuthenticationController">
    <children>
-      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: E0E0E0;" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: E0E0E0;">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
-               <image>
-                  <Image url="@../resources/images/Logo.png" />
-               </image>
-            </ImageView>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="400.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../resources/images/Logo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="16.0" prefWidth="233.0" text="User already registered" textFill="RED" visible="false" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
@@ -43,7 +59,7 @@
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameField" onInputMethodTextChanged="#usernameInput" prefHeight="35.0" prefWidth="200.0" promptText="Username" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="usernameField" onKeyTyped="#usernameInput" prefHeight="35.0" prefWidth="200.0" promptText="Username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
@@ -53,7 +69,7 @@
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="passwordField" onInputMethodTextChanged="#passwordInput" prefHeight="35.0" prefWidth="200.0" promptText="Password" VBox.vgrow="ALWAYS">
+                  <PasswordField fx:id="passwordField" onKeyTyped="#passwordInput" prefHeight="35.0" prefWidth="200.0" promptText="Password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>

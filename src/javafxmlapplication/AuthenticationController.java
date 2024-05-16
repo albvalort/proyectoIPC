@@ -47,22 +47,20 @@ public class AuthenticationController implements Initializable {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
-    @FXML
     private TextField nameField;
-    @FXML
     private TextField mailField;
     @FXML
     private Label errorLabel;
     
-    @FXML
     public void switchToLogin(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        root  = FXMLLoader.load(getClass().getResource("Login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
     
+    @FXML
     public void switchToSignup(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("Signup.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -71,7 +69,19 @@ public class AuthenticationController implements Initializable {
         stage.show();
     }
     
+    @FXML
     public void loginUser(ActionEvent event) throws IOException {
+        
+        try {
+            if (!account.logInUserByCredentials(username, password)) {
+                errorLabel.textProperty().set("User or password are wrong");
+                errorLabel.visibleProperty().set(true);
+                return;
+            }
+        } catch (AcountDAOException ex) {
+            System.out.println(ex);
+        }
+        
         root = FXMLLoader.load(getClass().getResource("Home.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -79,7 +89,6 @@ public class AuthenticationController implements Initializable {
         stage.show();
     }
     
-    @FXML
     public void signUpUser(ActionEvent event) throws IOException, AcountDAOException {
         if(name.equals("") || username.equals("") || password.equals("") || mail.equals("") ) {
             errorLabel.textProperty().set("Please fill all the fields");
@@ -124,12 +133,10 @@ public class AuthenticationController implements Initializable {
         password = passwordField.getText();
     }
 
-    @FXML
     private void nameInput(KeyEvent event) {
         name = nameField.getText();
     }
 
-    @FXML
     private void mailInput(KeyEvent event) {
         mail = mailField.getText();
     }
