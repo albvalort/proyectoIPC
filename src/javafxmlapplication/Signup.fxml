@@ -42,7 +42,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen; -fx-border-color: black;" VBox.vgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" prefHeight="48.0" prefWidth="194.0" text="Create account" VBox.vgrow="ALWAYS">
+                  <Label fx:id="createLabel" alignment="CENTER" prefHeight="38.0" prefWidth="308.0" text="%createAccount" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -54,42 +54,42 @@
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label prefHeight="16.0" prefWidth="71.0" text="Username" VBox.vgrow="ALWAYS">
+                  <Label fx:id="usernameLabel" prefHeight="17.0" prefWidth="295.0" text="%username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameField" onKeyTyped="#usernameInput" prefHeight="35.0" prefWidth="200.0" promptText="Username" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="usernameField" onKeyTyped="#usernameInput" prefHeight="35.0" prefWidth="200.0" promptText="%username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label prefHeight="16.0" prefWidth="68.0" text="Password" VBox.vgrow="ALWAYS">
+                  <Label fx:id="passwordLabel" prefHeight="17.0" prefWidth="265.0" text="%password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="passwordField" onKeyTyped="#passwordInput" prefHeight="35.0" prefWidth="200.0" promptText="Password" VBox.vgrow="ALWAYS">
+                  <PasswordField fx:id="passwordField" onKeyTyped="#passwordInput" prefHeight="35.0" prefWidth="200.0" promptText="%password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Label prefHeight="16.0" prefWidth="71.0" text="Name" VBox.vgrow="ALWAYS">
+                  <Label fx:id="NameLabel" prefHeight="17.0" prefWidth="212.0" text="%name" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="nameField" onKeyTyped="#nameInput" prefHeight="36.0" prefWidth="340.0" promptText="Name" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="nameField" onKeyTyped="#nameInput" prefHeight="36.0" prefWidth="340.0" promptText="%name" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label prefHeight="16.0" prefWidth="71.0" text="Mail" VBox.vgrow="ALWAYS">
+                  <Label fx:id="mailLabel" prefHeight="17.0" prefWidth="208.0" text="%mail" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="mailField" onKeyTyped="#mailInput" prefHeight="35.0" prefWidth="200.0" promptText="Mail" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="mailField" onKeyTyped="#mailInput" prefHeight="35.0" prefWidth="200.0" promptText="%mail" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
@@ -101,7 +101,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#signUpUser" prefHeight="50.0" prefWidth="200.0" text="Sign up" VBox.vgrow="ALWAYS">
+                  <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUpUser" prefHeight="50.0" prefWidth="200.0" text="%signUp" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
@@ -109,12 +109,12 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label text="¿Already have an account?" VBox.vgrow="ALWAYS">
+                  <Label fx:id="placeholderSLabel" alignment="CENTER" prefHeight="17.0" prefWidth="318.0" text="%alreadyRegistered" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#switchToLogin" prefHeight="50.0" prefWidth="200.0" text="Log in" VBox.vgrow="ALWAYS">
+                  <Button fx:id="logInButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="50.0" prefWidth="200.0" text="%logIn" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
                      </font>

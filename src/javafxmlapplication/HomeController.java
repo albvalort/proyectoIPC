@@ -70,23 +70,11 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO 
-      
-        
         menuButton.setOnMouseClicked(event-> {
             visibleToolBar = !visibleToolBar;
             toolBar.setVisible(visibleToolBar);
            
         });
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         /** 
         Menu lateral con animacion
