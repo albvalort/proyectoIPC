@@ -4,6 +4,7 @@
  */
 package javafxmlapplication;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
@@ -17,6 +18,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ToolBar;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -25,12 +32,37 @@ import javafx.util.Duration;
  * @author migue
  */
 public class HomeController implements Initializable {
+    
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    
+    private boolean visibleToolBar = false;
+    
+    
+    @FXML
+    private Button selectCategoryButtonPreView;
+    @FXML
+    private Button profileButton;
 
     //private AnchorPane pane1;
     //private AnchorPane pane2;
     //private Button menu;
-    //private Button exit;
-
+    
+    @FXML
+    private Button menuButton;
+    @FXML
+    private ToolBar toolBar;
+    @FXML
+    private Button visualizerButtonToolBar;
+    @FXML
+    private Button printButtonToolBar;
+    @FXML
+    private Button chargeButtonToolBar;
+    @FXML
+    private Button categoryButtonToolBar;
+    
+    
     
     /**
      * Initializes the controller class.
@@ -38,11 +70,26 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO 
-       /** 
-        exit.setOnMouseClicked(event -> {
-        System.exit(0);
+      
+        
+        menuButton.setOnMouseClicked(event-> {
+            visibleToolBar = !visibleToolBar;
+            toolBar.setVisible(visibleToolBar);
+           
         });
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /** 
+        Menu lateral con animacion
         pane1.setVisible(false);
         
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5),pane1);
@@ -54,7 +101,7 @@ public class HomeController implements Initializable {
         translateTransition.setByX(+600);
         translateTransition.play();
         
-        menu.setOnMouseClicked(event-> {
+        menuButtonToolbar.setOnMouseClicked(event-> {
             pane1.setVisible(true);
             
             FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
@@ -84,6 +131,25 @@ public class HomeController implements Initializable {
         });
         */
     }    
+
+    @FXML
+    private void switchToProfileSettings(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void switchToPrint(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Print.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
 
    
         
