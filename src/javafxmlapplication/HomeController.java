@@ -136,7 +136,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void switchToPrint(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Print.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
