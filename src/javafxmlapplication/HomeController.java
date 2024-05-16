@@ -58,9 +58,9 @@ public class HomeController implements Initializable {
     @FXML
     private Button printButtonToolBar;
     @FXML
-    private Button chargeButtonToolBar;
+    private Button chargeManagerButtonToolBar;
     @FXML
-    private Button categoryButtonToolBar;
+    private Button categoryManagerButtonToolBar;
     
     
     
@@ -144,6 +144,15 @@ public class HomeController implements Initializable {
     @FXML
     private void switchToPrint(MouseEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Print.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void switchToChargeManager(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

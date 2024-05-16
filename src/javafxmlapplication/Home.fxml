@@ -57,7 +57,7 @@
       </HBox>
       <ToolBar fx:id="toolBar" prefHeight="25.0" prefWidth="800.0" visible="false" VBox.vgrow="ALWAYS">
         <items>
-            <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" text="Charge Manager" />
+            <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onMouseClicked="#switchToChargeManager" text="Charge Manager" />
             <Button fx:id="categoryManagerButtonToolBar" mnemonicParsing="false" text="Category Manager" />
             <Button fx:id="visualizerButtonToolBar" mnemonicParsing="false" text="Visualizer" />
             <Button fx:id="printButtonToolBar" mnemonicParsing="false" onMouseClicked="#switchToPrint" text="Print" />
