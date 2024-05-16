@@ -37,6 +37,9 @@ public class HomeController implements Initializable {
     private Scene scene;
     private Parent root;
     
+    private boolean visibleToolBar = false;
+    
+    
     @FXML
     private Button selectCategoryButtonPreView;
     @FXML
@@ -45,7 +48,7 @@ public class HomeController implements Initializable {
     //private AnchorPane pane1;
     //private AnchorPane pane2;
     //private Button menu;
-    //private Button exit;
+    
     @FXML
     private Button menuButton;
     @FXML
@@ -69,7 +72,11 @@ public class HomeController implements Initializable {
         // TODO 
       
         
-        
+        menuButton.setOnMouseClicked(event-> {
+            visibleToolBar = !visibleToolBar;
+            toolBar.setVisible(visibleToolBar);
+           
+        });
         
         
         
@@ -142,6 +149,7 @@ public class HomeController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
 
    
         

@@ -55,10 +55,10 @@
             </HBox>
          </children>
       </HBox>
-      <ToolBar fx:id="toolBar" prefHeight="25.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+      <ToolBar fx:id="toolBar" prefHeight="25.0" prefWidth="800.0" visible="false" VBox.vgrow="ALWAYS">
         <items>
-            <Button fx:id="chargeButtonToolBar" mnemonicParsing="false" text="Charge" />
-            <Button fx:id="categoryButtonToolBar" mnemonicParsing="false" text="Category" />
+            <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" text="Charge Manager" />
+            <Button fx:id="categoryManagerButtonToolBar" mnemonicParsing="false" text="Category Manager" />
             <Button fx:id="visualizerButtonToolBar" mnemonicParsing="false" text="Visualizer" />
             <Button fx:id="printButtonToolBar" mnemonicParsing="false" onMouseClicked="#switchToPrint" text="Print" />
         </items>
