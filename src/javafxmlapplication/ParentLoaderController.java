@@ -2,6 +2,7 @@ package javafxmlapplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +34,7 @@ public class ParentLoaderController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
             
         try {
-            FXMLLoader authenticationLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            FXMLLoader authenticationLoader = new FXMLLoader(getClass().getResource("Login.fxml"), JavaFXMLApplication.getResourceBundle());
             Parent root = authenticationLoader.load();
             
             

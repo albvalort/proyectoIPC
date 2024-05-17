@@ -70,23 +70,11 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO 
-      
-        
         menuButton.setOnMouseClicked(event-> {
             visibleToolBar = !visibleToolBar;
             toolBar.setVisible(visibleToolBar);
            
         });
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         /** 
         Menu lateral con animacion
@@ -134,7 +122,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void switchToProfileSettings(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"));
+        root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"), JavaFXMLApplication.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -143,7 +131,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void switchToPrint(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Print.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Print.fxml"), JavaFXMLApplication.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -152,7 +140,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void switchToChargeManager(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"));
+        root = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"), JavaFXMLApplication.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
