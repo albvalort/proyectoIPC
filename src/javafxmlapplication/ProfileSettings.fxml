@@ -15,23 +15,23 @@
 
 <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ProfileSettingsController">
    <children>
-      <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="800.0" style="-fx-background-color: Gray;" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="75.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                      <image>
                         <Image url="@../resources/images/Logo.png" />
                      </image>
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets />
                      </HBox.margin>
                   </ImageView>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <MenuButton mnemonicParsing="false" text="Idiom" HBox.hgrow="ALWAYS">
+                  <MenuButton mnemonicParsing="false" text="Language" HBox.hgrow="ALWAYS">
                     <items>
                         <CheckMenuItem mnemonicParsing="false" text="Spanish" />
                         <CheckMenuItem mnemonicParsing="false" text="English" />
@@ -39,16 +39,19 @@
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                   </MenuButton>
                </children>
             </HBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="125.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" prefHeight="75.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button mnemonicParsing="false" HBox.hgrow="ALWAYS">
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="ALWAYS">
                <graphic>
-                  <ImageView fitHeight="100.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/images/AvatarProvisional.png" />
                      </image>
@@ -57,164 +60,177 @@
             </Button>
          </children>
       </HBox>
-      <HBox prefHeight="200.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+      <VBox prefHeight="335.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+            <Label text="Profile Information" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Username" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="usernameTextField1" prefHeight="35.0" prefWidth="340.0" promptText="Username" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" />
+               </HBox.margin>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" right="30.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Mail" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mailTextField1" prefHeight="35.0" prefWidth="340.0" promptText="Mail" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="30.0" right="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <HBox prefHeight="55.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <HBox prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+                  <VBox prefHeight="55.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Profile Information" HBox.hgrow="ALWAYS">
+                        <Label text="Name" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="30.0" />
+                           </VBox.margin>
                            <font>
-                              <Font size="23.0" />
+                              <Font size="15.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin></Label>
+                        </Label>
+                        <TextField fx:id="nameTextField1" prefHeight="35.0" prefWidth="340.0" promptText="Name" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+                  </VBox>
+                  <VBox prefHeight="55.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="50.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="Username" VBox.vgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                                 <VBox.margin>
-                                    <Insets left="20.0" />
-                                 </VBox.margin></Label>
-                              <TextField fx:id="usernameTextField" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </VBox.margin></TextField>
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </VBox>
+                        <Label text="Surname" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="surnameTextField1" prefHeight="35.0" prefWidth="340.0" promptText="Surname" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets right="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <VBox prefHeight="50.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="Name" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" />
-                                 </VBox.margin></Label>
-                              <TextField fx:id="nameTextField" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </VBox.margin></TextField>
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="50.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="Surename" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" />
-                                 </VBox.margin></Label>
-                              <TextField fx:id="surnameTextField" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </VBox.margin></TextField>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <VBox prefHeight="50.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="Mail" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" />
-                                 </VBox.margin></Label>
-                              <TextField fx:id="mailTextField" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </VBox.margin></TextField>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox prefHeight="150.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <HBox prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <VBox prefHeight="50.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="Password" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font size="23.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="20.0" />
-                                 </VBox.margin></Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <VBox prefHeight="50.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="Old Password" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" />
-                                 </VBox.margin></Label>
-                              <PasswordField fx:id="oldPasswordTextField" promptText="Write your old Password" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <VBox prefHeight="50.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="New Password" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </VBox.margin></Label>
-                              <PasswordField promptText="Write your new Password" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="50.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#switchToHome" text="Back" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin></Button>
+                  </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <Label text="Password" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="75.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" text="Save" HBox.hgrow="ALWAYS">
+                  <VBox prefHeight="75.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Old Password" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="oldPasswordTextField11" prefHeight="35.0" prefWidth="340.0" promptText="Old Password" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
                      <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin></Button>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="75.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="New Password" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </Label>
+                        <PasswordField prefHeight="35.0" prefWidth="340.0" promptText="New Password" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets right="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="90.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="90.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#switchToHome" prefHeight="60.0" prefWidth="140.0" text="Back" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="90.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="Save" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="30.0" right="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children></HBox>
