@@ -20,6 +20,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -39,6 +41,20 @@ public class ProfileSettingsController implements Initializable {
     private Button backButton;
     @FXML
     private MenuButton languageMenuB;
+    @FXML
+    private TextField nameTextField1;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private TextField mailTextField;
+    @FXML
+    private TextField surnameTextField;
+    @FXML
+    private PasswordField oldPasswordTextField;
+    @FXML
+    private PasswordField newPasswordTextField;
+    @FXML
+    private Button saveButton;
 
     /**
      * Initializes the controller class.
