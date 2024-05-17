@@ -56,6 +56,9 @@ public class ProfileSettingsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        //Refill of TextFields
+        
         try {
             account = Acount.getInstance();
         } catch (AcountDAOException | IOException ex) {
@@ -64,6 +67,11 @@ public class ProfileSettingsController implements Initializable {
         currentUser = account.getLoggedUser();
         
         usernameTextField.setText(currentUser.getNickName());
+        usernameTextField.setEditable(false);
+        
+        nameTextField.setText(currentUser.getName());
+        surnameTextField.setText(currentUser.getSurname());
+        mailTextField.setText(currentUser.getEmail());
     }    
 
     @FXML
