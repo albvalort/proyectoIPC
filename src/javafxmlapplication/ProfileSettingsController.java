@@ -25,6 +25,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.Acount;
+import model.AcountDAOException;
+import model.User;
 
 /**
  * FXML Controller classprofile settings des1
@@ -42,8 +45,6 @@ public class ProfileSettingsController implements Initializable {
     @FXML
     private MenuButton languageMenuB;
     @FXML
-    private TextField nameTextField1;
-    @FXML
     private TextField usernameTextField;
     @FXML
     private TextField mailTextField;
@@ -56,36 +57,29 @@ public class ProfileSettingsController implements Initializable {
     @FXML
     private Button saveButton;
 
+    private User currentUser;
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private ImageView profileImage;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Locale[] availableLanguages = JavaFXMLApplication.availableLanguages;
-        ImageView imageMain = new ImageView("/resources/images/" + JavaFXMLApplication.getLocaleString() + ".png");
-        imageMain.setFitWidth(30);
-        imageMain.setFitHeight(20);
-        languageMenuB.setGraphic(imageMain);
-        for (int i = 0; i < availableLanguages.length; i++) {
-            Locale auxLocale = availableLanguages[i];
-            ImageView image = new ImageView("/resources/images/" + auxLocale.toString() + ".png");
-            image.setFitWidth(30);
-            image.setFitHeight(20);
-            MenuItem auxMenuItem = new MenuItem("",image);
-            auxMenuItem.onActionProperty().set(e -> {
-                JavaFXMLApplication.setLocale(auxLocale);
-                try {
-                    root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"), JavaFXMLApplication.getResourceBundle());
-                } catch (IOException ex) {
-                    Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                stage = (Stage) languageMenuB.getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            });
-            languageMenuB.getItems().add(auxMenuItem);
+        initializeMenuButton();
+        try {
+            currentUser = Acount.getInstance().getLoggedUser();
+        } catch (AcountDAOException | IOException ex) {
+            Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        usernameTextField.setText(currentUser.getNickName());
+        mailTextField.setText(currentUser.getEmail());
+        surnameTextField.setText(currentUser.getSurname());
+        nameTextField.setText(currentUser.getName());
+        profileImage.setImage(currentUser.getImage());
         
     }    
 
@@ -96,6 +90,34 @@ public class ProfileSettingsController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    private void initializeMenuButton() {
+        Locale[] availableLanguages = ShifuApp.availableLanguages;
+        ImageView imageMain = new ImageView("/resources/images/" + ShifuApp.getLocaleString() + ".png");
+        imageMain.setFitWidth(30);
+        imageMain.setFitHeight(20);
+        languageMenuB.setGraphic(imageMain);
+        for (int i = 0; i < availableLanguages.length; i++) {
+            Locale auxLocale = availableLanguages[i];
+            ImageView image = new ImageView("/resources/images/" + auxLocale.toString() + ".png");
+            image.setFitWidth(30);
+            image.setFitHeight(20);
+            MenuItem auxMenuItem = new MenuItem("",image);
+            auxMenuItem.onActionProperty().set(e -> {
+                ShifuApp.setLocale(auxLocale);
+                try {
+                    root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"), ShifuApp.getResourceBundle());
+                } catch (IOException ex) {
+                    Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                stage = (Stage) languageMenuB.getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            });
+            languageMenuB.getItems().add(auxMenuItem);
+        }
     }
     
 }

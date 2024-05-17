@@ -46,7 +46,7 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="ALWAYS">
                <graphic>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/images/AvatarProvisional.png" />
                      </image>
@@ -73,7 +73,7 @@
                   <Insets bottom="5.0" left="30.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="usernameTextField" prefHeight="35.0" prefWidth="340.0" promptText="%username" VBox.vgrow="ALWAYS">
+            <TextField fx:id="usernameTextField" disable="true" editable="false" prefHeight="35.0" prefWidth="340.0" promptText="%username" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="15.0" />
                </font>
@@ -112,7 +112,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="nameTextField1" prefHeight="35.0" prefWidth="340.0" promptText="%name" VBox.vgrow="ALWAYS">
+                        <TextField fx:id="nameTextField" prefHeight="35.0" prefWidth="340.0" promptText="%name" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets left="30.0" right="30.0" />
                            </VBox.margin>

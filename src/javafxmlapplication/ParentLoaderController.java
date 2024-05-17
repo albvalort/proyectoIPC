@@ -34,7 +34,7 @@ public class ParentLoaderController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
             
         try {
-            FXMLLoader authenticationLoader = new FXMLLoader(getClass().getResource("Login.fxml"), JavaFXMLApplication.getResourceBundle());
+            FXMLLoader authenticationLoader = new FXMLLoader(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
             Parent root = authenticationLoader.load();
             
             

@@ -24,9 +24,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -34,7 +37,7 @@ import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
 
-    
+
 public class AuthenticationController implements Initializable {
 
     private Stage stage;
@@ -61,10 +64,28 @@ public class AuthenticationController implements Initializable {
     private TextField mailField;
     @FXML
     private Label errorLabel;
+    @FXML
+    private MenuButton languageMenuB;
+    @FXML
+    private Label createLabel;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label passwordLabel;
+    @FXML
+    private Label NameLabel;
+    @FXML   
+    private Label mailLabel;
+    @FXML
+    private Button signUpButton;
+    @FXML
+    private Label placeholderSLabel;
+    @FXML
+    private Button logInButton;
     
     @FXML
     public void switchToLogin(ActionEvent event) throws IOException{
-        root  = FXMLLoader.load(getClass().getResource("Login.fxml"), JavaFXMLApplication.getResourceBundle());
+        root  = FXMLLoader.load(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -72,7 +93,7 @@ public class AuthenticationController implements Initializable {
     }
     
     public void switchToSignup(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Signup.fxml"), JavaFXMLApplication.getResourceBundle());
+        root = FXMLLoader.load(getClass().getResource("Signup.fxml"), ShifuApp.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -91,7 +112,7 @@ public class AuthenticationController implements Initializable {
             System.out.println(ex);
         }
         
-        root = FXMLLoader.load(getClass().getResource("Home.fxml"), JavaFXMLApplication.getResourceBundle());
+        root = FXMLLoader.load(getClass().getResource("Home.fxml"), ShifuApp.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -114,7 +135,7 @@ public class AuthenticationController implements Initializable {
         }
         
         
-        root = FXMLLoader.load(getClass().getResource("Login.fxml"), JavaFXMLApplication.getResourceBundle());
+        root = FXMLLoader.load(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -131,11 +152,7 @@ public class AuthenticationController implements Initializable {
         } catch (AcountDAOException | IOException ex) {
             System.out.println(ex);
         }
-        
-        
-        
-        
-        
+        initializeMenuButton();
     }
 
     @FXML
@@ -158,5 +175,32 @@ public class AuthenticationController implements Initializable {
         mail = mailField.getText();
     }
 
+    private void initializeMenuButton() {
+        Locale[] availableLanguages = ShifuApp.availableLanguages;
+        ImageView imageMain = new ImageView("/resources/images/" + ShifuApp.getLocaleString() + ".png");
+        imageMain.setFitWidth(30);
+        imageMain.setFitHeight(20);
+        languageMenuB.setGraphic(imageMain);
+        for (int i = 0; i < availableLanguages.length; i++) {
+            Locale auxLocale = availableLanguages[i];
+            ImageView image = new ImageView("/resources/images/" + auxLocale.toString() + ".png");
+            image.setFitWidth(30);
+            image.setFitHeight(20);
+            MenuItem auxMenuItem = new MenuItem("",image);
+            auxMenuItem.onActionProperty().set(e -> {
+                ShifuApp.setLocale(auxLocale);
+                try {
+                    root = FXMLLoader.load(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
+                } catch (IOException ex) {
+                    Logger.getLogger(AuthenticationController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                stage = (Stage) languageMenuB.getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            });
+            languageMenuB.getItems().add(auxMenuItem);
+        }
+    }
 
 }
