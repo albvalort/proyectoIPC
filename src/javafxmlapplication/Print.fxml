@@ -5,10 +5,9 @@
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -132,14 +131,11 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="450.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
-                     <image>
-                        <Image url="@../resources/images/GraficoProvisional.png" />
-                     </image>
-                  </ImageView>
-                  <Label text="Formato PDF" />
-               </children>
-            </VBox>
+                  <ScrollPane fx:id="scrollPane" fitToWidth="true" minViewportWidth="300.0" prefHeight="408.0" prefWidth="300.0">
+                     <content>
+                        <VBox fx:id="pdfViewerBox" alignment="CENTER" prefHeight="0.0" prefWidth="0.0" />
+                     </content></ScrollPane>
+               </children></VBox>
          </children>
       </HBox>
       <HBox prefHeight="75.0" prefWidth="800.0" VBox.vgrow="ALWAYS">

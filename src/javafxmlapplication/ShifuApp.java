@@ -28,6 +28,8 @@ public class ShifuApp extends Application {
         new Locale("fr")
     };
     
+    public static Stage stage;
+    
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
@@ -47,6 +49,7 @@ public class ShifuApp extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.getIcons().add(new Image(ShifuApp.class.getResourceAsStream("../resources/images/Logo.png")));
         stage.setScene(scene);
+        this.stage = stage;
         pause.play();
         stage.show();
     }
