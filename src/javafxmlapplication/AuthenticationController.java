@@ -6,9 +6,12 @@ package javafxmlapplication;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -41,6 +45,9 @@ public class AuthenticationController implements Initializable {
     private String password = "";
     private String name = "";
     private String mail = "";
+
+    
+    
     
     private Acount account;
     
@@ -57,7 +64,7 @@ public class AuthenticationController implements Initializable {
     
     @FXML
     public void switchToLogin(ActionEvent event) throws IOException{
-        root  = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        root  = FXMLLoader.load(getClass().getResource("Login.fxml"), JavaFXMLApplication.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -65,7 +72,7 @@ public class AuthenticationController implements Initializable {
     }
     
     public void switchToSignup(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Signup.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Signup.fxml"), JavaFXMLApplication.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -84,7 +91,7 @@ public class AuthenticationController implements Initializable {
             System.out.println(ex);
         }
         
-        root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Home.fxml"), JavaFXMLApplication.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -107,11 +114,11 @@ public class AuthenticationController implements Initializable {
         }
         
         
-        root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Login.fxml"), JavaFXMLApplication.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();    
+        stage.show();
     }
     
     /**
@@ -124,6 +131,11 @@ public class AuthenticationController implements Initializable {
         } catch (AcountDAOException | IOException ex) {
             System.out.println(ex);
         }
+        
+        
+        
+        
+        
     }
 
     @FXML
@@ -145,5 +157,6 @@ public class AuthenticationController implements Initializable {
     private void mailInput(KeyEvent event) {
         mail = mailField.getText();
     }
- 
+
+
 }

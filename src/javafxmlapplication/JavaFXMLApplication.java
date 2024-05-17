@@ -5,6 +5,8 @@
  */
 package javafxmlapplication;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,11 +19,19 @@ import javafx.util.Duration;
 
 public class JavaFXMLApplication extends Application {
     
+    private static Locale language = new Locale("en");
+    public static Locale[] availableLanguages = {
+        new Locale("es"), 
+        new Locale("de"), 
+        new Locale("en"), 
+        new Locale("fr")
+    };
+    
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader parentLoader = new FXMLLoader(getClass().getResource("ParentLoader.fxml"));
+        FXMLLoader parentLoader = new FXMLLoader(getClass().getResource("ParentLoader.fxml"), getResourceBundle());
         Parent root = parentLoader.load();
         PauseTransition pause = new PauseTransition(Duration.seconds(2.0));
         pause.setOnFinished(e -> stage.hide());
@@ -47,6 +57,14 @@ public class JavaFXMLApplication extends Application {
         
     }
 
+    public static ResourceBundle getResourceBundle() {
+        return ResourceBundle.getBundle("resources.language.UIResources", language);
+    }
 
-    
+    public static void setLocale(Locale newLocale) {
+        language = newLocale;
+    }
+    public static String getLocaleString() {
+        return language.toString();
+    }
 }
