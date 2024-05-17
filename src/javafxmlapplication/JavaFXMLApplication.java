@@ -20,6 +20,12 @@ import javafx.util.Duration;
 public class JavaFXMLApplication extends Application {
     
     private static Locale language = new Locale("en");
+    public static Locale[] availableLanguages = {
+        new Locale("es"), 
+        new Locale("de"), 
+        new Locale("en"), 
+        new Locale("fr")
+    };
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -55,8 +61,10 @@ public class JavaFXMLApplication extends Application {
         return ResourceBundle.getBundle("resources.language.UIResources", language);
     }
 
-    public void setLocale(Locale newLocale) {
+    public static void setLocale(Locale newLocale) {
         language = newLocale;
     }
-    
+    public static String getLocaleString() {
+        return language.toString();
+    }
 }
