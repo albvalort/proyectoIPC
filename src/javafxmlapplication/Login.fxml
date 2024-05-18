@@ -41,7 +41,7 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen;" VBox.vgrow="ALWAYS">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="305.0" text="%welcome" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                      <font>
@@ -58,7 +58,7 @@
                   <MenuButton fx:id="languageMenuB" alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER_LEFT" prefHeight="270.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label prefHeight="17.0" prefWidth="267.0" text="%username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
@@ -95,7 +95,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="316.0" text="%alreadyRegistered" VBox.vgrow="ALWAYS">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="316.0" text="%createAccount" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>

@@ -41,7 +41,7 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen;" VBox.vgrow="ALWAYS">
                <children>
                   <Label fx:id="createLabel" alignment="CENTER" prefHeight="38.0" prefWidth="308.0" text="%createAccount" VBox.vgrow="ALWAYS">
                      <font>
@@ -58,7 +58,7 @@
                   <MenuButton fx:id="languageMenuB" mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER_LEFT" prefHeight="270.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label fx:id="usernameLabel" prefHeight="17.0" prefWidth="295.0" text="%username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
@@ -80,16 +80,41 @@
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Label fx:id="NameLabel" prefHeight="17.0" prefWidth="212.0" text="%name" VBox.vgrow="ALWAYS">
+                  <HBox maxHeight="67.0" prefHeight="67.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox maxHeight="67.0" prefHeight="67.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="NameLabel" prefHeight="17.0" prefWidth="212.0" text="%name" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="30.0" right="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="nameField" onKeyTyped="#nameInput" prefHeight="35.0" prefWidth="155.0" promptText="%name" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="67.0" prefHeight="67.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="NameLabel1" prefHeight="17.0" prefWidth="212.0" text="%surname" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="15.0" right="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="nameField1" onKeyTyped="#nameInput" prefHeight="35.0" prefWidth="155.0" promptText="%surname" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
                      <VBox.margin>
-                        <Insets bottom="5.0" left="30.0" />
+                        <Insets />
                      </VBox.margin>
-                  </Label>
-                  <TextField fx:id="nameField" onKeyTyped="#nameInput" prefHeight="36.0" prefWidth="340.0" promptText="%name" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="30.0" right="30.0" />
-                     </VBox.margin>
-                  </TextField>
+                  </HBox>
                   <Label fx:id="mailLabel" prefHeight="17.0" prefWidth="208.0" text="%mail" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="30.0" />
