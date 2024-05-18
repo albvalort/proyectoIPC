@@ -40,12 +40,11 @@ public class ParentLoaderController implements Initializable {
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            
             PauseTransition pause = new PauseTransition(Duration.seconds(2));
             pause.setOnFinished(e -> stage.show());
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Autenticacion | SHIFU");
+            stage.setTitle("Authenticacion | SHIFU");
             pause.play();
             
         } catch (IOException ex) {

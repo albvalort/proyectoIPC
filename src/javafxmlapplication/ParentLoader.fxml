@@ -5,9 +5,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="VBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ParentLoaderController">
+<VBox fx:id="VBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ParentLoaderController">
    <children>
-      <ImageView fx:id="ImageView" fitHeight="348.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ImageView" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/images/Load_screen.gif" />
          </image>
