@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -65,9 +66,14 @@
                   <Font size="20.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="15.0" left="30.0" />
+                  <Insets left="30.0" />
                </VBox.margin>
             </Label>
+            <Separator prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="30.0" right="30.0" top="5.0" />
+               </VBox.margin>
+            </Separator>
             <Label text="%username" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="15.0" />
@@ -152,12 +158,15 @@
                   <Font size="20.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="5.0" left="30.0" top="5.0" />
+                  <Insets left="30.0" top="5.0" />
                </VBox.margin>
-               <padding>
-                  <Insets bottom="15.0" />
                </padding>
             </Label>
+            <Separator prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="30.0" right="30.0" top="5.0" />
+               </VBox.margin>
+            </Separator>
             <HBox prefHeight="75.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
                   <VBox prefHeight="75.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
