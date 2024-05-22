@@ -160,7 +160,6 @@
                <VBox.margin>
                   <Insets left="30.0" top="5.0" />
                </VBox.margin>
-               </padding>
             </Label>
             <Separator prefWidth="200.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
