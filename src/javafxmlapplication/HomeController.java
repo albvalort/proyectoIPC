@@ -47,14 +47,7 @@ public class HomeController implements Initializable {
     
     
     @FXML
-    private Button selectCategoryButtonPreView;
-    @FXML
     private Button profileButton;
-
-    //private AnchorPane pane1;
-    //private AnchorPane pane2;
-    //private Button menu;
-    
     @FXML
     private Button menuButton;
     @FXML
@@ -155,7 +148,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void switchToChargeManager(MouseEvent event) throws IOException {
+    private void switchToChargeManager(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"), ShifuApp.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

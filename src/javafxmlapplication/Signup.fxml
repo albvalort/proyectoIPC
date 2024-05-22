@@ -14,7 +14,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.AuthenticationController">
    <children>
-      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: E0E0E0;" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: E0E0E0;" HBox.hgrow="ALWAYS">
          <children>
             <VBox alignment="BOTTOM_CENTER" prefHeight="400.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
@@ -39,16 +39,16 @@
             </VBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: lightgreen;" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: lightgreen;" VBox.vgrow="ALWAYS">
                <children>
                   <Label fx:id="createLabel" alignment="CENTER" prefHeight="38.0" prefWidth="308.0" text="%createAccount" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="25.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="30.0" top="30.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
                </children>
@@ -130,7 +130,7 @@
                   <Insets />
                </VBox.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="225.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
                   <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUpUser" prefHeight="50.0" prefWidth="200.0" text="%signUp" VBox.vgrow="ALWAYS">
                      <VBox.margin>

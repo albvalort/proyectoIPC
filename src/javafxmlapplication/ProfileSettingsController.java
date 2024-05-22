@@ -100,7 +100,7 @@ public class ProfileSettingsController implements Initializable {
 
     @FXML
     private void switchToHome(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Home.fxml"), ShifuApp.getResourceBundle());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

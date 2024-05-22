@@ -12,111 +12,141 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ChargeManagerController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ChargeManagerController">
    <children>
-      <HBox maxHeight="100.0" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: E0E0E0; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+      <HBox maxHeight="100.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
          <children>
-            <VBox prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="75.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                      <image>
                         <Image url="@../resources/images/Logo.png" />
                      </image>
                   </ImageView>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="75.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" text="Charge Manager" VBox.vgrow="ALWAYS">
+                  <Label alignment="CENTER" text="%chargeManager" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
-            <VBox prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+            <VBox prefHeight="75.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox prefHeight="500.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="725.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" prefHeight="725.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox prefHeight="400.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" prefHeight="625.0" prefWidth="600.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefWidth="340.0" text="Select charge" VBox.vgrow="ALWAYS">
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="65.0" prefWidth="600.0">
+                           <children>
+                              <VBox alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="410.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label prefHeight="19.0" prefWidth="340.0" text="%cathegory" VBox.vgrow="ALWAYS">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <MenuButton alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" VBox.vgrow="ALWAYS">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Action 1" />
+                                          <MenuItem mnemonicParsing="false" text="Action 2" />
+                                       </items>
+                                       <VBox.margin>
+                                          <Insets left="30.0" right="30.0" />
+                                       </VBox.margin>
+                                    </MenuButton>
+                                 </children>
+                              </VBox>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="%addCathegory" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Label prefWidth="340.0" text="%selectCharge" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" top="30.0" />
+                              <Insets bottom="5.0" left="30.0" right="30.0" top="15.0" />
                            </VBox.margin>
                         </Label>
-                        <MenuButton alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="340.0" VBox.vgrow="ALWAYS">
+                        <MenuButton alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="340.0" VBox.vgrow="ALWAYS">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Action 1" />
                             <MenuItem mnemonicParsing="false" text="Action 2" />
                           </items>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets bottom="15.0" left="30.0" right="30.0" />
                            </VBox.margin>
                         </MenuButton>
-                        <Label prefWidth="340.0" text="Title" VBox.vgrow="ALWAYS">
+                        <Label prefWidth="340.0" text="%title" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets left="30.0" right="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="340.0" promptText="Title" VBox.vgrow="ALWAYS">
+                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%title" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets bottom="15.0" left="30.0" right="30.0" />
                            </VBox.margin>
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Label prefWidth="340.0" text="Name" VBox.vgrow="ALWAYS">
+                        <Label prefWidth="340.0" text="%name" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets left="30.0" right="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="340.0" promptText="Name" VBox.vgrow="ALWAYS">
+                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%title" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets bottom="15.0" left="30.0" right="30.0" />
                            </VBox.margin>
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Label prefWidth="340.0" text="Units" VBox.vgrow="ALWAYS">
+                        <Label prefWidth="340.0" text="%units" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets left="30.0" right="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="340.0" promptText="Units" VBox.vgrow="ALWAYS">
+                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%units" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets bottom="15.0" left="30.0" right="30.0" />
                            </VBox.margin>
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Label prefWidth="340.0" text="Date" VBox.vgrow="ALWAYS">
+                        <Label prefWidth="340.0" text="%date" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets left="30.0" right="30.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="340.0" promptText="Date" VBox.vgrow="ALWAYS">
+                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%date" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets left="30.0" right="30.0" />
                            </VBox.margin>
@@ -126,9 +156,9 @@
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="backButton" alignment="CENTER" maxHeight="80.0" maxWidth="160.0" mnemonicParsing="false" onMouseClicked="#switchToHome" prefHeight="60.0" prefWidth="140.0" text="Go back" VBox.vgrow="ALWAYS">
+                        <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToHome" onMouseClicked="#switchToHome" prefHeight="30.0" prefWidth="160.0" text="%back" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="30.0" left="30.0" right="230.0" top="10.0" />
                            </VBox.margin>
@@ -137,28 +167,11 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="500.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="725.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox prefHeight="400.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" prefHeight="625.0" prefWidth="600.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="19.0" prefWidth="340.0" text="Cathegory" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" top="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <MenuButton alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="340.0" VBox.vgrow="ALWAYS">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="Action 1" />
-                              <MenuItem mnemonicParsing="false" text="Action 2" />
-                           </items>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
-                           </VBox.margin>
-                        </MenuButton>
-                        <Label prefHeight="19.0" prefWidth="340.0" text="Description" VBox.vgrow="ALWAYS">
+                        <Label prefHeight="19.0" prefWidth="600.0" text="%description" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="5.0" left="30.0" right="30.0" />
                            </VBox.margin>
@@ -166,7 +179,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField alignment="TOP_LEFT" prefHeight="150.0" prefWidth="340.0" promptText="Description" VBox.vgrow="ALWAYS">
+                        <TextField alignment="TOP_LEFT" prefHeight="200.0" prefWidth="340.0" promptText="%description" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="5.0" left="30.0" right="30.0" />
                            </VBox.margin>
@@ -174,17 +187,20 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="400.0" VBox.vgrow="NEVER">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0" VBox.vgrow="NEVER">
                            <children>
-                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="19.0" prefWidth="3.0" text="Add image" HBox.hgrow="ALWAYS">
+                              <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="%addImage" textAlignment="RIGHT" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="30.0" />
                                  </HBox.margin>
+                                 <padding>
+                                    <Insets right="20.0" />
+                                 </padding>
                               </Label>
-                              <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="135.0" text="Select image..." HBox.hgrow="ALWAYS">
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%selectImage" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -196,14 +212,14 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="600.0" spacing="20.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button alignment="CENTER" maxHeight="80.0" maxWidth="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="160.0" text="Add/Edit Charge" HBox.hgrow="ALWAYS">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%addEditCharge" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets bottom="30.0" left="70.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button alignment="CENTER" maxHeight="80.0" maxWidth="160.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" text="Delete charge" HBox.hgrow="ALWAYS">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%deleteCharge" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets bottom="30.0" right="30.0" top="10.0" />
                            </HBox.margin>

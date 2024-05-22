@@ -54,14 +54,13 @@ public class ShifuApp extends Application {
         stage.getIcons().add(new Image(ShifuApp.class.getResourceAsStream("../resources/images/Logo.png")));
         
         
+        //CenterOnScreen
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
         
-        stage.addEventHandler(WindowEvent.WINDOW_SHOWN, (WindowEvent event) -> {
-            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-            stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
-            stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
-        });
         stage.setScene(scene);
-        ShifuApp.stage = stage;
+        ShifuApp.stage = stage;        
         pause.play();
         stage.show();
     }
