@@ -29,11 +29,7 @@
                   <Label text="Welcome User" HBox.hgrow="ALWAYS" />
                   <Button fx:id="profileButton" mnemonicParsing="false" onMouseClicked="#switchToProfileSettings" text="Profile" HBox.hgrow="ALWAYS">
                      <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/images/AvatarProvisional.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="profileImage" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
                   <Button fx:id="menuButton" mnemonicParsing="false" text="Menu" HBox.hgrow="ALWAYS">

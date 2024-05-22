@@ -7,6 +7,8 @@ package javafxmlapplication;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,8 +25,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ToolBar;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Acount;
+import model.AcountDAOException;
+import model.User;
 
 /**
  * FXML Controller class
@@ -61,20 +67,30 @@ public class HomeController implements Initializable {
     private Button chargeManagerButtonToolBar;
     @FXML
     private Button categoryManagerButtonToolBar;
+    @FXML
+    private ImageView profileImage;
     
-    
+    private Acount account;
+    private User currentUser;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO 
+        try {
+            account = Acount.getInstance();
+        } catch (AcountDAOException | IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        currentUser = account.getLoggedUser();
         menuButton.setOnMouseClicked(event-> {
             visibleToolBar = !visibleToolBar;
             toolBar.setVisible(visibleToolBar);
            
         });
+        
+        profileImage.setImage(currentUser.getImage());
         
         /** 
         Menu lateral con animacion

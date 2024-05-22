@@ -45,7 +45,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="ALWAYS">
+            <Button mnemonicParsing="false" onAction="#imageButtonClick" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="ALWAYS">
                <graphic>
                   <ImageView fx:id="profileImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>

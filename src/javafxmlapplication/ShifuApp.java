@@ -9,6 +9,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
@@ -17,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 
@@ -50,11 +52,16 @@ public class ShifuApp extends Application {
         stage.setTitle("SHIFU");
         stage.initStyle(StageStyle.UNDECORATED);
         stage.getIcons().add(new Image(ShifuApp.class.getResourceAsStream("../resources/images/Logo.png")));
+        
+        
+        
+        stage.addEventHandler(WindowEvent.WINDOW_SHOWN, (WindowEvent event) -> {
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
+        });
         stage.setScene(scene);
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
-        this.stage = stage;
+        ShifuApp.stage = stage;
         pause.play();
         stage.show();
     }

@@ -10,10 +10,13 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.EventType;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,9 +25,18 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Popup;
+import javafx.stage.PopupWindow;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import model.Acount;
 import model.AcountDAOException;
 import model.User;
@@ -63,6 +75,7 @@ public class ProfileSettingsController implements Initializable {
     @FXML
     private ImageView profileImage;
     
+    private GridPane gp;
     /**
      * Initializes the controller class.
      */
@@ -80,6 +93,8 @@ public class ProfileSettingsController implements Initializable {
         surnameTextField.setText(currentUser.getSurname());
         nameTextField.setText(currentUser.getName());
         profileImage.setImage(currentUser.getImage());
+        
+        
         
     }    
 
@@ -119,5 +134,30 @@ public class ProfileSettingsController implements Initializable {
             languageMenuB.getItems().add(auxMenuItem);
         }
     }
+
+    @FXML
+    private void imageButtonClick(ActionEvent event) {
+        Parent proot = null;
+        try {
+            proot = FXMLLoader.load(getClass().getResource("ImagePopUp.fxml"), ShifuApp.getResourceBundle());
+            Stage pstage = new Stage();
+            proot.setOnKeyPressed( key -> {
+                if (key.getCode() == KeyCode.ESCAPE) {
+                    pstage.close();
+                }
+            });
+
+            Scene pscene = new Scene(proot);
+            
+            pstage.setScene(pscene);
+            pstage.initStyle(StageStyle.UNDECORATED);
+            pstage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
     
 }
