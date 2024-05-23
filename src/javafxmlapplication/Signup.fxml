@@ -30,7 +30,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="16.0" prefWidth="233.0" text="User already registered" textFill="RED" visible="false" VBox.vgrow="ALWAYS">
+                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="382.0" text="User already registered" textFill="RED" visible="false" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>

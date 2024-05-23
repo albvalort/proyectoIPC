@@ -89,11 +89,13 @@ public class SignupController implements Initializable {
     @FXML
     private Button logInButton;
 
+    private ResourceBundle rbundle;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        rbundle = rb;
         try {
             account = Acount.getInstance();
         } catch (AcountDAOException | IOException ex) {
@@ -145,7 +147,7 @@ public class SignupController implements Initializable {
     @FXML
     private void signUpUser(ActionEvent event) throws IOException, AcountDAOException {
         if(name.equals("") || username.equals("") || password.equals("") || mail.equals("") ) {
-            errorLabel.textProperty().set("Please fill all the fields");
+            errorLabel.textProperty().set(rbundle.getString("enterCredentials"));
             errorLabel.visibleProperty().set(true);
             return;
         }
@@ -154,7 +156,7 @@ public class SignupController implements Initializable {
             validUsername.setValue(Boolean.FALSE);
             showErrorMessage(errorLabel, usernameField);
             usernameField.requestFocus();
-            errorLabel.textProperty().set("Please enter a valid username");
+            errorLabel.textProperty().set(rbundle.getString("validUsername"));
             errorLabel.visibleProperty().set(true);
             return;
         }
@@ -167,7 +169,7 @@ public class SignupController implements Initializable {
             validPassword.setValue(Boolean.FALSE);
             showErrorMessage(errorLabel,passwordField);
             passwordField.requestFocus();
-            errorLabel.textProperty().set("Please enter a valid password");
+            errorLabel.textProperty().set(rbundle.getString("validPassword"));
             errorLabel.visibleProperty().set(true);
             return;
         }
@@ -180,7 +182,7 @@ public class SignupController implements Initializable {
             validEmail.setValue(Boolean.FALSE);
             showErrorMessage(errorLabel,mailField);
             mailField.requestFocus();
-            errorLabel.textProperty().set("Please enter a valid email");
+            errorLabel.textProperty().set(rbundle.getString("validEmail"));
             errorLabel.visibleProperty().set(true);
             return;
         }
@@ -188,38 +190,29 @@ public class SignupController implements Initializable {
         validEmail.setValue(Boolean.TRUE);
         hideErrorMessage(errorLabel,mailField);
         
-
-        if(!account.registerUser(name, "", mail, username, password, 
-            new Image("./resources/images/Avatar0.png") , LocalDate.now())){
-            errorLabel.textProperty().set("User already exists, please change the field");
+        try {
+            if(account.registerUser(name, "", mail, username, password, 
+                new Image("./resources/images/Avatar0.png") , LocalDate.now())){
+                
+                FXRouter.goTo("login");
+                    
+            }
+        } catch (AcountDAOException ex) {
+            errorLabel.textProperty().set(rbundle.getString("userExists"));
             errorLabel.visibleProperty().set(true);
-            return;
+            usernameField.clear();
+            usernameField.requestFocus();
         }
-
-        
-        root = FXMLLoader.load(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+               
     }
     
 
     @FXML
     private void switchToLogin(ActionEvent event) throws IOException{
-        root  = FXMLLoader.load(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("login");
     }
     
 //metodos para las restricciones de email y password 
-    private void manageCorrect(Label errorLabel,TextField textField, BooleanProperty boolProp ){
-        boolProp.setValue(Boolean.TRUE);
-        hideErrorMessage(errorLabel,textField);
-        
-    }
     
     private void showErrorMessage(Label errorLabel,TextField textField){
         errorLabel.visibleProperty().set(true);
@@ -280,7 +273,7 @@ public class SignupController implements Initializable {
     
     private void initializeMenuButton() {
         Locale[] availableLanguages = ShifuApp.availableLanguages;
-        ImageView imageMain = new ImageView("/resources/images/" + ShifuApp.getLocaleString() + ".png");
+        ImageView imageMain = new ImageView("/resources/images/" + FXRouter.getCurrentLocale() + ".png");
         imageMain.setFitWidth(30);
         imageMain.setFitHeight(20);
         languageMenuB.setGraphic(imageMain);
@@ -291,16 +284,8 @@ public class SignupController implements Initializable {
             image.setFitHeight(20);
             MenuItem auxMenuItem = new MenuItem("",image);
             auxMenuItem.onActionProperty().set(e -> {
-                ShifuApp.setLocale(auxLocale);
-                try {
-                    root = FXMLLoader.load(getClass().getResource("Signup.fxml"), ShifuApp.getResourceBundle());
-                } catch (IOException ex) {
-                    Logger.getLogger(SignupController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                stage = (Stage) languageMenuB.getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                FXRouter.setResourceBundle(auxLocale);
+                FXRouter.reload();
             });
             languageMenuB.getItems().add(auxMenuItem);
         }

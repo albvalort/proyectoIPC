@@ -92,25 +92,17 @@ public class LoginController implements Initializable {
             System.out.println(ex);
         }
         
-        root = FXMLLoader.load(getClass().getResource("Home.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("home");
     }
 
     @FXML
     private void switchToSignup(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Signup.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("signup");
     }
     
     private void initializeMenuButton() {
         Locale[] availableLanguages = ShifuApp.availableLanguages;
-        ImageView imageMain = new ImageView("/resources/images/" + ShifuApp.getLocaleString() + ".png");
+        ImageView imageMain = new ImageView("/resources/images/" + FXRouter.getCurrentLocale() + ".png");
         imageMain.setFitWidth(30);
         imageMain.setFitHeight(20);
         languageMenuB.setGraphic(imageMain);
@@ -121,16 +113,8 @@ public class LoginController implements Initializable {
             image.setFitHeight(20);
             MenuItem auxMenuItem = new MenuItem("",image);
             auxMenuItem.onActionProperty().set(e -> {
-                ShifuApp.setLocale(auxLocale);
-                try {
-                    root = FXMLLoader.load(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
-                } catch (IOException ex) {
-                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                stage = (Stage) languageMenuB.getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                FXRouter.setResourceBundle(auxLocale);
+                FXRouter.reload();
             });
             languageMenuB.getItems().add(auxMenuItem);
         }
