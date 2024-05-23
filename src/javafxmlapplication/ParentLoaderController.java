@@ -32,28 +32,6 @@ public class ParentLoaderController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            
-        try {
-            FXMLLoader authenticationLoader = new FXMLLoader(getClass().getResource("Login.fxml"), ShifuApp.getResourceBundle());
-            Parent root = authenticationLoader.load();
-            
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            PauseTransition pause = new PauseTransition(Duration.seconds(2));
-            pause.setOnFinished(e -> stage.show());
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.setTitle("Authenticacion | SHIFU");
-            pause.play();
-            
-        } catch (IOException ex) {
-            System.out.print(ex);
-        }
-        
-        
-        
-        
     }    
 
     

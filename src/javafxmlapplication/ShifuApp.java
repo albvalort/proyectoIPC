@@ -5,26 +5,36 @@
  */
 package javafxmlapplication;
 
+import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
-
+import model.Acount;
+import model.AcountDAOException;
+import model.User;
 
 public class ShifuApp extends Application {
     
-    private static Locale language = new Locale("en");
+    public static Acount account;
+    public static User currentUser;
+    
+   
     public static Locale[] availableLanguages = {
         new Locale("es"), 
         new Locale("de"), 
@@ -32,37 +42,31 @@ public class ShifuApp extends Application {
         new Locale("fr")
     };
     
-    public static Stage stage;
-    
     @Override
     public void start(Stage stage) throws Exception {
-        //======================================================================
-        // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader parentLoader = new FXMLLoader(getClass().getResource("ParentLoader.fxml"), getResourceBundle());
-        Parent root = parentLoader.load();
-        PauseTransition pause = new PauseTransition(Duration.seconds(2.0));
-        pause.setOnFinished(e -> stage.hide());
-        //======================================================================
-        // 2- creación de la escena con el nodo raiz del grafo de escena
-        Scene scene = new Scene(root);
-        //======================================================================
-        // 3- asiganación de la escena al Stage que recibe el metodo 
-        //     - configuracion del stage
-        //     - se muestra el stage de manera no modal mediante el metodo show()
-        stage.setTitle("SHIFU");
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.getIcons().add(new Image(ShifuApp.class.getResourceAsStream("../resources/images/Logo.png")));
+        FXRouter.setResourceBundle(new Locale("en"));
+        FXRouter.bind(this, stage, "SHIFU", 800, 600);
+        FXRouter.when("login", "Login.fxml");
+        FXRouter.when("signup", "Signup.fxml");
+        FXRouter.when("profile", "ProfileSettings.fxml");
+        FXRouter.when("home", "Home.fxml");
+        FXRouter.when("print", "Print.fxml");
+        FXRouter.when("chargeManager", "ChargeManager.fxml");
+
         
         
-        //CenterOnScreen
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
-        
-        stage.setScene(scene);
-        ShifuApp.stage = stage;        
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e -> {
+            try {
+                FXRouter.goTo("login");
+            } catch (IOException ex) {
+                System.out.println("Cannot show login");
+            }
+        });
+
         pause.play();
-        stage.show();
+        showLoadingScreen();
+        
     }
 
     /**
@@ -70,17 +74,34 @@ public class ShifuApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        try {
+            account = Acount.getInstance();
+        } catch (AcountDAOException | IOException ex) {
+            Logger.getLogger(ShifuApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 
-    public static ResourceBundle getResourceBundle() {
-        return ResourceBundle.getBundle("resources.language.UIResources", language);
-    }
-
-    public static void setLocale(Locale newLocale) {
-        language = newLocale;
-    }
-    public static String getLocaleString() {
-        return language.toString();
+    
+    private void showLoadingScreen() throws IOException {
+        FXMLLoader parentLoader = new FXMLLoader(getClass().getResource("ParentLoader.fxml"));
+        PauseTransition pause = new PauseTransition(Duration.seconds(2.0));
+        Stage loadingStage = new Stage();
+        pause.setOnFinished(e -> loadingStage.hide());
+        Scene scene = new Scene((Parent)parentLoader.load());
+        loadingStage.setTitle("SHIFU");
+        loadingStage.initStyle(StageStyle.UNDECORATED);
+        loadingStage.initModality(Modality.APPLICATION_MODAL);
+        loadingStage.getIcons().add(new Image(ShifuApp.class.getResourceAsStream("../resources/images/Logo.png")));
+        loadingStage.addEventHandler(WindowEvent.WINDOW_SHOWN, (WindowEvent event) -> {
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            loadingStage.setX((screenBounds.getWidth() - loadingStage.getWidth()) / 2);
+            loadingStage.setY((screenBounds.getHeight() - loadingStage.getHeight()) / 2);
+        });
+        
+        
+        loadingStage.setScene(scene);
+        pause.play();
+        loadingStage.show();
     }
 }
