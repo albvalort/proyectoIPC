@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.LoginController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.LoginController">
    <children>
       <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: E0E0E0;">
          <children>
@@ -87,7 +87,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="225.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#loginUser" prefHeight="50.0" prefWidth="200.0" text="%logIn" VBox.vgrow="ALWAYS">
+                  <Button fx:id="logInButton" mnemonicParsing="false" onAction="#loginUser" prefHeight="50.0" prefWidth="200.0" text="%logIn" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
@@ -100,7 +100,7 @@
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#switchToSignup" prefHeight="50.0" prefWidth="200.0" text="%signUp" VBox.vgrow="ALWAYS">
+                  <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="50.0" prefWidth="200.0" text="%signUp" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
                      </font>
