@@ -47,8 +47,6 @@ public class HomeController implements Initializable {
     
     
     @FXML
-    private Button selectCategoryButtonPreView;
-    @FXML
     private Button profileButton;
 
     //private AnchorPane pane1;
@@ -92,48 +90,6 @@ public class HomeController implements Initializable {
         
         profileImage.setImage(currentUser.getImage());
         
-        /** 
-        Menu lateral con animacion
-        pane1.setVisible(false);
-        
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5),pane1);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.play();
-        
-        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5), pane2);
-        translateTransition.setByX(+600);
-        translateTransition.play();
-        
-        menuButtonToolbar.setOnMouseClicked(event-> {
-            pane1.setVisible(true);
-            
-            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
-            fadeTransition1.setFromValue(0);
-            fadeTransition1.setToValue(0.75);
-            fadeTransition1.play();
-        
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), pane2);
-            translateTransition1.setByX(-600);
-            translateTransition1.play(); 
-            });
-        
-        pane1.setOnMouseClicked(event-> {
-            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
-            fadeTransition1.setFromValue(0.15);
-            fadeTransition1.setToValue(0);
-            fadeTransition1.play();
-            
-            fadeTransition1.setOnFinished(event1 -> {
-                pane1.setVisible(false);
-            });
-        
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), pane2);
-            translateTransition1.setByX(+600);
-            translateTransition1.play();     
-            
-        });
-        */
     }    
 
     @FXML
@@ -147,7 +103,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void switchToChargeManager(MouseEvent event) throws IOException {
+    private void switchToChargeManager(ActionEvent event) throws IOException {
         FXRouter.goTo("chargeManager");
     }
     

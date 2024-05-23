@@ -41,7 +41,7 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: lightgreen;" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" minHeight="75.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: lightgreen;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="305.0" text="%welcome" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                      <font>
@@ -89,7 +89,7 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#loginUser" prefHeight="50.0" prefWidth="200.0" text="%logIn" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets bottom="15.0" />
+                        <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                      <font>
                         <Font size="15.0" />
