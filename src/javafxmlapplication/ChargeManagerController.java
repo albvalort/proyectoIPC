@@ -41,11 +41,7 @@ public class ChargeManagerController implements Initializable {
 
     @FXML
     private void switchToHome(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Home.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("home");
     }
 
 }
