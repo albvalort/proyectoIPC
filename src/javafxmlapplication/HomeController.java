@@ -138,29 +138,17 @@ public class HomeController implements Initializable {
 
     @FXML
     private void switchToProfileSettings(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("profile");
     }
 
     @FXML
     private void switchToPrint(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Print.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("print");
     }
 
     @FXML
     private void switchToChargeManager(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"), ShifuApp.getResourceBundle());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("chargeManager");
     }
     
 

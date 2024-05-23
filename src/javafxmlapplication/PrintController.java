@@ -52,13 +52,6 @@ public class PrintController implements Initializable {
     private PDDocument doc;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        stage = ShifuApp.stage;
-        stage.widthProperty().addListener((obs, oldVal, newVal) -> {
-            System.out.print(oldVal);
-            if (oldVal != newVal) {
-                pdfCollectionResizer(((float)newVal/100.0f));
-            }
-        });
         scrollPane.prefWidthProperty().bindBidirectional(pdfViewerBox.prefWidthProperty());
         pdfCollector = new ArrayList<ImageView>();
         try {
@@ -81,11 +74,7 @@ public class PrintController implements Initializable {
 
     @FXML
     private void switchToHome(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.goTo("home");
     }
 
     
