@@ -2,23 +2,24 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.PrintController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.PrintController">
    <children>
-      <HBox alignment="CENTER" minHeight="75.0" prefHeight="75.0" prefWidth="800.0" style="-fx-background-color: E0E0E0;">
+      <HBox alignment="CENTER" minHeight="75.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;">
          <children>
-            <HBox prefHeight="75.0" prefWidth="100.0">
+            <HBox prefHeight="75.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,7 +28,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="1000.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label text="%print">
                      <font>
@@ -36,152 +37,95 @@
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="75.0" prefWidth="100.0" />
+            <HBox prefHeight="75.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox prefHeight="450.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="650.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox prefHeight="450.0" prefWidth="450.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER_LEFT" prefHeight="650.0" prefWidth="700.0" HBox.hgrow="ALWAYS">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="500.0" spacing="30.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label text="%numberOfCopies" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField maxWidth="50.0" prefHeight="35.0" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets right="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
+                  <Label text="%orientation">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="5.0" left="30.0" top="30.0" />
                      </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="500.0" spacing="30.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label text="%paperSize" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField maxWidth="50.0" prefHeight="35.0" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets right="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
+                  </Label>
+                  <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="340.0">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="15.0" left="30.0" />
                      </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="500.0" spacing="30.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label prefHeight="19.0" prefWidth="92.0" text="%orientation" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="110.0" text="%vertical" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </ToggleButton>
-                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="110.0" text="%horizontal" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets right="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </ToggleButton>
-                     </children>
+                  </MenuButton>
+                  <Label text="%color">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="500.0" spacing="30.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label text="%interval" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="MenuButton" HBox.hgrow="ALWAYS">
-                          <items>
-                              <CheckMenuItem mnemonicParsing="false" text="Yearly" />
-                              <CheckMenuItem mnemonicParsing="false" text="Monthly" />
-                              <CheckMenuItem mnemonicParsing="false" text="Daily" />
-                          </items>
-                           <HBox.margin>
-                              <Insets right="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </MenuButton>
-                     </children>
+                  </Label>
+                  <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="340.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                     </items>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="15.0" left="30.0" />
                      </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="500.0" spacing="30.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label prefHeight="19.0" prefWidth="97.0" text="%color" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" text="%colored" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </ToggleButton>
-                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" text="%uncolored" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets right="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </ToggleButton>
-                     </children>
+                  </MenuButton>
+                  <Label text="%startDate">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
+                  </Label>
+                  <DatePicker prefHeight="35.0" prefWidth="250.0">
+                     <VBox.margin>
+                        <Insets bottom="15.0" left="30.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <Label text="%finalDate">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <DatePicker prefHeight="35.0" prefWidth="250.0">
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="30.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <HBox alignment="CENTER_LEFT" prefHeight="260.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <TableView maxWidth="640.0" prefHeight="450.0" prefWidth="640.0" HBox.hgrow="ALWAYS">
+                           <columns>
+                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%cathegory" />
+                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%name" />
+                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%import" />
+                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%units" />
+                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%date" />
+                           </columns>
+                           <HBox.margin>
+                              <Insets bottom="30.0" left="30.0" right="30.0" />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="450.0" prefWidth="350.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="650.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
                <children>
                   <ScrollPane fx:id="scrollPane" fitToWidth="true" minViewportWidth="300.0" prefHeight="408.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
                      <content>
@@ -195,7 +139,7 @@
       </HBox>
       <HBox prefHeight="75.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="BOTTOM_LEFT" prefHeight="75.0" prefWidth="450.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="BOTTOM_LEFT" prefHeight="75.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
                <children>
                   <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#switchToHome" prefHeight="30.0" prefWidth="145.0" text="%back" HBox.hgrow="ALWAYS">
                      <HBox.margin>
@@ -207,7 +151,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="75.0" prefWidth="350.0" spacing="30.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="75.0" prefWidth="600.0" spacing="30.0" HBox.hgrow="ALWAYS">
                <children>
                   <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="145.0" text="%save" HBox.hgrow="ALWAYS">
                      <HBox.margin>

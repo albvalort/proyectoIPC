@@ -156,7 +156,7 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="775.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="725.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="525.0" prefWidth="600.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
