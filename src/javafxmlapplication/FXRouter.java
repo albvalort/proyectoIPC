@@ -73,8 +73,8 @@ public final class FXRouter {
         private String scenePath;
         // Scene (Stage) title
         private String windowTitle;
-        private double sceneWidth;
-        private double sceneHeight;
+        public double sceneWidth;
+        public double sceneHeight;
         // route data passed from goTo()
         private Object data;
 
@@ -224,7 +224,7 @@ public final class FXRouter {
 
         // load .fxml resource
         Parent resource = FXMLLoader.load(new Object() { }.getClass().getResource(scenePath), currentResourceBundle);
-
+        
         // set window title from route settings or default setting
         window.setTitle(route.windowTitle);
         // set new route scene

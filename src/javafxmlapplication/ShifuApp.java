@@ -46,12 +46,12 @@ public class ShifuApp extends Application {
     public void start(Stage stage) throws Exception {
         FXRouter.setResourceBundle(new Locale("en"));
         FXRouter.bind(this, stage, "SHIFU", 800, 600);
-        FXRouter.when("login", "Login.fxml");
-        FXRouter.when("signup", "Signup.fxml");
-        FXRouter.when("profile", "ProfileSettings.fxml");
-        FXRouter.when("home", "Home.fxml");
-        FXRouter.when("print", "Print.fxml");
-        FXRouter.when("chargeManager", "ChargeManager.fxml");
+        FXRouter.when("login", "Login.fxml", 800 ,600);
+        FXRouter.when("signup", "Signup.fxml", 800, 600);
+        FXRouter.when("profile", "ProfileSettings.fxml", 800, 600);
+        FXRouter.when("home", "Home.fxml", 1200, 800);
+        FXRouter.when("print", "Print.fxml", 1200, 800);
+        FXRouter.when("chargeManager", "ChargeManager.fxml", 650, 800);
 
         
         

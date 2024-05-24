@@ -67,7 +67,6 @@ public class LoginController implements Initializable {
         
     }    
     
-    
     //All methods
     
     @FXML
@@ -112,10 +111,12 @@ public class LoginController implements Initializable {
             image.setFitWidth(30);
             image.setFitHeight(20);
             MenuItem auxMenuItem = new MenuItem("",image);
+            auxMenuItem.setId("auxMenuCSS");
             auxMenuItem.onActionProperty().set(e -> {
                 FXRouter.setResourceBundle(auxLocale);
                 FXRouter.reload();
             });
+            //auxMenuItem.setStyle("auxMenuCSS");
             languageMenuB.getItems().add(auxMenuItem);
         }
     }

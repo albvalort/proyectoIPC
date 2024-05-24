@@ -220,39 +220,6 @@
 */
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 
-#logInButton{
-    -fx-text-fill:  lightgreen;
-    -fx-font-weight: bold;
-   -fx-border-color: #E0E0E0;
-   -fx-background-color:#E0E0E0;
-   -fx-text-fill:black;
-   -fx-font-size: 14px;
-}
-
-#logInButton:hover{     
-  -fx-background-color:  lightgreen;
-  -fx-text-fill:black;
-  -fx-font-weight:bold; 
-  -fx-font-size: 14px;
-}
-
-#signUpButton{
-    -fx-text-fill:  lightgreen;
-    -fx-font-weight: bold;
-   -fx-border-color: #E0E0E0;
-   -fx-background-color:#E0E0E0;
-   -fx-text-fill:black;
-   -fx-font-size: 14px;
-}
-
-#signUpButton:hover{     
-  -fx-background-color:  lightgreen;
-  -fx-text-fill:black;
-  -fx-font-weight:bold; 
-  -fx-font-size: 14px;
-}
-
-/*------------------------------------------------------------------------------------------------------------------------------------*/
 #red{
 
     -fx-background-color: linear-gradient(#ff5400,#be1d00);
@@ -359,7 +326,50 @@
 
 /*menu button*/
 #languageMenuB{
-    -fx-background-color: transparent
+    -fx-background-color: transparent;
+}
+
+/*aux menu button*/
+.context-menu{
+    -fx-background-color: transparent;
+}
+
+.menu-item:focused{
+    -fx-background-color: lightgreen;
+
+}
+
+.menu-bar, .context-menu, .menu-item {
+    -fx-effect: null;
+}
+
+/*login signup windows*/
+#logInButton{
+    -fx-text-fill:  lightgreen;
+   -fx-border-color: #E0E0E0;
+   -fx-background-color:#E0E0E0;
+   -fx-text-fill:black;
+   -fx-font-size: 14px;
+}
+
+#logInButton:hover{     
+  -fx-background-color:  lightgreen;
+  -fx-text-fill:black;
+  -fx-font-size: 14px;
+}
+
+#signUpButton{
+    -fx-text-fill:  lightgreen;
+   -fx-border-color: #E0E0E0;
+   -fx-background-color:#E0E0E0;
+   -fx-text-fill:black;
+   -fx-font-size: 14px;
+}
+
+#signUpButton:hover{     
+  -fx-background-color:  lightgreen;
+  -fx-text-fill:black;
+  -fx-font-size: 14px;
 }
 
 /*possible table view
