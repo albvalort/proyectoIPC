@@ -6,6 +6,11 @@ package javafxmlapplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
+import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,16 +25,29 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.Acount;
 import model.AcountDAOException;
+import model.Category;
+import model.Charge;
 import model.User;
 
 /**
@@ -39,20 +57,13 @@ import model.User;
  */
 public class HomeController implements Initializable {
     
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    
+
     private boolean visibleToolBar = false;
     
     
     @FXML
     private Button profileButton;
 
-    //private AnchorPane pane1;
-    //private AnchorPane pane2;
-    //private Button menu;
-    
     @FXML
     private Button menuButton;
     @FXML
@@ -70,14 +81,36 @@ public class HomeController implements Initializable {
     
     private Acount account;
     private User currentUser;
+    @FXML
+    private BarChart<String, Double> barChart;
+    @FXML
+    private TableView<Charge> tableViewHome;
+    @FXML
+    private TableColumn<Charge, String> nameColumn;
+    @FXML
+    private TableColumn<Charge, Number> unitsColumn;
+    @FXML
+    private TableColumn<Charge, Number> amountColumn;
+    
+    private ObservableList<Charge> data;
+    @FXML
+    private NumberAxis numberAxis;
+    @FXML
+    private CategoryAxis categoryAxis;
+    @FXML
+    private Label username;
+    
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ObservableList<Charge> dataValues = null;
+        data = FXCollections.observableArrayList();
         try {
             account = Acount.getInstance();
+            dataValues = FXCollections.observableArrayList(account.getUserCharges());
         } catch (AcountDAOException | IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -88,7 +121,52 @@ public class HomeController implements Initializable {
            
         });
         
+        username.setText(account.getLoggedUser().getNickName());
+        
         profileImage.setImage(currentUser.getImage());
+        tableViewHome.setItems(data);
+        
+        
+        nameColumn.setCellValueFactory(
+                chargeRow -> new SimpleStringProperty(chargeRow.getValue().getName())
+        );
+        
+        unitsColumn.setCellValueFactory(
+                chargeRow -> new SimpleDoubleProperty(chargeRow.getValue().getUnits())
+        );
+        
+        amountColumn.setCellValueFactory(
+                chargeRow -> new SimpleDoubleProperty(chargeRow.getValue().getCost())
+        );
+        
+        for (Charge charge: dataValues) {
+            if (charge.getDate().compareTo(LocalDate.now().minus(30, ChronoUnit.DAYS)) > 0) {
+                data.add(charge);
+            }
+            
+        }
+        
+        try {
+            for (Category cat: account.getUserCategories()) {
+                XYChart.Series serie = new XYChart.Series();
+                serie.setName(cat.getName());
+                var total = 0.0;
+                
+                for (Charge charge: data) {
+                    if (charge.getCategory().getName().equals(cat.getName())) {
+                        total += charge.getUnits() * charge.getCost();
+                        System.out.print(total);
+                    }
+                }
+                serie.getData().add(new XYChart.Data(cat.getName(), total));
+                barChart.getData().add(serie);
+            }
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
+        
         
     }    
 
@@ -105,6 +183,15 @@ public class HomeController implements Initializable {
     @FXML
     private void switchToChargeManager(ActionEvent event) throws IOException {
         FXRouter.goTo("chargeManager");
+    }
+
+    @FXML
+    private void switchToChargeManager(MouseEvent event) {
+    }
+
+    @FXML
+    private void addCharge(ActionEvent event) {
+
     }
     
 
