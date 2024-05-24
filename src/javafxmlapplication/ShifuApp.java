@@ -48,7 +48,7 @@ public class ShifuApp extends Application {
         FXRouter.bind(this, stage, "SHIFU", 800, 600);
         FXRouter.when("login", "Login.fxml", 800 ,600);
         FXRouter.when("signup", "Signup.fxml", 800, 600);
-        FXRouter.when("profile", "ProfileSettings.fxml", 800, 600);
+        FXRouter.when("profile", "ProfileSettings.fxml", 1200, 800);
         FXRouter.when("home", "Home.fxml", 1200, 800);
         FXRouter.when("print", "Print.fxml", 1200, 800);
         FXRouter.when("chargeManager", "ChargeManager.fxml", 650, 800);

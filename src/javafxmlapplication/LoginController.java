@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -110,13 +111,12 @@ public class LoginController implements Initializable {
             ImageView image = new ImageView("/resources/images/" + auxLocale.toString() + ".png");
             image.setFitWidth(30);
             image.setFitHeight(20);
-            MenuItem auxMenuItem = new MenuItem("",image);
-            auxMenuItem.setId("auxMenuCSS");
+            MenuItem auxMenuItem = new MenuItem();
+            auxMenuItem.setGraphic(image);
             auxMenuItem.onActionProperty().set(e -> {
                 FXRouter.setResourceBundle(auxLocale);
                 FXRouter.reload();
             });
-            //auxMenuItem.setStyle("auxMenuCSS");
             languageMenuB.getItems().add(auxMenuItem);
         }
     }
