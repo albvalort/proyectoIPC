@@ -159,7 +159,7 @@
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
-
+/*
 #signUpButton {
     -fx-background-color:
             linear-gradient(#ffd65b, #e68400),
@@ -217,22 +217,39 @@
     -fx-font-size: 14px;
     -fx-padding: 10 20 10 20;
 }
-
+*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 
-#redline{
-    -fx-text-fill: red;
-    -fx-font-family: "Arial Narrow";
+#logInButton{
+    -fx-text-fill:  lightgreen;
     -fx-font-weight: bold;
-   -fx-border-color:red;
-   -fx-background-color:null;
+   -fx-border-color: #E0E0E0;
+   -fx-background-color:#E0E0E0;
+   -fx-text-fill:black;
+   -fx-font-size: 14px;
 }
 
-#redline:hover{     
-  -fx-background-color: red;
-  -fx-text-fill:white;
+#logInButton:hover{     
+  -fx-background-color:  lightgreen;
+  -fx-text-fill:black;
   -fx-font-weight:bold; 
- 
+  -fx-font-size: 14px;
+}
+
+#signUpButton{
+    -fx-text-fill:  lightgreen;
+    -fx-font-weight: bold;
+   -fx-border-color: #E0E0E0;
+   -fx-background-color:#E0E0E0;
+   -fx-text-fill:black;
+   -fx-font-size: 14px;
+}
+
+#signUpButton:hover{     
+  -fx-background-color:  lightgreen;
+  -fx-text-fill:black;
+  -fx-font-weight:bold; 
+  -fx-font-size: 14px;
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/
@@ -317,8 +334,8 @@
 }
 /*textfields*/
  .text-field{
-	-fx-primary-color: #007acc;
-	-fx-secondary-color: #4B6EAF;
+	-fx-primary-color: #00CD00;
+	-fx-secondary-color: #5CB04B;
 	-fx-grey-color: #b9b9b9;
     
 	-fx-focus-color: -fx-secondary-color;
@@ -338,6 +355,11 @@
 .separator:horizontal{
     -fx-border-color:rgb(160,160,160);
     -fx-border-width: 0.5;
+}
+
+/*menu button*/
+.menu-button{
+    -fx-background-color: transparent
 }
 
 /*possible table view

@@ -58,24 +58,24 @@
                   <MenuButton fx:id="languageMenuB" alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="270.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="270.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label prefHeight="17.0" prefWidth="267.0" text="%username" VBox.vgrow="ALWAYS">
+                  <Label prefHeight="17.0" prefWidth="340.0" text="%username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets bottom="5.0" left="30.0" />
+                        <Insets bottom="5.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameField" onKeyTyped="#usernameInput" prefHeight="35.0" prefWidth="200.0" promptText="%username" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="usernameField" maxWidth="340.0" onKeyTyped="#usernameInput" prefHeight="35.0" prefWidth="340.0" promptText="%username" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label prefHeight="17.0" prefWidth="284.0" text="%password" VBox.vgrow="ALWAYS">
+                  <Label prefHeight="17.0" prefWidth="340.0" text="%password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets bottom="5.0" left="30.0" />
+                        <Insets bottom="5.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="passwordField" onKeyTyped="#passwordInput" prefHeight="35.0" prefWidth="200.0" promptText="%password" VBox.vgrow="ALWAYS">
+                  <PasswordField fx:id="passwordField" maxWidth="340.0" onKeyTyped="#passwordInput" prefHeight="35.0" prefWidth="340.0" promptText="%password" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>

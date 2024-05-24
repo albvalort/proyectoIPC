@@ -57,7 +57,7 @@ public class ImagePopUpController implements Initializable {
         
         
         for (int i = 0; i < 8; i++) {
-            Image image = new Image("/resources/images/avatar" + i + ".png");
+            Image image = new Image("/resources/images/Avatar" + i + ".png");
             ImageView imageV= new ImageView(image);
             imageV.setFitWidth(100);
             imageV.setFitHeight(100);
