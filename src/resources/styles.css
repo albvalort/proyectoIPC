@@ -301,6 +301,21 @@
 }
 
 /*normal buttons*/
+
+.button{
+    -fx-text-fill:  lightgreen;
+   -fx-border-color: #E0E0E0;
+   -fx-background-color:#E0E0E0;
+   -fx-text-fill:black;
+   -fx-font-size: 15px;
+}
+
+.button:hover{     
+  -fx-background-color:  lightgreen;
+  -fx-text-fill:black;
+  -fx-font-size: 15px;
+}
+/*
 .button {
     -fx-background-color:
             #707070,
@@ -314,14 +329,15 @@
 
 .button:hover {
     -fx-background-color:
-            #3c7fb1,
-            linear-gradient(#fafdfe, #e8f5fc),
-            linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+            #3CB044,
+            linear-gradient(#FBFFFA, #EBFDE9),
+            linear-gradient(#E9FDEC 0%, #E1FDDA 49%, #C2FDBE 50%, #ACF6A7 100%);
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-text-fill: black;
     -fx-font-size: 15px;
 }
+/*
 /*textfields*/
  .text-field{
 	-fx-primary-color: #00CD00;
@@ -353,25 +369,17 @@
 }
 
 .menu-button{
-    -fx-background-color:
-            #707070,
-            linear-gradient(#fcfcfc, #f3f3f3),
-            linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
-    -fx-background-insets: 0,1,2;
-    -fx-background-radius: 3,2,1;
-    -fx-text-fill: black;
-    -fx-font-size: 15px;
+    -fx-text-fill:  lightgreen;
+   -fx-border-color: #E0E0E0;
+   -fx-background-color:#E0E0E0;
+   -fx-text-fill:black;
+   -fx-font-size: 15px;
 }
 
 .menu-button:hover{
-    -fx-background-color:
-            #3c7fb1,
-            linear-gradient(#fafdfe, #e8f5fc),
-            linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
-    -fx-background-insets: 0,1,2;
-    -fx-background-radius: 3,2,1;
-    -fx-text-fill: black;
-    -fx-font-size: 15px;
+    -fx-background-color:  lightgreen;
+  -fx-text-fill:black;
+  -fx-font-size: 15px;
 }
 
 /*aux menu button*/
@@ -391,13 +399,13 @@
    -fx-border-color: #E0E0E0;
    -fx-background-color:#E0E0E0;
    -fx-text-fill:black;
-   -fx-font-size: 14px;
+   -fx-font-size: 15px;
 }
 
 #logInButton:hover{     
   -fx-background-color:  lightgreen;
   -fx-text-fill:black;
-  -fx-font-size: 14px;
+  -fx-font-size: 15px;
 }
 
 #signUpButton{
@@ -405,13 +413,13 @@
    -fx-border-color: #E0E0E0;
    -fx-background-color:#E0E0E0;
    -fx-text-fill:black;
-   -fx-font-size: 14px;
+   -fx-font-size: 15px;
 }
 
 #signUpButton:hover{     
   -fx-background-color:  lightgreen;
   -fx-text-fill:black;
-  -fx-font-size: 14px;
+  -fx-font-size: 15px;
 }
 
 /*possible table view
