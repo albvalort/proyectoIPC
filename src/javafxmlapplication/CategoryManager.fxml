@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="650.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ChargeManagerController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="650.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CategoryManagerController">
    <children>
       <HBox minHeight="75.0" prefHeight="75.0" prefWidth="650.0" style="-fx-background-color: E0E0E0;">
          <children>
@@ -27,7 +27,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="%chargeManager">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="%cathegoryManager">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -41,7 +41,7 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="775.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="675.0" prefWidth="650.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" prefHeight="675.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                      <children>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="650.0">
                            <children>
@@ -66,32 +66,8 @@
                                     </MenuButton>
                                  </children>
                               </VBox>
-                              <Button fx:id="categoryButton" mnemonicParsing="false" onAction="#openCategoryManager" prefHeight="35.0" prefWidth="155.0" text="%addCathegory" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets bottom="15.0" right="30.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Button>
                            </children>
                         </HBox>
-                        <Label prefWidth="340.0" text="%title" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%title" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets bottom="15.0" left="30.0" right="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
                         <Label prefWidth="340.0" text="%name" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
@@ -108,43 +84,11 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Label prefWidth="340.0" text="%units" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%units" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets bottom="15.0" left="30.0" right="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <Label prefWidth="340.0" text="%date" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%date" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
                      </children>
                   </VBox>
                   <VBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="650.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToHome" onMouseClicked="#switchToHome" prefHeight="30.0" prefWidth="160.0" text="%back" VBox.vgrow="ALWAYS">
+                        <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#closeCategoryManager" prefHeight="30.0" prefWidth="160.0" text="%back" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="30.0" left="30.0" right="230.0" top="30.0" />
                            </VBox.margin>
@@ -156,7 +100,7 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="725.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="775.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="525.0" prefWidth="600.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
@@ -176,30 +120,11 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Label maxWidth="1.7976931348623157E308" text="%addImage" textAlignment="RIGHT">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <padding>
-                              <Insets right="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets left="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%selectImage">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="30.0" />
-                           </VBox.margin>
-                        </Button>
                      </children>
                   </VBox>
                   <VBox alignment="BOTTOM_RIGHT" prefHeight="125.0" prefWidth="100.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%addEditCharge">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%addEditCathegory">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -207,7 +132,7 @@
                               <Insets bottom="15.0" right="30.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%deleteCharge">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%deleteCathegory">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -217,7 +142,8 @@
                         </Button>
                      </children>
                   </VBox>
-               </children></VBox>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>
