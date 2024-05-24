@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -31,6 +33,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.PopupWindow;
 import javafx.stage.Screen;
@@ -76,6 +79,8 @@ public class ProfileSettingsController implements Initializable {
     private ImageView profileImage;
     
     private GridPane gp;
+    @FXML
+    private VBox profileBox;
     /**
      * Initializes the controller class.
      */
@@ -93,6 +98,18 @@ public class ProfileSettingsController implements Initializable {
         surnameTextField.setText(currentUser.getSurname());
         nameTextField.setText(currentUser.getName());
         profileImage.setImage(currentUser.getImage());
+        
+        saveButton.setOnAction(event -> {
+           
+            Alert saveWarning = new Alert(Alert.AlertType.INFORMATION);
+            saveWarning.setTitle("Shifu");
+            saveWarning.setHeaderText("Thank you");
+            saveWarning.setContentText("Your information has been updated");
+            saveWarning.showAndWait();
+            
+             
+            FXRouter.reload();   
+        });
         
         
         
@@ -140,6 +157,9 @@ public class ProfileSettingsController implements Initializable {
             pstage.setScene(pscene);
             pstage.initStyle(StageStyle.UNDECORATED);
             pstage.show();
+            
+            profileBox.setDisable(true);
+            
         } catch (IOException ex) {
             Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
         }

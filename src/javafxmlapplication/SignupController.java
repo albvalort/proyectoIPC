@@ -48,6 +48,7 @@ public class SignupController implements Initializable {
     private String username = "";
     private String password = "";
     private String name = "";
+    private String surname = "";
     private String mail = "";
 
     private Acount account;
@@ -146,7 +147,7 @@ public class SignupController implements Initializable {
 
     @FXML
     private void signUpUser(ActionEvent event) throws IOException, AcountDAOException {
-        if(name.equals("") || username.equals("") || password.equals("") || mail.equals("") ) {
+        if(name.equals("") || username.equals("") || password.equals("") || mail.equals("") || surname.equals("") ) {
             errorLabel.textProperty().set(rbundle.getString("enterCredentials"));
             errorLabel.visibleProperty().set(true);
             return;
