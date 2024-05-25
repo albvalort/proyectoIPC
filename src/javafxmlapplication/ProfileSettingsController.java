@@ -95,6 +95,9 @@ public class ProfileSettingsController implements Initializable {
     @FXML
     private Button confirmButton;
     
+    private String currentPassword;
+    private String oldPassword;
+    private String newPassword;
     
     /**
      * Initializes the controller class.
@@ -118,41 +121,29 @@ public class ProfileSettingsController implements Initializable {
         validPassword = new SimpleBooleanProperty();
         validPassword.setValue(Boolean.FALSE);
         
+        //Esto es un boton nuevo, para implementar que la contraseña OLD coincida con la CURRENT y que CURRENT sea valida 
+        //tres variables, CURRENT, OLD, NEW
+        
+        currentPassword = currentUser.getPassword();
+        oldPassword = oldPasswordTextField.getText();
+        newPassword = newPasswordTextField.getText();
+        
         confirmButton.setOnAction(event ->{
-            //no va
-            
-            if (oldPasswordTextField.getText() == currentUser.getPassword()) {
-                currentUser.setPassword(newPasswordTextField.getText());
-                
-                validPassword.setValue(Boolean.TRUE);
-                hideErrorMessage(errorLabel,newPasswordTextField);
-                
-            }else{
+            if(!checkPassword(newPassword) && currentPassword != oldPassword){
                 validPassword.setValue(Boolean.FALSE);
                 showErrorMessage(errorLabel, newPasswordTextField);
                 newPasswordTextField.requestFocus();
-                errorLabel.setText("Write your correct old password well");
-                errorLabel.visibleProperty().set(true);
-            }
-                    
-            if(!checkPassword(newPasswordTextField.getText())){
-                validPassword.setValue(Boolean.FALSE);
-                showErrorMessage(errorLabel, newPasswordTextField);
-                newPasswordTextField.requestFocus();
-                errorLabel.setText("Your password is not permited");
+                errorLabel.setText("Check your password");
                 errorLabel.visibleProperty().set(true);
             }else{
                 validPassword.setValue(Boolean.TRUE);
                 hideErrorMessage(errorLabel,newPasswordTextField);
+                currentUser.setPassword(newPassword);
             }
         
         });
         
-        //oldPasswordTextField.focusedProperty().addListener((observalble,oldValue,newValue)-> {
-            //if(newValue.toString() == currentUser.getPassword()) confirmButton.setDisable(false);
-           //else confirmButton.setDisable(false);
-            
-        //});
+        
                 
                 
             
