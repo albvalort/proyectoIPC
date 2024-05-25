@@ -23,9 +23,7 @@ import javafx.stage.Stage;
  * @author migue
  */
 public class CategoryManagerController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    
     @FXML
     private Button backButton;
 
@@ -42,7 +40,7 @@ public class CategoryManagerController implements Initializable {
     @FXML
     private void closeCategoryManager(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-       stage.close();
+        stage.close();
     }
 
     

@@ -42,7 +42,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Acount;
 import model.AcountDAOException;
@@ -191,7 +193,26 @@ public class HomeController implements Initializable {
 
     @FXML
     private void addCharge(ActionEvent event) {
+        Parent proot = null;
+        try {
+            proot = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"), FXRouter.getResourceBundle());
+            Stage pstage = new Stage();
+            proot.setOnKeyPressed( key -> {
+                if (key.getCode() == KeyCode.ESCAPE) {
+                    pstage.close();
+                }
+            });
 
+            Scene pscene = new Scene(proot);
+            
+            pstage.setScene(pscene);
+            pstage.initStyle(StageStyle.UNDECORATED);
+            pstage.show();
+
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 
