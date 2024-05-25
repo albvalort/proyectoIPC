@@ -192,7 +192,7 @@ public class SignupController implements Initializable {
         hideErrorMessage(errorLabel,mailField);
         
         try {
-            if(account.registerUser(name, "", mail, username, password, 
+            if(account.registerUser(name, surname, mail, username, password, 
                 new Image("./resources/images/Avatar0.png") , LocalDate.now())){
                 
                 FXRouter.goTo("login");
@@ -232,7 +232,7 @@ public class SignupController implements Initializable {
         if(email == null){
           return false; 
         }
-       // Regex to check valid email. 
+       // Regex to check valid username. 
         String regex = "^\\S*$";
         // Compile the ReGex 
         Pattern pattern = Pattern.compile(regex);
