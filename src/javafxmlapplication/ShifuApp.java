@@ -39,7 +39,8 @@ public class ShifuApp extends Application {
         new Locale("es"), 
         new Locale("de"), 
         new Locale("en"), 
-        new Locale("fr")
+        new Locale("fr"),
+        new Locale("cat")
     };
     
     @Override

@@ -43,6 +43,7 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import static javafx.scene.paint.Color.color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.Acount;
@@ -98,6 +99,10 @@ public class HomeController implements Initializable {
     private Label username;
     @FXML
     private VBox lateralMenu;
+    @FXML
+    private VBox mainHome;
+    @FXML
+    private Button logOutButton;
     
     
     /**
@@ -132,6 +137,7 @@ public class HomeController implements Initializable {
         amountColumn.setCellValueFactory(
                 chargeRow -> new SimpleDoubleProperty(chargeRow.getValue().getCost())
         );
+
         
         for (Charge charge: dataValues) {
             if (charge.getDate().compareTo(LocalDate.now().minus(30, ChronoUnit.DAYS)) > 0) {
@@ -158,11 +164,9 @@ public class HomeController implements Initializable {
         } catch (AcountDAOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        
-        
-        
     }    
+    
+    
     
     @FXML
     private void toggleMenu(MouseEvent event) throws IOException {
@@ -176,18 +180,22 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void switchToPrint(MouseEvent event) throws IOException {
-        FXRouter.goTo("print");
-    }
-
-    @FXML
     private void addCharge(ActionEvent event) {
 
+    }
+    
+    @FXML private void switchToLogin(ActionEvent event) throws IOException {
+        FXRouter.goTo("login");
     }
 
     @FXML
     private void switchToChargeManager(ActionEvent event) throws IOException {
         FXRouter.goTo("chargeManager");
+    }
+
+    @FXML
+    private void switchToPrint(ActionEvent event) throws IOException {
+         FXRouter.goTo("print");
     }
     
 

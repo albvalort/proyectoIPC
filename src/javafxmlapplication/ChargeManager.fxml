@@ -76,22 +76,6 @@
                               </Button>
                            </children>
                         </HBox>
-                        <Label prefWidth="340.0" text="%title" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField prefHeight="35.0" prefWidth="340.0" promptText="%title" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets bottom="15.0" left="30.0" right="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
                         <Label prefWidth="340.0" text="%name" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="15.0" />
@@ -168,7 +152,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField alignment="TOP_LEFT" prefHeight="150.0" prefWidth="340.0" promptText="%description" VBox.vgrow="ALWAYS">
+                        <TextField alignment="TOP_LEFT" prefHeight="125.0" prefWidth="340.0" promptText="%description" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="5.0" left="30.0" right="30.0" />
                            </VBox.margin>

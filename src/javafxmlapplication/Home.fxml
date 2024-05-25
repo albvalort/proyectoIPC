@@ -17,9 +17,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.HomeController">
    <children>
-      <StackPane alignment="CENTER_RIGHT" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
+      <StackPane alignment="BOTTOM_RIGHT" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0">
+            <VBox fx:id="mainHome" onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0">
                <children> 
                   <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
                      <children>
@@ -87,23 +87,23 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="85.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#addCharge" prefHeight="61.0" prefWidth="123.0" text="AddCharge">
+                                    <Button mnemonicParsing="false" onAction="#addCharge" prefHeight="50.0" prefWidth="160.0" text="AddCharge">
                                        <HBox.margin>
-                                          <Insets left="30.0" />
+                                          <Insets left="30.0" top="30.0" />
                                        </HBox.margin>
                                     </Button>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="509.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+                              <HBox alignment="CENTER" prefHeight="509.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <TableView fx:id="tableViewHome" prefHeight="441.0" prefWidth="547.0" HBox.hgrow="ALWAYS">
+                                    <TableView fx:id="tableViewHome" prefHeight="450.0" prefWidth="550.0" HBox.hgrow="ALWAYS">
                                       <columns>
                                         <TableColumn fx:id="nameColumn" prefWidth="298.0" text="Name" />
                                           <TableColumn fx:id="unitsColumn" minWidth="0.0" prefWidth="109.0" text="Units" />
                                           <TableColumn fx:id="amountColumn" minWidth="0.0" prefWidth="139.0" text="Amount" />
                                       </columns>
                                        <HBox.margin>
-                                          <Insets bottom="30.0" left="30.0" right="15.0" />
+                                          <Insets bottom="30.0" left="30.0" right="15.0" top="20.0" />
                                        </HBox.margin>
                                     </TableView>
                                  </children>
@@ -129,7 +129,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="lateralMenu" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="300.0" prefWidth="300.0" spacing="50.0" style="-fx-background-color: #A0A0A0;" visible="false">
+            <VBox fx:id="lateralMenu" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="320.0" prefWidth="300.0" spacing="50.0" style="-fx-background-color: A0A0A0;" visible="false">
                <children>
                   <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onAction="#switchToChargeManager" onMouseClicked="#switchToChargeManager" prefHeight="60.0" prefWidth="200.0" text="%chargeManager">
                      <font>
@@ -149,12 +149,24 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="printButtonToolBar" mnemonicParsing="false" onMouseClicked="#switchToPrint" prefHeight="60.0" prefWidth="200.0" text="%print">
+                  <Button fx:id="printButtonToolBar" mnemonicParsing="false" onAction="#switchToPrint" onMouseClicked="#switchToPrint" prefHeight="60.0" prefWidth="200.0" text="%print">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="235.0" prefWidth="320.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="60.0" prefWidth="200.0" text="%logOut">
+                           <VBox.margin>
+                              <Insets bottom="50.0" left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
                </children>
+               <StackPane.margin>
+                  <Insets top="75.0" />
+               </StackPane.margin>
             </VBox>
          </children>
       </StackPane>
