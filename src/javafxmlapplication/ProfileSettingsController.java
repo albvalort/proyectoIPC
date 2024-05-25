@@ -56,11 +56,11 @@ import model.User;
  * @author migue
  */
 public class ProfileSettingsController implements Initializable {
-    
+
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
     @FXML
     private Button backButton;
     @FXML
@@ -83,97 +83,113 @@ public class ProfileSettingsController implements Initializable {
     private TextField nameTextField;
     @FXML
     private ImageView profileImage;
-    
+
     private GridPane gp;
     @FXML
     private VBox profileBox;
-    
+
     private BooleanProperty validPassword;
-    
+
     @FXML
     private Label errorLabel;
     @FXML
     private Button confirmButton;
-    
+
     private String currentPassword;
     private String oldPassword;
     private String newPassword;
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // confirmButton.setDisable(true);
+        errorLabel.visibleProperty().set(false);
         initializeMenuButton();
         try {
             currentUser = Acount.getInstance().getLoggedUser();
         } catch (AcountDAOException | IOException ex) {
             Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         usernameTextField.setText(currentUser.getNickName());
         mailTextField.setText(currentUser.getEmail());
         surnameTextField.setText(currentUser.getSurname());
         nameTextField.setText(currentUser.getName());
         profileImage.setImage(currentUser.getImage());
-        
+
         validPassword = new SimpleBooleanProperty();
         validPassword.setValue(Boolean.FALSE);
-        
+
         //Esto es un boton nuevo, para implementar que la contraseña OLD coincida con la CURRENT y que CURRENT sea valida 
         //tres variables, CURRENT, OLD, NEW
-        
-        currentPassword = currentUser.getPassword();
-        oldPassword = oldPasswordTextField.getText();
-        newPassword = newPasswordTextField.getText();
-        
-        confirmButton.setOnAction(event ->{
-            if(!checkPassword(newPassword) && currentPassword != oldPassword){
+        confirmButton.setOnAction(event -> {
+            currentPassword = currentUser.getPassword();
+            oldPassword = oldPasswordTextField.getText();
+            newPassword = newPasswordTextField.getText();
+
+            if (!currentPassword.equals(oldPassword)) {
+                validPassword.setValue(Boolean.FALSE);
+                showErrorMessage(errorLabel, oldPasswordTextField);
+                oldPasswordTextField.requestFocus();
+                errorLabel.setText("The password is not your current password");
+                errorLabel.visibleProperty().set(true);
+                return;
+            }
+
+            if (!checkPassword(newPassword)) {
                 validPassword.setValue(Boolean.FALSE);
                 showErrorMessage(errorLabel, newPasswordTextField);
                 newPasswordTextField.requestFocus();
-                errorLabel.setText("Check your password");
+                errorLabel.setText("Check your new password");
                 errorLabel.visibleProperty().set(true);
-            }else{
-                validPassword.setValue(Boolean.TRUE);
-                hideErrorMessage(errorLabel,newPasswordTextField);
-                currentUser.setPassword(newPassword);
+                return;
             }
-        
+
+            if (oldPassword.equals(newPassword)) {
+                validPassword.setValue(Boolean.FALSE);
+                showErrorMessage(errorLabel, newPasswordTextField);
+                newPasswordTextField.requestFocus();
+                errorLabel.setText("The password cannot be the same");
+                errorLabel.visibleProperty().set(true);
+                return;
+            }
+
+            currentUser.setPassword(newPassword);
+            validPassword.setValue(Boolean.TRUE);
+            hideErrorMessage(errorLabel, newPasswordTextField);
+            hideErrorMessage(errorLabel, oldPasswordTextField);
+
+            errorLabel.setText("The password has been changed");
+            errorLabel.visibleProperty().set(true);
+
+            newPasswordTextField.clear();
+            oldPasswordTextField.clear();
+
         });
-        
-        
-                
-                
-            
-        
-        
+
         saveButton.setOnAction(event -> {
-            
+
             Alert saveWarning = new Alert(Alert.AlertType.INFORMATION);
             saveWarning.setTitle("Shifu");
             saveWarning.setHeaderText("Thank you!");
             saveWarning.setContentText("Your information has been updated");
             saveWarning.showAndWait();
-            
+
             currentUser.setEmail(mailTextField.getText());
             currentUser.setName(nameTextField.getText());
             currentUser.setSurname(surnameTextField.getText());
-            
-            
-            FXRouter.reload();   
+
+            FXRouter.reload();
         });
-        
-        
-        
-    }    
+
+    }
 
     @FXML
     private void switchToHome(MouseEvent event) throws IOException {
         FXRouter.goTo("home");
     }
-    
+
     private void initializeMenuButton() {
         Locale[] availableLanguages = ShifuApp.availableLanguages;
         ImageView imageMain = new ImageView("/resources/images/" + FXRouter.getCurrentLocale() + ".png");
@@ -185,7 +201,7 @@ public class ProfileSettingsController implements Initializable {
             ImageView image = new ImageView("/resources/images/" + auxLocale.toString() + ".png");
             image.setFitWidth(30);
             image.setFitHeight(20);
-            MenuItem auxMenuItem = new MenuItem("",image);
+            MenuItem auxMenuItem = new MenuItem("", image);
             auxMenuItem.onActionProperty().set(e -> {
                 FXRouter.setResourceBundle(auxLocale);
                 FXRouter.reload();
@@ -200,55 +216,53 @@ public class ProfileSettingsController implements Initializable {
         try {
             proot = FXMLLoader.load(getClass().getResource("ImagePopUp.fxml"), FXRouter.getResourceBundle());
             Stage pstage = new Stage();
-            proot.setOnKeyPressed( key -> {
+            proot.setOnKeyPressed(key -> {
                 if (key.getCode() == KeyCode.ESCAPE) {
                     pstage.close();
                 }
             });
 
             Scene pscene = new Scene(proot);
-            
+
             pstage.setScene(pscene);
             pstage.initStyle(StageStyle.UNDECORATED);
             pstage.show();
-            
+
             profileBox.setDisable(true);
-            
+
         } catch (IOException ex) {
             Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
-    
-    public static Boolean checkPassword(String password){     
-  
-        // If the password is empty , return false 
-        if (password == null) { 
-            return false; 
-        } 
-        // Regex to check valid password. 
-        String regex =  "^[A-Za-z0-9]{7,16}$"; 
-  
-        // Compile the ReGex 
-        Pattern pattern = Pattern.compile(regex); 
-        // Match ReGex with value to check
-        Matcher matcher = pattern.matcher(password); 
-        return matcher.matches();
-    
+
     }
 
-    private void showErrorMessage(Label errorLabel,TextField textField){
-        errorLabel.visibleProperty().set(true);
-        textField.styleProperty().setValue("-fx-background-color: #FCE5E0");    
-    
+    public static Boolean checkPassword(String password) {
+
+        // If the password is empty , return false 
+        if (password == null) {
+            return false;
+        }
+        // Regex to check valid password. 
+        String regex = "^[A-Za-z0-9]{7,16}$";
+
+        // Compile the ReGex 
+        Pattern pattern = Pattern.compile(regex);
+        // Match ReGex with value to check
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+
     }
-    
-    private void hideErrorMessage(Label errorLabel,TextField textField){
+
+    private void showErrorMessage(Label errorLabel, TextField textField) {
+        errorLabel.visibleProperty().set(true);
+        textField.styleProperty().setValue("-fx-background-color: #FCE5E0");
+
+    }
+
+    private void hideErrorMessage(Label errorLabel, TextField textField) {
         errorLabel.visibleProperty().set(false);
         textField.styleProperty().setValue("");
-        
+
     }
-    
-    
-    
+
 }
