@@ -136,9 +136,9 @@ public class ChargeManagerController implements Initializable {
                 var priceUnit = price.getValue();
                 var quantityUnits = quantity.getValue();
                 
-                if (!account.registerCharge(nameEdit.getText(),
+                if (!account.registerCharge(name.getText(),
                         descriptionEdit.getText(),
-                        0, 0, scannedImage, datePicker.getValue(),
+                        price.getValue(), quantity.getValue().intValue(), scannedImage, datePicker.getValue(),
                         selectedCategory)) {
                     //dialog error
                     return;
