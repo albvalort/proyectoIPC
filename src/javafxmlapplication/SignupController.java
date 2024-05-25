@@ -78,8 +78,6 @@ public class SignupController implements Initializable {
     @FXML
     private Label NameLabel1;
     @FXML
-    private TextField nameField1;
-    @FXML
     private Label mailLabel;
     @FXML
     private TextField mailField;
@@ -91,6 +89,8 @@ public class SignupController implements Initializable {
     private Button logInButton;
 
     private ResourceBundle rbundle;
+    @FXML
+    private TextField surnameField;
     /**
      * Initializes the controller class.
      */
@@ -114,11 +114,8 @@ public class SignupController implements Initializable {
         validUsername = new SimpleBooleanProperty();
         validUsername.setValue(Boolean.FALSE);
         
-        /**      
-                BooleanBinding validFields = Bindings.and(validEmail, validPassword)
-                 .and(equalPasswords);
         
-        */
+        
         
     }    
     
@@ -138,6 +135,11 @@ public class SignupController implements Initializable {
     @FXML
     private void nameInput(KeyEvent event) {
         name = nameField.getText();
+    }
+    
+    @FXML
+    private void surnameInput(KeyEvent event) {
+        surname = surnameField.getText();
     }
 
     @FXML
@@ -192,7 +194,7 @@ public class SignupController implements Initializable {
         hideErrorMessage(errorLabel,mailField);
         
         try {
-            if(account.registerUser(name, "", mail, username, password, 
+            if(account.registerUser(name, surname, mail, username, password, 
                 new Image("./resources/images/Avatar0.png") , LocalDate.now())){
                 
                 FXRouter.goTo("login");
@@ -291,4 +293,6 @@ public class SignupController implements Initializable {
             languageMenuB.getItems().add(auxMenuItem);
         }
     }
+
+    
 }
