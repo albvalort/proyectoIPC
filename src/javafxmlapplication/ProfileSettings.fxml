@@ -214,6 +214,12 @@
                   </VBox>
                </children>
             </HBox>
+            <Label fx:id="errorLabel" text="Label" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%save">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
       <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">

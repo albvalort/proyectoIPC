@@ -10,6 +10,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -23,12 +27,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -81,11 +87,21 @@ public class ProfileSettingsController implements Initializable {
     private GridPane gp;
     @FXML
     private VBox profileBox;
+    
+    private BooleanProperty validPassword;
+    
+    @FXML
+    private Label errorLabel;
+    @FXML
+    private Button confirmButton;
+    
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       // confirmButton.setDisable(true);
         initializeMenuButton();
         try {
             currentUser = Acount.getInstance().getLoggedUser();
@@ -99,15 +115,62 @@ public class ProfileSettingsController implements Initializable {
         nameTextField.setText(currentUser.getName());
         profileImage.setImage(currentUser.getImage());
         
+        validPassword = new SimpleBooleanProperty();
+        validPassword.setValue(Boolean.FALSE);
+        
+        confirmButton.setOnAction(event ->{
+            //no va
+            
+            if (oldPasswordTextField.getText() == currentUser.getPassword()) {
+                currentUser.setPassword(newPasswordTextField.getText());
+                
+                validPassword.setValue(Boolean.TRUE);
+                hideErrorMessage(errorLabel,newPasswordTextField);
+                
+            }else{
+                validPassword.setValue(Boolean.FALSE);
+                showErrorMessage(errorLabel, newPasswordTextField);
+                newPasswordTextField.requestFocus();
+                errorLabel.setText("Write your correct old password well");
+                errorLabel.visibleProperty().set(true);
+            }
+                    
+            if(!checkPassword(newPasswordTextField.getText())){
+                validPassword.setValue(Boolean.FALSE);
+                showErrorMessage(errorLabel, newPasswordTextField);
+                newPasswordTextField.requestFocus();
+                errorLabel.setText("Your password is not permited");
+                errorLabel.visibleProperty().set(true);
+            }else{
+                validPassword.setValue(Boolean.TRUE);
+                hideErrorMessage(errorLabel,newPasswordTextField);
+            }
+        
+        });
+        
+        //oldPasswordTextField.focusedProperty().addListener((observalble,oldValue,newValue)-> {
+            //if(newValue.toString() == currentUser.getPassword()) confirmButton.setDisable(false);
+           //else confirmButton.setDisable(false);
+            
+        //});
+                
+                
+            
+        
+        
         saveButton.setOnAction(event -> {
-           
+            
             Alert saveWarning = new Alert(Alert.AlertType.INFORMATION);
             saveWarning.setTitle("Shifu");
-            saveWarning.setHeaderText("Thank you");
+            saveWarning.setHeaderText("Thank you!");
             saveWarning.setContentText("Your information has been updated");
             saveWarning.showAndWait();
             
-             
+            currentUser.setEmail(mailTextField.getText());
+            currentUser.setName(nameTextField.getText());
+            currentUser.setSurname(surnameTextField.getText());
+            
+            
             FXRouter.reload();   
         });
         
@@ -163,6 +226,35 @@ public class ProfileSettingsController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    }
+    
+    public static Boolean checkPassword(String password){     
+  
+        // If the password is empty , return false 
+        if (password == null) { 
+            return false; 
+        } 
+        // Regex to check valid password. 
+        String regex =  "^[A-Za-z0-9]{7,16}$"; 
+  
+        // Compile the ReGex 
+        Pattern pattern = Pattern.compile(regex); 
+        // Match ReGex with value to check
+        Matcher matcher = pattern.matcher(password); 
+        return matcher.matches();
+    
+    }
+
+    private void showErrorMessage(Label errorLabel,TextField textField){
+        errorLabel.visibleProperty().set(true);
+        textField.styleProperty().setValue("-fx-background-color: #FCE5E0");    
+    
+    }
+    
+    private void hideErrorMessage(Label errorLabel,TextField textField){
+        errorLabel.visibleProperty().set(false);
+        textField.styleProperty().setValue("");
         
     }
     
