@@ -103,7 +103,7 @@
                                     <Insets bottom="5.0" left="15.0" right="30.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField fx:id="nameField1" maxWidth="155.0" onKeyTyped="#nameInput" prefHeight="35.0" prefWidth="155.0" promptText="%surname" VBox.vgrow="ALWAYS">
+                              <TextField fx:id="surnameField" maxWidth="155.0" onKeyTyped="#surnameInput" prefHeight="35.0" prefWidth="155.0" promptText="%surname" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="15.0" right="30.0" />
                                  </VBox.margin>
