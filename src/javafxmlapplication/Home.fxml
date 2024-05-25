@@ -8,135 +8,155 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.HomeController">
-   <children> 
-      <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
+   <children>
+      <StackPane alignment="CENTER_RIGHT" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                     <image>
-                        <Image url="@../resources/images/Logo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="900.0" spacing="20.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="410.0">
+            <VBox onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0">
+               <children> 
+                  <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="%welcomeUser" textOverrun="CLIP" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="username" prefHeight="19.0" prefWidth="135.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Button fx:id="profileButton" mnemonicParsing="false" onMouseClicked="#switchToProfileSettings" prefHeight="45.0" prefWidth="130.0" text="%profile" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <ImageView fx:id="profileImage" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="menuButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="%menu" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/images/MenuProvisional.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </HBox>
-         </children>
-      </HBox>
-      <ToolBar fx:id="toolBar" prefHeight="40.0" prefWidth="1200.0" visible="false" VBox.vgrow="ALWAYS">
-        <items>
-            <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onAction="#switchToChargeManager" onMouseClicked="#switchToChargeManager" text="%chargeManager">
-               <font>
-                  <Font size="15.0" />
-               </font></Button>
-            <Button fx:id="categoryManagerButtonToolBar" mnemonicParsing="false" text="%cathegoryManager">
-               <font>
-                  <Font size="15.0" />
-               </font></Button>
-            <Button fx:id="visualizerButtonToolBar" mnemonicParsing="false" text="%visualizer">
-               <font>
-                  <Font size="15.0" />
-               </font></Button>
-            <Button fx:id="printButtonToolBar" mnemonicParsing="false" onMouseClicked="#switchToPrint" text="%print">
-               <font>
-                  <Font size="15.0" />
-               </font></Button>
-        </items>
-      </ToolBar>
-      <HBox prefHeight="685.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-         <children>
-            <VBox alignment="CENTER" prefHeight="685.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <BarChart fx:id="barChart" prefHeight="466.0" prefWidth="480.0">
-                    <xAxis>
-                      <CategoryAxis fx:id="categoryAxis" prefHeight="64.0" prefWidth="422.0" side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis fx:id="numberAxis" side="LEFT" />
-                    </yAxis>
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </BarChart>
-               </children>
-            </VBox>
-            <VBox prefHeight="573.0" prefWidth="700.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="85.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#addCharge" prefHeight="61.0" prefWidth="123.0" text="AddCharge" />
-                     </children></HBox>
-                  <HBox prefHeight="509.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <TableView fx:id="tableViewHome" prefHeight="441.0" prefWidth="547.0" HBox.hgrow="ALWAYS">
-                          <columns>
-                            <TableColumn fx:id="nameColumn" prefWidth="298.0" text="Name" />
-                              <TableColumn fx:id="unitsColumn" minWidth="0.0" prefWidth="109.0" text="Units" />
-                              <TableColumn fx:id="amountColumn" minWidth="0.0" prefWidth="139.0" text="Amount" />
-                          </columns>
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@../resources/images/Logo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="%welcomeUser" textOverrun="CLIP" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="username" prefHeight="19.0" prefWidth="135.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="300.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="profileButton" mnemonicParsing="false" onMouseClicked="#switchToProfileSettings" prefHeight="45.0" prefWidth="130.0" text="%profile" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <ImageView fx:id="profileImage" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="menuButton" mnemonicParsing="false" onMouseClicked="#toggleMenu" prefHeight="45.0" prefWidth="130.0" text="%menu" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/images/MenuProvisional.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
                            <HBox.margin>
-                              <Insets bottom="30.0" right="30.0" />
+                              <Insets />
                            </HBox.margin>
-                        </TableView>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="685.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <VBox prefHeight="573.0" prefWidth="700.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="85.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#addCharge" prefHeight="61.0" prefWidth="123.0" text="AddCharge">
+                                       <HBox.margin>
+                                          <Insets left="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="509.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <TableView fx:id="tableViewHome" prefHeight="441.0" prefWidth="547.0" HBox.hgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="nameColumn" prefWidth="298.0" text="Name" />
+                                          <TableColumn fx:id="unitsColumn" minWidth="0.0" prefWidth="109.0" text="Units" />
+                                          <TableColumn fx:id="amountColumn" minWidth="0.0" prefWidth="139.0" text="Amount" />
+                                      </columns>
+                                       <HBox.margin>
+                                          <Insets bottom="30.0" left="30.0" right="15.0" />
+                                       </HBox.margin>
+                                    </TableView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="685.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <BarChart fx:id="barChart" prefHeight="466.0" prefWidth="480.0">
+                                <xAxis>
+                                  <CategoryAxis fx:id="categoryAxis" prefHeight="64.0" prefWidth="422.0" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="numberAxis" side="LEFT" />
+                                </yAxis>
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="30.0" />
+                                 </VBox.margin>
+                              </BarChart>
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                </children>
             </VBox>
+            <VBox fx:id="lateralMenu" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="300.0" prefWidth="300.0" spacing="50.0" style="-fx-background-color: #A0A0A0;" visible="false">
+               <children>
+                  <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onAction="#switchToChargeManager" onMouseClicked="#switchToChargeManager" prefHeight="60.0" prefWidth="200.0" text="%chargeManager">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="categoryManagerButtonToolBar" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="%cathegoryManager">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="visualizerButtonToolBar" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="%visualizer">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="printButtonToolBar" mnemonicParsing="false" onMouseClicked="#switchToPrint" prefHeight="60.0" prefWidth="200.0" text="%print">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
          </children>
-      </HBox>
+      </StackPane>
    </children>
 </VBox>

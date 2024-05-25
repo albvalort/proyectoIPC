@@ -42,6 +42,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.Acount;
@@ -57,17 +58,13 @@ import model.User;
  */
 public class HomeController implements Initializable {
     
-
-    private boolean visibleToolBar = false;
+    private boolean visibleMenu;
     
     
     @FXML
     private Button profileButton;
-
     @FXML
     private Button menuButton;
-    @FXML
-    private ToolBar toolBar;
     @FXML
     private Button visualizerButtonToolBar;
     @FXML
@@ -99,6 +96,8 @@ public class HomeController implements Initializable {
     private CategoryAxis categoryAxis;
     @FXML
     private Label username;
+    @FXML
+    private VBox lateralMenu;
     
     
     /**
@@ -115,11 +114,6 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
         currentUser = account.getLoggedUser();
-        menuButton.setOnMouseClicked(event-> {
-            visibleToolBar = !visibleToolBar;
-            toolBar.setVisible(visibleToolBar);
-           
-        });
         
         username.setText(account.getLoggedUser().getNickName());
         
@@ -169,6 +163,12 @@ public class HomeController implements Initializable {
         
         
     }    
+    
+    @FXML
+    private void toggleMenu(MouseEvent event) throws IOException {
+        visibleMenu = !visibleMenu;
+        lateralMenu.setVisible(visibleMenu);
+    }
 
     @FXML
     private void switchToProfileSettings(MouseEvent event) throws IOException {
@@ -181,17 +181,13 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void switchToChargeManager(ActionEvent event) throws IOException {
-        FXRouter.goTo("chargeManager");
-    }
-
-    @FXML
-    private void switchToChargeManager(MouseEvent event) {
-    }
-
-    @FXML
     private void addCharge(ActionEvent event) {
 
+    }
+
+    @FXML
+    private void switchToChargeManager(ActionEvent event) throws IOException {
+        FXRouter.goTo("chargeManager");
     }
     
 
