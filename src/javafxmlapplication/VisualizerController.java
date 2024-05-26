@@ -34,6 +34,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -83,6 +84,8 @@ public class VisualizerController implements Initializable {
     private TableColumn<Charge, Number> amountColumn;
     @FXML
     private TableColumn<Charge, String> descriptionColumn;
+    @FXML
+    private VBox visualizerBox;
     
 
     /**
@@ -162,6 +165,7 @@ public class VisualizerController implements Initializable {
     private void addCharge(ActionEvent event) {
         Parent proot = null;
         try {
+            visualizerBox.setDisable(true);
             proot = FXMLLoader.load(getClass().getResource("ChargeAdder.fxml"), FXRouter.getResourceBundle());
             Stage pstage = new Stage();
             proot.setOnKeyPressed( key -> {
@@ -194,6 +198,7 @@ public class VisualizerController implements Initializable {
     @FXML
     private void addCategory(ActionEvent event) {
         try {
+            visualizerBox.setDisable(true);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryAdder.fxml"), FXRouter.getResourceBundle());
             Parent root = loader.load();
 
@@ -283,6 +288,7 @@ public class VisualizerController implements Initializable {
      
     private void handleButtonEdit(Charge charge) {
         try {
+            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ChargeEditor.fxml"), FXRouter.getResourceBundle());
             Parent root = loader.load();
         
