@@ -17,7 +17,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.VisualizerController">
    <children>
-      <VBox onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0">
+      <VBox onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
             <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
                <children>
@@ -34,7 +34,7 @@
                      <children>
                         <Label text="%visualizer" textOverrun="CLIP" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="25.0" />
                            </font>
                         </Label>
                      </children>
@@ -78,29 +78,29 @@
                            <children>
                               <VBox prefHeight="573.0" prefWidth="700.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="380.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="380.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <VBox alignment="TOP_CENTER" prefHeight="384.0" prefWidth="251.0" HBox.hgrow="ALWAYS">
+                                          <VBox maxWidth="251.0" prefHeight="384.0" prefWidth="251.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Button fx:id="addChargeButton" mnemonicParsing="false" onAction="#addCharge" prefHeight="35.0" prefWidth="151.0" text="%addCharge">
+                                                <Button fx:id="addChargeButton" mnemonicParsing="false" onAction="#addCharge" prefHeight="35.0" prefWidth="160.0" text="%addCharge">
                                                    <VBox.margin>
-                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                      <Insets bottom="30.0" left="30.0" top="30.0" />
                                                    </VBox.margin>
                                                 </Button>
-                                                <Button fx:id="addCategoryButton" mnemonicParsing="false" onAction="#addCategory" prefHeight="35.0" prefWidth="151.0" text="%addCategory">
+                                                <Button fx:id="addCategoryButton" mnemonicParsing="false" onAction="#addCategory" prefHeight="35.0" prefWidth="160.0" text="%addCategory">
                                                    <VBox.margin>
-                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                      <Insets left="30.0" />
                                                    </VBox.margin>
                                                 </Button>
-                                                <VBox alignment="BOTTOM_CENTER" prefHeight="195.0" prefWidth="185.0">
+                                                <VBox alignment="BOTTOM_LEFT" prefHeight="254.0" prefWidth="185.0" VBox.vgrow="ALWAYS">
                                                    <children>
-                                                      <Button fx:id="backButton" mnemonicParsing="false" onAction="#switchToHome" prefHeight="35.0" prefWidth="151.0" text="%back" />
+                                                      <Button fx:id="backButton" mnemonicParsing="false" onAction="#switchToHome" prefHeight="35.0" prefWidth="151.0" text="%back">
+                                                         <VBox.margin>
+                                                            <Insets bottom="30.0" left="30.0" />
+                                                         </VBox.margin></Button>
                                                    </children>
                                                 </VBox>
                                              </children>
-                                             <padding>
-                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                             </padding>
                                           </VBox>
                                           <TableView fx:id="tableViewHome1" prefHeight="240.0" prefWidth="950.0" HBox.hgrow="ALWAYS">
                                              <columns>

@@ -219,6 +219,7 @@ public class ProfileSettingsController implements Initializable {
             proot.setOnKeyPressed(key -> {
                 if (key.getCode() == KeyCode.ESCAPE) {
                     pstage.close();
+                    FXRouter.reload();
                 }
             });
 
@@ -226,6 +227,7 @@ public class ProfileSettingsController implements Initializable {
 
             pstage.setScene(pscene);
             pstage.initStyle(StageStyle.UNDECORATED);
+            pstage.setTitle("Icon");
             pstage.show();
 
             profileBox.setDisable(true);

@@ -310,5 +310,6 @@ public class VisualizerController implements Initializable {
             alert.setContentText(ex.getMessage());
             alert.showAndWait();
         }
+        
     }
 }

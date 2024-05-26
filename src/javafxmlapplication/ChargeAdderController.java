@@ -4,6 +4,7 @@
  */
 package javafxmlapplication;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -32,6 +33,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.StringConverter;
@@ -79,6 +81,8 @@ public class ChargeAdderController implements Initializable {
     @FXML
     private TextField priceEdit1;
     private Image scannedImage;
+    @FXML
+    private Label imageLabel;
 
     /**
      * Initializes the controller class.
@@ -194,6 +198,20 @@ public class ChargeAdderController implements Initializable {
             FXRouter.goTo("home");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void imageSelection(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.gif"));
+        File selectedFile = fileChooser.showOpenDialog(imageSelector.getScene().getWindow());
+        
+        if(selectedFile != null){
+            String imageName = selectedFile.getName();
+            imageLabel.textProperty().set(imageName);
+            imageLabel.visibleProperty().set(true);
         }
     }
 

@@ -151,7 +151,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="725.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="525.0" prefWidth="600.0" spacing="5.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" prefHeight="525.0" prefWidth="250.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Label prefHeight="19.0" prefWidth="600.0" text="%description" VBox.vgrow="ALWAYS">
                            <VBox.margin>
@@ -180,7 +180,7 @@
                               <Insets left="15.0" />
                            </VBox.margin>
                         </Label>
-                        <Button fx:id="imageSelector" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%selectImage">
+                        <Button fx:id="imageSelector" alignment="CENTER" mnemonicParsing="false" onAction="#imageSelection" prefHeight="30.0" prefWidth="160.0" text="%selectImage">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -188,6 +188,11 @@
                               <Insets left="15.0" />
                            </VBox.margin>
                         </Button>
+                        <Label fx:id="imageLabel" prefWidth="250.0" text="selectedImage" visible="false">
+                           <VBox.margin>
+                              <Insets left="15.0" right="15.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="76.0" prefWidth="250.0">
