@@ -172,7 +172,7 @@
                               <Insets left="15.0" />
                            </VBox.margin>
                         </Label>
-                        <Button fx:id="imageSelector" alignment="CENTER" mnemonicParsing="false" onAction="#imageSelection" prefHeight="30.0" prefWidth="160.0" text="%selectImage">
+                        <Button fx:id="imageSelector" alignment="CENTER" mnemonicParsing="false" onAction="#imageSelection" prefHeight="30.0" prefWidth="215.0" text="%selectImage">
                            <font>
                               <Font size="15.0" />
                            </font>

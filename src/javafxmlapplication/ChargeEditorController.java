@@ -222,9 +222,9 @@ public class ChargeEditorController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(imageSelector.getScene().getWindow());
         
         if(selectedFile != null){
-            String imageName = selectedFile.getName();
-            imageLabel.textProperty().set(imageName);
-            imageLabel.visibleProperty().set(true);
+            String imageSelected = selectedFile.getName();
+            imageLabel.textProperty().set(imageSelected);
+            imageLabel.setVisible(true);
         }
     }
 }

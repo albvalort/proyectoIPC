@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/migue/Documentos/GitHub/proyectoIPC/src/javafxmlapplication/ChargeAdderController.java</file>
-            <file>file:/home/migue/Documentos/GitHub/proyectoIPC/src/javafxmlapplication/CategoryAdderController.java</file>
+            <file>file:/home/felix/Documents/Universidad/2/ipc/proyectoIPC/src/javafxmlapplication/ProfileSettingsController.java</file>
+            <file>file:/home/felix/Documents/Universidad/2/ipc/proyectoIPC/src/javafxmlapplication/VisualizerController.java</file>
+            <file>file:/home/felix/Documents/Universidad/2/ipc/proyectoIPC/src/javafxmlapplication/ChargeEditorController.java</file>
+            <file>file:/home/felix/Documents/Universidad/2/ipc/proyectoIPC/src/javafxmlapplication/ImagePopUpController.java</file>
+            <file>file:/home/felix/Documents/Universidad/2/ipc/proyectoIPC/src/javafxmlapplication/ChargeAdderController.java</file>
+            <file>file:/home/felix/Documents/Universidad/2/ipc/proyectoIPC/src/resources/styles.css</file>
+            <file>file:/home/felix/Documents/Universidad/2/ipc/proyectoIPC/src/javafxmlapplication/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
