@@ -14,7 +14,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.LoginController">
    <children>
-      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: E0E0E0;">
+      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: E0E0E0;" HBox.hgrow="ALWAYS">
          <children>
             <VBox alignment="BOTTOM_CENTER" prefHeight="400.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
