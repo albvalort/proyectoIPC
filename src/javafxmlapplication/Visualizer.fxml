@@ -17,7 +17,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.VisualizerController">
    <children>
-      <VBox onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0">
+      <VBox fx:id="visualizerBox" onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0">
          <children>
             <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
                <children>

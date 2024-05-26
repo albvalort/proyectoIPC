@@ -11,6 +11,7 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +39,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -195,6 +197,7 @@ public class HomeController implements Initializable {
     private void addCharge(ActionEvent event) {
         Parent proot = null;
         try {
+            mainHome.setDisable(true);
             proot = FXMLLoader.load(getClass().getResource("ChargeAdder.fxml"), FXRouter.getResourceBundle());
             Stage pstage = new Stage();
             proot.setOnKeyPressed( key -> {
@@ -228,7 +231,17 @@ public class HomeController implements Initializable {
 
     @FXML
     private void switchToLogin(ActionEvent event) throws IOException {
-        FXRouter.goTo("login");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Are you sure to log out?");
+        
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            FXRouter.goTo("login");
+        } else {
+            FXRouter.reload();
+        }
+        
     }
 
     @FXML
@@ -314,6 +327,7 @@ public class HomeController implements Initializable {
    
     private void handleButtonEdit(Charge charge) {
         try {
+            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ChargeEditor.fxml"), FXRouter.getResourceBundle());
             Parent root = loader.load();
         
@@ -351,6 +365,7 @@ public class HomeController implements Initializable {
     @FXML
     private void addCategory(ActionEvent event) {
         try {
+            mainHome.setDisable(true);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryAdder.fxml"), FXRouter.getResourceBundle());
             Parent root = loader.load();
 

@@ -32,6 +32,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.StringConverter;
@@ -55,8 +56,6 @@ public class ChargeAdderController implements Initializable {
     @FXML
     private Button backButton;
     @FXML
-    private Button categoryButton;
-    @FXML
     private MenuButton categoryList;
     @FXML
     private Label nameEdit;
@@ -79,6 +78,8 @@ public class ChargeAdderController implements Initializable {
     @FXML
     private TextField priceEdit1;
     private Image scannedImage;
+    @FXML
+    private VBox chargeAdderBox;
 
     /**
      * Initializes the controller class.
@@ -166,27 +167,7 @@ public class ChargeAdderController implements Initializable {
 
     }
 
-    @FXML
-    private void openCategoryManager(ActionEvent event) {
-        Parent proot = null;
-        try {
-            proot = FXMLLoader.load(getClass().getResource("CategoryAdder.fxml"), FXRouter.getResourceBundle());
-            Stage pstage = new Stage();
-            proot.setOnKeyPressed(key -> {
-                if (key.getCode() == KeyCode.ESCAPE) {
-                    pstage.close();
-                }
-            });
-
-            Scene pscene = new Scene(proot);
-
-            pstage.setScene(pscene);
-            pstage.initStyle(StageStyle.UNDECORATED);
-            pstage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
     @FXML
     private void switchToHome(MouseEvent event) {

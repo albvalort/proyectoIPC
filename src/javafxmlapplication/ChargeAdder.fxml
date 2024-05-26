@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="650.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ChargeAdderController">
+<VBox fx:id="chargeAdderBox" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="650.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ChargeAdderController">
    <children>
       <HBox minHeight="75.0" prefHeight="75.0" prefWidth="650.0" style="-fx-background-color: E0E0E0;">
          <children>
@@ -55,21 +55,13 @@
                                           <Insets bottom="5.0" left="30.0" right="30.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <MenuButton fx:id="categoryList" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" VBox.vgrow="ALWAYS">
+                                    <MenuButton fx:id="categoryList" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="355.0" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets bottom="15.0" left="30.0" right="30.0" />
                                        </VBox.margin>
                                     </MenuButton>
                                  </children>
                               </VBox>
-                              <Button fx:id="categoryButton" mnemonicParsing="false" onAction="#openCategoryManager" prefHeight="35.0" prefWidth="155.0" text="%addCathegory" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets bottom="15.0" right="15.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Button>
                            </children>
                         </HBox>
                         <Label fx:id="nameEdit" prefWidth="340.0" text="%name" VBox.vgrow="ALWAYS">

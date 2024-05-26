@@ -78,6 +78,7 @@ public class CategoryAdderController implements Initializable {
     private void closeCategoryManager(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
+        FXRouter.reload();
     }
 
     
