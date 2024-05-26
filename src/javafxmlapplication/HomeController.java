@@ -42,9 +42,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import static javafx.scene.paint.Color.color;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Acount;
 import model.AcountDAOException;
@@ -59,13 +59,17 @@ import model.User;
  */
 public class HomeController implements Initializable {
     
-    private boolean visibleMenu;
+
+    private boolean visibleToolBar = false;
     
     
     @FXML
     private Button profileButton;
+
     @FXML
     private Button menuButton;
+    @FXML
+    private ToolBar toolBar;
     @FXML
     private Button visualizerButtonToolBar;
     @FXML
@@ -97,12 +101,6 @@ public class HomeController implements Initializable {
     private CategoryAxis categoryAxis;
     @FXML
     private Label username;
-    @FXML
-    private VBox lateralMenu;
-    @FXML
-    private VBox mainHome;
-    @FXML
-    private Button logOutButton;
     
     
     /**
@@ -119,7 +117,12 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
         currentUser = account.getLoggedUser();
-                
+        menuButton.setOnMouseClicked(event-> {
+            visibleToolBar = !visibleToolBar;
+            toolBar.setVisible(visibleToolBar);
+           
+        });
+        
         username.setText(account.getLoggedUser().getNickName());
         
         profileImage.setImage(currentUser.getImage());
@@ -137,7 +140,6 @@ public class HomeController implements Initializable {
         amountColumn.setCellValueFactory(
                 chargeRow -> new SimpleDoubleProperty(chargeRow.getValue().getCost())
         );
-
         
         for (Charge charge: dataValues) {
             if (charge.getDate().compareTo(LocalDate.now().minus(30, ChronoUnit.DAYS)) > 0) {
@@ -158,26 +160,18 @@ public class HomeController implements Initializable {
                         System.out.print(total);
                     }
                 }
+                if (total == 0) continue;
                 serie.getData().add(new XYChart.Data(cat.getName(), total));
                 barChart.getData().add(serie);
             }
         } catch (AcountDAOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+       
         
-    
-    @FXML
-    private void toggleMenu(MouseEvent event) throws IOException {
-        visibleMenu = !visibleMenu;
-        lateralMenu.setVisible(visibleMenu);
-    }
-    
-    @FXML
-    private void hideMenu(MouseEvent event) throws IOException {
-        visibleMenu = false;
-        lateralMenu.setVisible(visibleMenu);
-    }
+        
+        
+    }    
 
     @FXML
     private void switchToProfileSettings(MouseEvent event) throws IOException {
@@ -185,12 +179,8 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void addCharge(ActionEvent event) {
-
-    }
-    
-    @FXML private void switchToLogin(ActionEvent event) throws IOException {
-        FXRouter.goTo("login");
+    private void switchToPrint(MouseEvent event) throws IOException {
+        FXRouter.goTo("print");
     }
 
     @FXML
@@ -199,8 +189,31 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void switchToPrint(ActionEvent event) throws IOException {
-         FXRouter.goTo("print");
+    private void switchToChargeManager(MouseEvent event) {
+    }
+
+    @FXML
+    private void addCharge(ActionEvent event) {
+        Parent proot = null;
+        try {
+            proot = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"), FXRouter.getResourceBundle());
+            Stage pstage = new Stage();
+            proot.setOnKeyPressed( key -> {
+                if (key.getCode() == KeyCode.ESCAPE) {
+                    pstage.close();
+                }
+            });
+
+            Scene pscene = new Scene(proot);
+            
+            pstage.setScene(pscene);
+            pstage.initStyle(StageStyle.UNDECORATED);
+            pstage.show();
+
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ProfileSettingsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 

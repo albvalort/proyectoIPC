@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="449.0" prefWidth="650.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CategoryAdderController">
+   <top>
+      <HBox minHeight="75.0" prefHeight="75.0" prefWidth="650.0" style="-fx-background-color: E0E0E0;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="0.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/Logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="631.0" HBox.hgrow="SOMETIMES">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="%cathegoryManager">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox minWidth="75.0" prefHeight="75.0" prefWidth="75.0" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <GridPane prefWidth="650.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="276.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="98.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="242.0" prefWidth="400.0">
+               <children>
+                  <Label prefWidth="340.0" text="%title" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="nameField" prefHeight="35.0" prefWidth="407.0" promptText="%title" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="400.0" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#closeCategoryManager" prefHeight="30.0" prefWidth="160.0" text="%back" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="231.0" prefWidth="250.0" spacing="5.0" GridPane.columnIndex="1">
+               <children>
+                  <Label prefHeight="19.0" prefWidth="600.0" text="%description" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="descriptionField" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="340.0" promptText="%description" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="addCathegory" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%addCathegory">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="30.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
