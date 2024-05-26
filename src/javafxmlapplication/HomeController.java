@@ -317,7 +317,7 @@ public class HomeController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChargeManager.fxml"), FXRouter.getResourceBundle());
         Parent root = loader.load();
         
-        ChargeManagerController controller = loader.getController();
+        ChargeAdderController controller = loader.getController();
         controller.setCharge(charge);
         
         Stage stage = new Stage();

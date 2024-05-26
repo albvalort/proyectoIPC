@@ -133,7 +133,7 @@
             <VBox fx:id="lateralMenu" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="320.0" prefWidth="300.0" style="-fx-background-color: E0E0E0;" visible="false">
                <children>
                   <Separator prefWidth="200.0" />
-                  <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onAction="#switchToChargeManager" onMouseClicked="#switchToChargeManager" prefHeight="80.0" prefWidth="320.0" styleClass="lateral-menu-buttons" text="%chargeManager">
+                  <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onAction="#switchToChargeManager" onMouseClicked="#switchToChargeManager" prefHeight="80.0" prefWidth="320.0" styleClass="lateral-menu-buttons" text="chargeManager">
                      <font>
                         <Font size="15.0" />
                      </font>
