@@ -1,100 +1,163 @@
 package javafxmlapplication;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 import javafx.scene.layout.VBox;
-import org.apache.pdfbox.Loader;
+import javafx.stage.FileChooser;
+import model.Acount;
+import model.AcountDAOException;
+import model.Category;
+import model.Charge;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
 public class PrintController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Button backButton;
     @FXML
     private VBox pdfViewerBox;
-    private float width;
     @FXML
     private ScrollPane scrollPane;
     private Collection<ImageView> pdfCollector;
     private PDFRenderer renderer;
     private PDDocument doc;
+    private File file;
+
+    @FXML
+    private DatePicker startDate;
+    @FXML
+    private DatePicker finalDate;
+    @FXML
+    private MenuButton menu;
+    private List<Charge> lista;
+    private Acount account;
+    private List<Category> listaCat;
+    private Category selectedCat;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        scrollPane.prefWidthProperty().bindBidirectional(pdfViewerBox.prefWidthProperty());
-        pdfCollector = new ArrayList<ImageView>();
+        selectedCat = null;
         try {
-        File f = new File("Entraga IPC.pdf");
-        doc = Loader.loadPDF(f);
-        renderer = new PDFRenderer(doc);
-        
-        for (int i = 0; i<doc.getNumberOfPages(); i++) {
-            ImageView image = new ImageView(SwingFXUtils.toFXImage(renderer.renderImage(i, 0.5f), null));
-            pdfCollector.add(image);
-        }
-        
-        } catch (IOException ex) { 
+            account = Acount.getInstance();
+            lista = account.getUserCharges();
+            listaCat = account.getUserCategories();
+        } catch (IOException | AcountDAOException ex) {
             Logger.getLogger(PrintController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        pdfViewerBox.getChildren().addAll(pdfCollector);
+        scrollPane.prefWidthProperty().bindBidirectional(pdfViewerBox.prefWidthProperty());
+        startDate.setValue(LocalDate.now().minus(30, ChronoUnit.DAYS));
+        finalDate.setValue(LocalDate.now());
         
+        for (Category cat : listaCat) {
+            MenuItem mi = new MenuItem(cat.getName());
+            mi.setOnAction(event -> {
+                selectedCat = cat;
+                menu.setText(cat.getName());
+                reloadPDF();
+            });
+            menu.getItems().add(mi);
+        }
+
+        reloadPDF();
     }
 
+    private void write(PDPageContentStream cs) throws IOException {
+        cs.beginText();
+        cs.setFont(PDType1Font.HELVETICA, 14);
+        for (Charge charge : lista) {
+            if (selectedCat != null) {
+                if (charge.getCategory().equals(selectedCat) 
+                        && charge.getDate().compareTo(finalDate.getValue()) <= 0
+                        && charge.getDate().compareTo(startDate.getValue()) >= 0) {
+                    cs.showText(charge.toString() + "\n");
+                }
+            } else {
+                if (charge.getDate().compareTo(finalDate.getValue()) <= 0
+                        && charge.getDate().compareTo(startDate.getValue()) >= 0) {
+                    cs.showText(charge.toString() + "\n");
+                }
+            }
+        }
+    }
+    
     @FXML
-    private void switchToHome(MouseEvent event) throws IOException {
-        FXRouter.goTo("home");
+    private void switchToHome(MouseEvent event) {
+        try {
+            FXRouter.goTo("home");
+        } catch (IOException ex) {
+            Logger.getLogger(PrintController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    
-    
-    
-    private void pdfCollectionResizer(float scale) {
-        
-        pdfViewerBox.getChildren().removeAll();
-        pdfCollector.clear();
-        for (int i = 0; i<doc.getNumberOfPages(); i++) {
-            ImageView image;
+    private void savePDF(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf"));
+        File chosenFile = fileChooser.showSaveDialog(null); // Mostrar diálogo para guardar archivo
+
+        if (chosenFile != null) {
             try {
-                image = new ImageView(SwingFXUtils.toFXImage(renderer.renderImage(i, scale), null));
-                pdfCollector.add(image);
+                doc.save(chosenFile);
+                doc.close();
             } catch (IOException ex) {
                 Logger.getLogger(PrintController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    private void reloadPDF() {
+        pdfCollector = new ArrayList<>();
+        try {
+            pdfViewerBox.getChildren().clear();
+            
+            doc = new PDDocument();
+            
+            PDPage page = new PDPage();
+            
+            doc.addPage(page);
+
+            try (PDPageContentStream cs = new PDPageContentStream(doc, page)) {
+                write(cs);
+                cs.endText();
+            } catch (IOException e) {
+                Logger.getLogger(PrintController.class.getName()).log(Level.SEVERE, null, e);
+            }
+            renderer = new PDFRenderer(doc);
+
+            for (int i = 0; i < doc.getNumberOfPages(); i++) {
+                ImageView image = new ImageView(SwingFXUtils.toFXImage(renderer.renderImage(i, 0.5f), null));
+                pdfCollector.add(image);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(PrintController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         pdfViewerBox.getChildren().addAll(pdfCollector);
     }
-    
-    
 }

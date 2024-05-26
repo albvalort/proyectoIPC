@@ -5,10 +5,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -42,54 +39,17 @@
       </HBox>
       <HBox prefHeight="650.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="650.0" prefWidth="700.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="650.0" prefWidth="700.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="%orientation">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="30.0" top="30.0" />
-                     </VBox.margin>
-                  </Label>
-                  <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="340.0">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" />
-                     </VBox.margin>
-                  </MenuButton>
-                  <Label text="%color">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="30.0" />
-                     </VBox.margin>
-                  </Label>
-                  <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="340.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" />
-                     </VBox.margin>
-                  </MenuButton>
                   <Label text="%startDate">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="5.0" left="30.0" />
+                        <Insets bottom="5.0" left="30.0" top="50.0" />
                      </VBox.margin>
                   </Label>
-                  <DatePicker prefHeight="35.0" prefWidth="250.0">
+                  <DatePicker fx:id="startDate" prefHeight="35.0" prefWidth="250.0">
                      <VBox.margin>
                         <Insets bottom="15.0" left="30.0" />
                      </VBox.margin>
@@ -102,27 +62,24 @@
                         <Insets bottom="5.0" left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <DatePicker prefHeight="35.0" prefWidth="250.0">
+                  <DatePicker fx:id="finalDate" prefHeight="35.0" prefWidth="250.0">
+                     <VBox.margin>
+                        <Insets bottom="15.0" left="30.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <Label text="Category">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <MenuButton fx:id="menu" mnemonicParsing="false" prefHeight="31.0" prefWidth="239.0" text="Select a category">
                      <VBox.margin>
                         <Insets bottom="30.0" left="30.0" />
                      </VBox.margin>
-                  </DatePicker>
-                  <HBox alignment="CENTER_LEFT" prefHeight="260.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <TableView maxWidth="640.0" prefHeight="450.0" prefWidth="640.0" HBox.hgrow="ALWAYS">
-                           <columns>
-                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%cathegory" />
-                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%name" />
-                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%import" />
-                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%units" />
-                              <TableColumn minWidth="128.0" prefWidth="75.0" text="%date" />
-                           </columns>
-                           <HBox.margin>
-                              <Insets bottom="30.0" left="30.0" right="30.0" />
-                           </HBox.margin>
-                        </TableView>
-                     </children>
-                  </HBox>
+                  </MenuButton>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="650.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
