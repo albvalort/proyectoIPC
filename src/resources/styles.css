@@ -39,7 +39,7 @@
 
 .separator{
     -fx-background-color:#A0A0A0;
-    -fx-border-color: #A0A0A0;
+    -fx-border-color: black;
 }
 
 /*date picker*/
@@ -129,22 +129,6 @@
 .menu-item:focused{
     -fx-background-color: lightgreen;
 
-}
-
-/*login signup buttons*/
-#logInButton #signUpButton{
-    -fx-text-fill:  lightgreen;
-   -fx-border-color: #E0E0E0;
-   -fx-background-color:#E0E0E0;
-   -fx-text-fill:black;
-   -fx-font-size: 15px;
-}
-
-#logInButton #singUpButton:hover{     
-  -fx-background-color:  lightgreen;
-  -fx-border-color: lightgreen;
-  -fx-text-fill:black;
-  -fx-font-size: 15px;
 }
 
 /*possible table view*/
