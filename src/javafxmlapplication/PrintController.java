@@ -31,6 +31,7 @@ import model.Charge;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1CFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import org.apache.pdfbox.rendering.PDFRenderer;
@@ -85,26 +86,16 @@ public class PrintController implements Initializable {
         }
 
         reloadPDF();
+        backButton.setOnAction(event -> {
+            try {
+                FXRouter.goTo("home");
+            } catch (IOException ex) {
+                Logger.getLogger(PrintController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }
 
-    private void write(PDPageContentStream cs) throws IOException {
-        cs.beginText();
-        cs.setFont(PDType1Font.HELVETICA, 14);
-        for (Charge charge : lista) {
-            if (selectedCat != null) {
-                if (charge.getCategory().equals(selectedCat) 
-                        && charge.getDate().compareTo(finalDate.getValue()) <= 0
-                        && charge.getDate().compareTo(startDate.getValue()) >= 0) {
-                    cs.showText(charge.toString() + "\n");
-                }
-            } else {
-                if (charge.getDate().compareTo(finalDate.getValue()) <= 0
-                        && charge.getDate().compareTo(startDate.getValue()) >= 0) {
-                    cs.showText(charge.toString() + "\n");
-                }
-            }
-        }
-    }
+    
     
     @FXML
     private void switchToHome(MouseEvent event) {
@@ -142,7 +133,9 @@ public class PrintController implements Initializable {
             doc.addPage(page);
 
             try (PDPageContentStream cs = new PDPageContentStream(doc, page)) {
-                write(cs);
+                cs.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 14);
+                cs.beginText();
+                cs.showText("TBI");
                 cs.endText();
             } catch (IOException e) {
                 Logger.getLogger(PrintController.class.getName()).log(Level.SEVERE, null, e);
