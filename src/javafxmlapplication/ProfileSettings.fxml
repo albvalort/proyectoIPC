@@ -214,7 +214,10 @@
                   </VBox>
                </children>
             </HBox>
-            <Label fx:id="errorLabel" text="Label" />
+            <Label fx:id="errorLabel" style="-fx-text-fill: red;" text="Label">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
             <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="%confirmPassword">
                <font>
                   <Font size="15.0" />
