@@ -57,7 +57,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuButton" mnemonicParsing="false" onMouseClicked="#showMenu" prefHeight="45.0" prefWidth="130.0" text="%menu" HBox.hgrow="ALWAYS">
+                              <Button fx:id="menuButton" mnemonicParsing="false" onMouseClicked="#toggleMenu" prefHeight="45.0" prefWidth="130.0" text="%menu" HBox.hgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                        <image>

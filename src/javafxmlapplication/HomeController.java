@@ -168,8 +168,8 @@ public class HomeController implements Initializable {
         
     
     @FXML
-    private void showMenu(MouseEvent event) throws IOException {
-        visibleMenu = true;
+    private void toggleMenu(MouseEvent event) throws IOException {
+        visibleMenu = !visibleMenu;
         lateralMenu.setVisible(visibleMenu);
     }
     
