@@ -20,9 +20,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -121,14 +123,19 @@ public class ChargeManagerController implements Initializable {
 
         addCharge.setOnAction((var event) -> {
             if (selectedCategory == null) {
-                //dialog ERROR select category
+                    categoryList.requestFocus();
+                    categoryList.styleProperty().setValue("-fx-background-color: #FCE5E0");  
                 return;
             }
+            categoryList.styleProperty().setValue("");
 
-            if (nameEdit.getText().equals("")
+            if (name.getText().equals("")
                     || unitsEdit.getText().equals("")
                     || priceEdit1.getText().equals("")) {
-                //dialog ERROR enter a valid name
+                
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.headerTextProperty().set("Please introduce a name, the units and the price");
+                dialog.showAndWait();
                 return;
             }
             

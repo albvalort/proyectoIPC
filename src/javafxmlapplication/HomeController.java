@@ -160,6 +160,7 @@ public class HomeController implements Initializable {
                         System.out.print(total);
                     }
                 }
+                if (total == 0) continue;
                 serie.getData().add(new XYChart.Data(cat.getName(), total));
                 barChart.getData().add(serie);
             }

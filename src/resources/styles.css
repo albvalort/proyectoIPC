@@ -461,3 +461,17 @@
     -fx-alignment: center-left;
 }
 */
+
+.dialogpane > .button{
+    -fx-text-fill:  lightgreen;
+   -fx-border-color: #E0E0E0;
+   -fx-background-color:#E0E0E0;
+   -fx-text-fill:black;
+   -fx-font-size: 15px;
+}
+
+.dialogpane > .button:hover{     
+  -fx-background-color:  lightgreen;
+  -fx-text-fill:black;
+  -fx-font-size: 15px;
+}
