@@ -40,6 +40,7 @@
 .separator{
     -fx-background-color:#A0A0A0;
     -fx-border-color: black;
+    -fx-border-width: 0.3;
 }
 
 /*date picker*/
