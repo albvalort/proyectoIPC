@@ -108,7 +108,7 @@
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="addCathegory" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%addCathegory">
+                  <Button fx:id="addCathegory" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%addCategory">
                      <font>
                         <Font size="15.0" />
                      </font>

@@ -55,7 +55,7 @@
                                           <Insets bottom="5.0" left="30.0" right="30.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <MenuButton fx:id="categoryList" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" VBox.vgrow="ALWAYS">
+                                    <MenuButton fx:id="categoryList" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets bottom="15.0" left="30.0" right="30.0" />
                                        </VBox.margin>

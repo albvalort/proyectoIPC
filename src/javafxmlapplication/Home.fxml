@@ -102,11 +102,11 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="509.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <TableView fx:id="tableViewHome" prefHeight="450.0" prefWidth="550.0" HBox.hgrow="ALWAYS">
+                                    <TableView fx:id="tableViewHome" prefHeight="590.0" prefWidth="655.0" HBox.hgrow="ALWAYS">
                                       <columns>
-                                        <TableColumn fx:id="nameColumn" prefWidth="298.0" text="Name" />
-                                          <TableColumn fx:id="unitsColumn" minWidth="0.0" prefWidth="109.0" text="Units" />
-                                          <TableColumn fx:id="amountColumn" minWidth="0.0" prefWidth="139.0" text="Amount" />
+                                        <TableColumn fx:id="nameColumn" prefWidth="180.0" text="Name" />
+                                          <TableColumn fx:id="amountColumn" minWidth="0.0" prefWidth="179.0" text="Amount" />
+                                          <TableColumn fx:id="unitsColumn" minWidth="0.0" prefWidth="175.0" text="Units" />
                                       </columns>
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="15.0" top="20.0" />
