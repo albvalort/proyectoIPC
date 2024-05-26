@@ -87,7 +87,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </VBox.margin>
                                                 </Button>
-                                                <Button fx:id="addCategoryButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="151.0" text="%addCategory">
+                                                <Button fx:id="addCategoryButton" mnemonicParsing="false" onAction="#addCategory" prefHeight="35.0" prefWidth="151.0" text="%addCategory">
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </VBox.margin>

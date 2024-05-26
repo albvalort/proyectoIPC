@@ -39,7 +39,6 @@ import javafx.util.converter.DoubleStringConverter;
 import model.Acount;
 import model.AcountDAOException;
 import model.Category;
-import model.Charge;
 import model.User;
 
 /**
@@ -81,21 +80,22 @@ public class ChargeAdderController implements Initializable {
     private TextField priceEdit1;
     private Image scannedImage;
 
-    private Charge givenCharge;
-
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         selectedCategory = null;
         DoubleProperty price = new SimpleDoubleProperty();
         DoubleProperty quantity = new SimpleDoubleProperty();
         StringConverter<? extends Number> converter = new DoubleStringConverter();
-
-        Bindings.bindBidirectional(priceEdit1.textProperty(), price, (StringConverter<Number>) converter);
-        Bindings.bindBidirectional(unitsEdit.textProperty(), quantity, (StringConverter<Number>) converter);
-
-        priceEdit1.setTextFormatter(new DecimalTextFormatter(0, 2));
-        unitsEdit.setTextFormatter(new DecimalTextFormatter(0, 2));
-
+        
+        Bindings.bindBidirectional(priceEdit1.textProperty(), price, (StringConverter<Number>)converter);
+        Bindings.bindBidirectional(unitsEdit.textProperty(), quantity, (StringConverter<Number>)converter);
+        
+        priceEdit1.setTextFormatter(new DecimalTextFormatter(0,2));
+        unitsEdit.setTextFormatter(new DecimalTextFormatter(0,2));
+        
         try {
             account = Acount.getInstance();
             for (Category cat : account.getUserCategories()) {
@@ -123,26 +123,26 @@ public class ChargeAdderController implements Initializable {
 
         addCharge.setOnAction((var event) -> {
             if (selectedCategory == null) {
-                categoryList.requestFocus();
-                categoryList.styleProperty().setValue("-fx-background-color: #FCE5E0");
+                    categoryList.requestFocus();
+                    categoryList.styleProperty().setValue("-fx-background-color: #FCE5E0");  
                 return;
             }
             categoryList.styleProperty().setValue("");
 
-            if (name.getText().isEmpty()
-                    || unitsEdit.getText().isEmpty()
-                    || priceEdit1.getText().isEmpty()) {
-
+            if (name.getText().equals("")
+                    || unitsEdit.getText().equals("")
+                    || priceEdit1.getText().equals("")) {
+                
                 Alert dialog = new Alert(Alert.AlertType.ERROR);
                 dialog.headerTextProperty().set("Please introduce a name, the units and the price");
                 dialog.showAndWait();
                 return;
             }
-
+            
             try {
                 var priceUnit = price.getValue();
                 var quantityUnits = quantity.getValue();
-                if (givenCharge != null) account.removeCharge(givenCharge);
+                
                 if (!account.registerCharge(name.getText(),
                         descriptionEdit.getText(),
                         price.getValue(), quantity.getValue().intValue(), scannedImage, datePicker.getValue(),
@@ -150,34 +150,20 @@ public class ChargeAdderController implements Initializable {
                     //dialog error
                     return;
                 }
-
+                
                 Stage stageForClosing = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stageForClosing.close();
                 FXRouter.reload();
-
+                
             } catch (Exception ex) {
                 Logger.getLogger(ChargeAdderController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        });
-    }
+            
 
-    public void setCharge(Charge charge) {
-        this.givenCharge = charge;
-        updateUIWithChargeDetails();
-    }
-
-    private void updateUIWithChargeDetails() {
-        if (givenCharge != null) {
-            name.setText(givenCharge.getName());
-            unitsEdit.setText(String.valueOf(givenCharge.getUnits()));
-            priceEdit1.setText(String.valueOf(givenCharge.getCost()));
-            datePicker.setValue(givenCharge.getDate());
-            descriptionEdit.setText(givenCharge.getDescription());
-            scannedImage = givenCharge.getImageScan();
-            categoryList.setText(givenCharge.getCategory().getName());
-            selectedCategory = givenCharge.getCategory();
         }
+        );
+
     }
 
     @FXML
@@ -210,4 +196,5 @@ public class ChargeAdderController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }

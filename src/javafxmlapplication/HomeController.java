@@ -195,7 +195,7 @@ public class HomeController implements Initializable {
     private void addCharge(ActionEvent event) {
         Parent proot = null;
         try {
-            proot = FXMLLoader.load(getClass().getResource("ChargeManager.fxml"), FXRouter.getResourceBundle());
+            proot = FXMLLoader.load(getClass().getResource("ChargeAdder.fxml"), FXRouter.getResourceBundle());
             Stage pstage = new Stage();
             proot.setOnKeyPressed( key -> {
                 if (key.getCode() == KeyCode.ESCAPE) {
@@ -313,34 +313,56 @@ public class HomeController implements Initializable {
     }
    
     private void handleButtonEdit(Charge charge) {
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChargeManager.fxml"), FXRouter.getResourceBundle());
-        Parent root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ChargeEditor.fxml"), FXRouter.getResourceBundle());
+            Parent root = loader.load();
         
-        ChargeAdderController controller = loader.getController();
-        controller.setCharge(charge);
+            ChargeEditorController controller = loader.getController();
+            controller.setCharge(charge);
         
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
         
-    } catch (IOException ex) {
-        Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-}
-        private void handleButtonDelete(Charge charge) {
-    try {
-        account.removeCharge(charge);
-        data.remove(charge);
-    } catch (Exception ex) {
-        Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText("Error deleting charge");
-        alert.setContentText(ex.getMessage());
-        alert.showAndWait();
+    
+    private void handleButtonDelete(Charge charge) {
+        Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert1.setHeaderText("Error deleting charge");
+        alert1.showAndWait();
+        
+        
+        try {
+            account.removeCharge(charge);
+            data.remove(charge);
+        } catch (Exception ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error deleting charge");
+            alert.setContentText(ex.getMessage());
+            alert.showAndWait();
+        }
     }
-}
+    
+    @FXML
+    private void addCategory(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryAdder.fxml"), FXRouter.getResourceBundle());
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+        
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
         
     
     

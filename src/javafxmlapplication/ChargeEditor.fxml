@@ -192,7 +192,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="76.0" prefWidth="250.0">
                      <children>
-                        <Button fx:id="addCharge" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%editCharge">
+                        <Button fx:id="addCharge" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="%addEditCharge">
                            <font>
                               <Font size="15.0" />
                            </font>

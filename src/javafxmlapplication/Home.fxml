@@ -93,7 +93,7 @@
                                           <Insets left="30.0" top="30.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="%addCategory">
+                                    <Button fx:id="addCategoryButton" mnemonicParsing="false" onAction="#addCategory" prefHeight="35.0" prefWidth="160.0" text="%addCategory">
                                        <HBox.margin>
                                           <Insets left="30.0" top="30.0" />
                                        </HBox.margin>
