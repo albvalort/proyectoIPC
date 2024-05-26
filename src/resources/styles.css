@@ -140,3 +140,15 @@
     -fx-background-color:lightgreen;
 }
 
+.table-row-cell:filled:selected {
+    -fx-background-color: lightgreen;
+}
+
+.table-view:focused {
+    -fx-border-color: lightgreen;
+}
+
+.table-view .table-cell {
+    -fx-border-color: #E0E0E0;
+}
+

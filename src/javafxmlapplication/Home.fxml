@@ -88,7 +88,12 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="85.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#addCharge" prefHeight="50.0" prefWidth="160.0" text="AddCharge">
+                                    <Button mnemonicParsing="false" onAction="#addCharge" prefHeight="35.0" prefWidth="160.0" text="%addCharge">
+                                       <HBox.margin>
+                                          <Insets left="30.0" top="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="%addCategory">
                                        <HBox.margin>
                                           <Insets left="30.0" top="30.0" />
                                        </HBox.margin>
