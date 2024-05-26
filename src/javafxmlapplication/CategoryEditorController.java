@@ -22,7 +22,7 @@ import model.Charge;
  *
  * @author migue
  */
-public class CategoryManagerController implements Initializable {
+public class CategoryEditorController implements Initializable {
     
     @FXML
     private Button backButton;

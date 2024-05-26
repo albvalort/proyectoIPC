@@ -29,7 +29,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="631.0" HBox.hgrow="SOMETIMES">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="%cathegoryManager">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="%categoryAdder">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -61,12 +61,12 @@
                         <Font size="15.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" right="15.0" />
                      </VBox.margin>
                   </Label>
                   <TextField fx:id="nameField" prefHeight="35.0" prefWidth="407.0" promptText="%title" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" top="5.0" />
+                        <Insets left="30.0" right="15.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font size="15.0" />
@@ -90,7 +90,7 @@
                <children>
                   <Label prefHeight="19.0" prefWidth="600.0" text="%description" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="15.0" right="30.0" />
                      </VBox.margin>
                      <font>
                         <Font size="15.0" />
@@ -98,7 +98,7 @@
                   </Label>
                   <TextField fx:id="descriptionField" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="340.0" promptText="%description" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" top="5.0" />
+                        <Insets left="15.0" right="30.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font size="15.0" />

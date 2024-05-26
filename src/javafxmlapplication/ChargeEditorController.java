@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package javafxmlapplication;
 
 import java.io.IOException;
@@ -17,8 +21,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -33,10 +39,14 @@ import javafx.util.converter.DoubleStringConverter;
 import model.Acount;
 import model.AcountDAOException;
 import model.Category;
-import model.Charge;
 import model.User;
 
-public class ChargeManagerController implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author migue
+ */
+public class ChargeEditorController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -70,21 +80,22 @@ public class ChargeManagerController implements Initializable {
     private TextField priceEdit1;
     private Image scannedImage;
 
-    private Charge givenCharge;
-
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         selectedCategory = null;
         DoubleProperty price = new SimpleDoubleProperty();
         DoubleProperty quantity = new SimpleDoubleProperty();
         StringConverter<? extends Number> converter = new DoubleStringConverter();
-
-        Bindings.bindBidirectional(priceEdit1.textProperty(), price, (StringConverter<Number>) converter);
-        Bindings.bindBidirectional(unitsEdit.textProperty(), quantity, (StringConverter<Number>) converter);
-
-        priceEdit1.setTextFormatter(new DecimalTextFormatter(0, 2));
-        unitsEdit.setTextFormatter(new DecimalTextFormatter(0, 2));
-
+        
+        Bindings.bindBidirectional(priceEdit1.textProperty(), price, (StringConverter<Number>)converter);
+        Bindings.bindBidirectional(unitsEdit.textProperty(), quantity, (StringConverter<Number>)converter);
+        
+        priceEdit1.setTextFormatter(new DecimalTextFormatter(0,2));
+        unitsEdit.setTextFormatter(new DecimalTextFormatter(0,2));
+        
         try {
             account = Acount.getInstance();
             for (Category cat : account.getUserCategories()) {
@@ -97,7 +108,7 @@ public class ChargeManagerController implements Initializable {
                 categoryList.getItems().add(item);
             }
         } catch (AcountDAOException | IOException ex) {
-            Logger.getLogger(ChargeManagerController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ChargeEditorController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         backButton.setOnMouseClicked(
@@ -112,26 +123,26 @@ public class ChargeManagerController implements Initializable {
 
         addCharge.setOnAction((var event) -> {
             if (selectedCategory == null) {
-                categoryList.requestFocus();
-                categoryList.styleProperty().setValue("-fx-background-color: #FCE5E0");
+                    categoryList.requestFocus();
+                    categoryList.styleProperty().setValue("-fx-background-color: #FCE5E0");  
                 return;
             }
             categoryList.styleProperty().setValue("");
 
-            if (name.getText().isEmpty()
-                    || unitsEdit.getText().isEmpty()
-                    || priceEdit1.getText().isEmpty()) {
-
+            if (name.getText().equals("")
+                    || unitsEdit.getText().equals("")
+                    || priceEdit1.getText().equals("")) {
+                
                 Alert dialog = new Alert(Alert.AlertType.ERROR);
                 dialog.headerTextProperty().set("Please introduce a name, the units and the price");
                 dialog.showAndWait();
                 return;
             }
-
+            
             try {
                 var priceUnit = price.getValue();
                 var quantityUnits = quantity.getValue();
-                if (givenCharge != null) account.removeCharge(givenCharge);
+                
                 if (!account.registerCharge(name.getText(),
                         descriptionEdit.getText(),
                         price.getValue(), quantity.getValue().intValue(), scannedImage, datePicker.getValue(),
@@ -139,34 +150,20 @@ public class ChargeManagerController implements Initializable {
                     //dialog error
                     return;
                 }
-
+                
                 Stage stageForClosing = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stageForClosing.close();
                 FXRouter.reload();
-
+                
             } catch (Exception ex) {
-                Logger.getLogger(ChargeManagerController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ChargeEditorController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        });
-    }
+            
 
-    public void setCharge(Charge charge) {
-        this.givenCharge = charge;
-        updateUIWithChargeDetails();
-    }
-
-    private void updateUIWithChargeDetails() {
-        if (givenCharge != null) {
-            name.setText(givenCharge.getName());
-            unitsEdit.setText(String.valueOf(givenCharge.getUnits()));
-            priceEdit1.setText(String.valueOf(givenCharge.getCost()));
-            datePicker.setValue(givenCharge.getDate());
-            descriptionEdit.setText(givenCharge.getDescription());
-            scannedImage = givenCharge.getImageScan();
-            categoryList.setText(givenCharge.getCategory().getName());
-            selectedCategory = givenCharge.getCategory();
         }
+        );
+
     }
 
     @FXML
@@ -199,4 +196,5 @@ public class ChargeManagerController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }
