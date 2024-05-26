@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="650.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CategoryManagerController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="650.0" stylesheets="@../resources/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CategoryEditorController">
    <children>
       <HBox minHeight="75.0" prefHeight="75.0" prefWidth="650.0" style="-fx-background-color: E0E0E0;">
          <children>
@@ -27,7 +27,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="%cathegoryManager">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="%cathegoryEditor">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -52,7 +52,7 @@
                                           <Font size="15.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets bottom="5.0" left="30.0" right="30.0" top="15.0" />
+                                          <Insets bottom="5.0" left="30.0" right="15.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
                                     <MenuButton alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" VBox.vgrow="ALWAYS">
@@ -61,7 +61,7 @@
                                           <MenuItem mnemonicParsing="false" text="Action 2" />
                                        </items>
                                        <VBox.margin>
-                                          <Insets bottom="15.0" left="30.0" right="30.0" />
+                                          <Insets bottom="15.0" left="30.0" right="15.0" />
                                        </VBox.margin>
                                     </MenuButton>
                                  </children>
@@ -73,12 +73,12 @@
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
+                              <Insets left="30.0" right="15.0" />
                            </VBox.margin>
                         </Label>
                         <TextField prefHeight="35.0" prefWidth="340.0" promptText="%title" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="30.0" right="30.0" />
+                              <Insets bottom="15.0" left="30.0" right="15.0" />
                            </VBox.margin>
                            <font>
                               <Font size="15.0" />
@@ -106,7 +106,7 @@
                      <children>
                         <Label prefHeight="19.0" prefWidth="600.0" text="%description" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets bottom="5.0" left="15.0" right="30.0" />
                            </VBox.margin>
                            <font>
                               <Font size="15.0" />
@@ -114,7 +114,7 @@
                         </Label>
                         <TextField alignment="TOP_LEFT" prefHeight="150.0" prefWidth="340.0" promptText="%description" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="30.0" right="30.0" />
+                              <Insets bottom="5.0" left="15.0" right="30.0" />
                            </VBox.margin>
                            <font>
                               <Font size="15.0" />

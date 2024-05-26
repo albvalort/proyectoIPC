@@ -46,7 +46,7 @@ import model.User;
  *
  * @author migue
  */
-public class ChargeManagerController implements Initializable {
+public class ChargeEditorController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -108,7 +108,7 @@ public class ChargeManagerController implements Initializable {
                 categoryList.getItems().add(item);
             }
         } catch (AcountDAOException | IOException ex) {
-            Logger.getLogger(ChargeManagerController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ChargeEditorController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         backButton.setOnMouseClicked(
@@ -156,7 +156,7 @@ public class ChargeManagerController implements Initializable {
                 FXRouter.reload();
                 
             } catch (Exception ex) {
-                Logger.getLogger(ChargeManagerController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ChargeEditorController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             
