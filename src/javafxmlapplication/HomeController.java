@@ -227,6 +227,12 @@ public class HomeController implements Initializable {
         FXRouter.goTo("login");
     }
 
+    @FXML
+    private void switchToVisualizer(ActionEvent event) throws IOException {
+        FXRouter.goTo("visualizer");
+    }
+
+
     
 
    

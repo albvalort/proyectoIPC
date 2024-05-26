@@ -99,5 +99,10 @@ public class VisualizerController implements Initializable {
     @FXML
     private void toggleMenu(MouseEvent event) {
     }
+
+    @FXML
+    private void switchToHome(ActionEvent event) throws IOException {
+        FXRouter.goTo("home");
+    }
     
 }

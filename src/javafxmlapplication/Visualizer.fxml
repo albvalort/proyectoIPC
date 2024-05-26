@@ -94,7 +94,7 @@
                                                 </Button>
                                                 <VBox alignment="BOTTOM_CENTER" prefHeight="195.0" prefWidth="185.0">
                                                    <children>
-                                                      <Button fx:id="backButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="151.0" text="%back" />
+                                                      <Button fx:id="backButton" mnemonicParsing="false" onAction="#switchToHome" prefHeight="35.0" prefWidth="151.0" text="%back" />
                                                    </children>
                                                 </VBox>
                                              </children>
