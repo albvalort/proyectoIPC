@@ -20,7 +20,7 @@
    <children>
       <StackPane alignment="BOTTOM_RIGHT" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox fx:id="mainHome" onMouseClicked="#hideMenu" prefHeight="800.0" prefWidth="1200.0">
+            <VBox fx:id="mainHome" prefHeight="800.0" prefWidth="1200.0">
                <children> 
                   <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
                      <children>
@@ -88,7 +88,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="85.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#addCharge" onMouseClicked="#hideMenu" prefHeight="50.0" prefWidth="160.0" text="AddCharge">
+                                    <Button mnemonicParsing="false" onAction="#addCharge" prefHeight="50.0" prefWidth="160.0" text="AddCharge">
                                        <HBox.margin>
                                           <Insets left="30.0" top="30.0" />
                                        </HBox.margin>
@@ -97,7 +97,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="509.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <TableView fx:id="tableViewHome" onMouseClicked="#hideMenu" prefHeight="450.0" prefWidth="550.0" HBox.hgrow="ALWAYS">
+                                    <TableView fx:id="tableViewHome" prefHeight="450.0" prefWidth="550.0" HBox.hgrow="ALWAYS">
                                       <columns>
                                         <TableColumn fx:id="nameColumn" prefWidth="298.0" text="Name" />
                                           <TableColumn fx:id="unitsColumn" minWidth="0.0" prefWidth="109.0" text="Units" />
