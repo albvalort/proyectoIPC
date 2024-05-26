@@ -79,7 +79,7 @@ public class ChargeAdderController implements Initializable {
     private TextField priceEdit1;
     private Image scannedImage;
     @FXML
-    private VBox chargeAdderBox;
+    private Label imageLabel;
 
     /**
      * Initializes the controller class.
@@ -176,6 +176,10 @@ public class ChargeAdderController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void imageSelection(ActionEvent event) {
     }
 
 }

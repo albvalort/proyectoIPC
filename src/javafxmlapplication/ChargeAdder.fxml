@@ -62,14 +62,6 @@
                                     </MenuButton>
                                  </children>
                               </VBox>
-                              <Button fx:id="categoryButton" mnemonicParsing="false" onAction="#openCategoryManager" prefHeight="35.0" prefWidth="155.0" text="%addCathegory" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets bottom="15.0" right="15.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Button>
                            </children>
                         </HBox>
                         <Label fx:id="nameEdit" prefWidth="340.0" text="%name" VBox.vgrow="ALWAYS">
