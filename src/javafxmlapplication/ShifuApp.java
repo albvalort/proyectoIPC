@@ -53,6 +53,7 @@ public class ShifuApp extends Application {
         FXRouter.when("home", "Home.fxml", 1200, 800);
         FXRouter.when("print", "Print.fxml", 1200, 800);
         FXRouter.when("chargeManager", "ChargeManager.fxml", 650, 800);
+        FXRouter.when("visualizer", "Visualizer.fxml", 1200, 800);
 
         
         
