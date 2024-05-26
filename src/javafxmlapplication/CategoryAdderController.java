@@ -70,6 +70,7 @@ public class CategoryAdderController implements Initializable {
                     
                     Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
                     stage.close();
+                    FXRouter.reload();
                 }
         );
     }    
