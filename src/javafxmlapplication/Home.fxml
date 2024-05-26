@@ -6,6 +6,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -129,36 +130,42 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="lateralMenu" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="320.0" prefWidth="300.0" spacing="50.0" style="-fx-background-color: A0A0A0;" visible="false">
+            <VBox fx:id="lateralMenu" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="320.0" prefWidth="300.0" style="-fx-background-color: E0E0E0;" visible="false">
                <children>
-                  <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onAction="#switchToChargeManager" onMouseClicked="#switchToChargeManager" prefHeight="60.0" prefWidth="200.0" text="%chargeManager">
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="chargeManagerButtonToolBar" mnemonicParsing="false" onAction="#switchToChargeManager" onMouseClicked="#switchToChargeManager" prefHeight="80.0" prefWidth="320.0" styleClass="lateral-menu-buttons" text="%chargeManager">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="50.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="categoryManagerButtonToolBar" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="%cathegoryManager">
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="categoryManagerButtonToolBar" mnemonicParsing="false" prefHeight="80.0" prefWidth="320.0" styleClass="lateral-menu-buttons" text="%cathegoryManager">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="visualizerButtonToolBar" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="%visualizer">
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="visualizerButtonToolBar" mnemonicParsing="false" prefHeight="80.0" prefWidth="320.0" styleClass="lateral-menu-buttons" text="%visualizer">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="printButtonToolBar" mnemonicParsing="false" onAction="#switchToPrint" onMouseClicked="#switchToPrint" prefHeight="60.0" prefWidth="200.0" text="%print">
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="printButtonToolBar" mnemonicParsing="false" onAction="#switchToPrint" onMouseClicked="#switchToPrint" prefHeight="80.0" prefWidth="320.0" styleClass="lateral-menu-buttons" text="%print">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
+                  <Separator prefWidth="200.0" />
                   <VBox alignment="BOTTOM_CENTER" prefHeight="235.0" prefWidth="320.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="60.0" prefWidth="200.0" text="%logOut">
+                        <Separator prefWidth="200.0" />
+                        <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="80.0" prefWidth="320.0" styleClass="lateral-menu-buttons" text="%logOut">
                            <VBox.margin>
-                              <Insets bottom="50.0" left="50.0" right="50.0" />
+                              <Insets />
                            </VBox.margin>
                         </Button>
                      </children>

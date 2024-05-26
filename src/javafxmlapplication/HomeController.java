@@ -119,7 +119,7 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
         currentUser = account.getLoggedUser();
-        
+                
         username.setText(account.getLoggedUser().getNickName());
         
         profileImage.setImage(currentUser.getImage());
@@ -165,8 +165,7 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
-    
-    
+        
     
     @FXML
     private void toggleMenu(MouseEvent event) throws IOException {
