@@ -37,15 +37,19 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 import javafx.util.Duration;
 import model.Acount;
 import model.AcountDAOException;
@@ -157,7 +161,6 @@ public class HomeController implements Initializable {
                 for (Charge charge: data) {
                     if (charge.getCategory().getName().equals(cat.getName())) {
                         total += charge.getUnits() * charge.getCost();
-                        System.out.print(total);
                     }
                 }
                 if (total == 0) continue;
@@ -169,6 +172,7 @@ public class HomeController implements Initializable {
         }
        
         
+        addButtonsToTable();
         
         
     }    
@@ -228,9 +232,109 @@ public class HomeController implements Initializable {
     }
 
     
-
-   
+    private void addButtonsToTable() {
+        TableColumn<Charge, Void> colBtn = new TableColumn("Edit");
         
+        Callback<TableColumn<Charge, Void>, TableCell<Charge, Void>> cellFactory = (final TableColumn<Charge, Void> param) -> {
+            final TableCell<Charge, Void> cell = new TableCell<Charge, Void>() {
+
+                private final Button btn = new Button();
+
+                {
+                    btn.setOnAction((ActionEvent event) -> {
+                        Charge charge = getTableView().getItems().get(getIndex());
+                        handleButtonEdit(charge);
+                        FXRouter.reload();
+                    });
+                    
+                    ImageView img = new ImageView("resources/images/editIcon.png");
+                    img.setFitHeight(20);
+                    img.setFitWidth(20);
+                    btn.setGraphic(img);
+                    
+                }
+
+                @Override
+                public void updateItem(Void item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(btn);
+                    }
+                }
+            };
+            return cell;
+        };
+        
+        // Columna para el botón de borrar
+    TableColumn<Charge, Void> deleteColBtn = new TableColumn("Delete");
+
+    Callback<TableColumn<Charge, Void>, TableCell<Charge, Void>> deleteCellFactory = (final TableColumn<Charge, Void> param) -> {
+        final TableCell<Charge, Void> cell = new TableCell<Charge, Void>() {
+            private final Button deleteBtn = new Button();
+            
+            {
+                deleteBtn.setOnAction((ActionEvent event) -> {
+                    Charge charge = getTableView().getItems().get(getIndex());
+                    handleButtonDelete(charge);
+                    FXRouter.reload();
+                });
+                ImageView img = new ImageView("resources/images/deleteIcon.png");
+                img.setFitHeight(20);
+                img.setFitWidth(20);
+                deleteBtn.setGraphic(img);
+                
+            }
+            
+            @Override
+            public void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteBtn);
+                }
+            }
+        };
+        return cell;
+        };
+        deleteColBtn.setCellFactory(deleteCellFactory);
+        colBtn.setCellFactory(cellFactory);
+
+        tableViewHome.getColumns().add(colBtn);
+        tableViewHome.getColumns().add(deleteColBtn);
+    }
+   
+    private void handleButtonEdit(Charge charge) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChargeManager.fxml"), FXRouter.getResourceBundle());
+        Parent root = loader.load();
+        
+        ChargeManagerController controller = loader.getController();
+        controller.setCharge(charge);
+        
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+        
+    } catch (IOException ex) {
+        Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+        private void handleButtonDelete(Charge charge) {
+    try {
+        account.removeCharge(charge);
+        data.remove(charge);
+    } catch (Exception ex) {
+        Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText("Error deleting charge");
+        alert.setContentText(ex.getMessage());
+        alert.showAndWait();
+    }
+}
         
     
     
