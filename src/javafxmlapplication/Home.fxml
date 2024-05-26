@@ -20,7 +20,7 @@
    <children>
       <StackPane alignment="BOTTOM_RIGHT" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox fx:id="mainHome" onMouseClicked="#toggleMenu" prefHeight="800.0" prefWidth="1200.0">
+            <VBox fx:id="mainHome" onMouseClicked="#hideMenu" prefHeight="800.0" prefWidth="1200.0">
                <children> 
                   <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: E0E0E0;" VBox.vgrow="ALWAYS">
                      <children>
@@ -57,7 +57,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuButton" mnemonicParsing="false" onMouseClicked="#toggleMenu" prefHeight="45.0" prefWidth="130.0" text="%menu" HBox.hgrow="ALWAYS">
+                              <Button fx:id="menuButton" mnemonicParsing="false" onMouseClicked="#showMenu" prefHeight="45.0" prefWidth="130.0" text="%menu" HBox.hgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
